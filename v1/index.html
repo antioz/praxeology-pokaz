@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Праксеология менеджмента · Онтоклуб «108»</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --cream:#F1EDE5; --warm:#E8E0D0; --pine:#18231D; --slate:#3E5563; --sand:#C9B48A; --ink:#151B1B; --acc:#D4572A;
+  --muted:#5B625E; --line:rgba(21,27,27,.14); --light:rgba(241,237,229,.88); --lightLine:rgba(241,237,229,.22);
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif; --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --padX:clamp(18px,5vw,80px); --padY:clamp(72px,9vw,140px); --max:1240px; --r:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+.it{font-family:var(--serif);font-weight:300;font-style:italic}
+.wrap{max-width:var(--max);margin-inline:auto}
+.sec{padding:var(--padY) var(--padX)}
+.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.on-dark .eyebrow{color:var(--sand)}
+.h2{margin:0;font:500 clamp(34px,4.6vw,68px)/1.02 var(--sans);letter-spacing:-.04em;text-wrap:balance}
+.h2 .it{letter-spacing:-.01em}
+.lead{margin:0;font:300 clamp(19px,1.5vw,23px)/1.5 var(--serif);max-width:36ch;text-wrap:pretty}
+.on-dark{color:var(--cream)}
+.on-dark .lead{color:var(--light)}
+.pill{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:16px 30px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 16px var(--sans);border:1px solid var(--cream);cursor:pointer;transition:background .25s,color .25s}
+.pill:hover{background:#fff}
+.pill.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.pill.dark:hover{background:var(--pine)}
+.pill.ghost{background:transparent;color:inherit;border-color:currentColor}
+.pill.ghost:hover{background:var(--cream);color:var(--ink)}
+.pill:focus-visible,.link:focus-visible,.opt:focus-visible,.fq-h:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.link{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--acc)}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,20,24,.38),rgba(12,20,24,.52))}
+.photo{border-radius:var(--r);overflow:hidden;background:var(--warm)}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- quiz ---------- */
+#quiz{position:fixed;inset:0;z-index:50;background:#0c1418;color:#fff;display:flex;flex-direction:column;overflow:hidden}
+#quiz .bg{filter:blur(14px) saturate(.9);transform:scale(1.08)}
+.qtop{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:calc(22px + env(safe-area-inset-top,0px)) var(--padX) 0}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;font:500 18px var(--sans);letter-spacing:-.02em}
+.logo .it{font-size:20px;letter-spacing:0}
+.qmeta{font:500 11px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:right;opacity:.85;max-width:52ch}
+.qbody{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:20px var(--padX)}
+.qstep{width:100%;max-width:880px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(20px,3vw,34px);animation:up .6s ease both}
+@keyframes up{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:none}}
+.qh{margin:0;font:300 clamp(36px,5.4vw,76px)/1.04 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.qt{margin:0;font:300 clamp(17px,1.4vw,21px)/1.55 var(--serif);max-width:44ch;opacity:.92}
+.opts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%}
+.opt{min-width:min(100%,240px);padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font:500 16px var(--sans);display:flex;flex-direction:column;align-items:center;gap:4px;transition:background .2s,color .2s}
+.opt small{font:400 13px var(--sans);opacity:.75}
+.opt:hover{background:#fff;color:var(--ink)}
+.qfoot{position:relative;display:flex;justify-content:space-between;align-items:center;padding:0 var(--padX) calc(22px + env(safe-area-inset-bottom,0px));gap:12px;font-size:14px}
+.dots{display:flex;gap:8px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35)}
+.dots i.on{background:#fff}
+
+/* ---------- header ---------- */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(16px + env(safe-area-inset-top,0px)) var(--padX) 16px;color:#fff;transition:background .3s,color .3s}
+#hdr.solid{background:rgba(241,237,229,.94);color:var(--ink);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+#hdr nav{display:flex;gap:26px;font:500 12px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+#hdr nav a{text-decoration:none;opacity:.9}
+#hdr .pill{padding:10px 20px;font-size:14px}
+#hdr.solid .pill{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+/* ---------- hero ---------- */
+#top{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+#top .bg{filter:blur(6px);transform:scale(1.04)}
+.hero{position:relative;width:100%;padding:140px var(--padX) clamp(40px,6vw,72px)}
+.hero .eyebrow{color:rgba(255,255,255,.85)}
+.hero h1{margin:.35em 0 .3em;font:500 clamp(48px,9vw,148px)/.92 var(--sans);letter-spacing:-.05em}
+.hero h1 .it{display:block;font-size:1.02em;letter-spacing:-.02em}
+.hsub{margin:0 0 34px;font:300 clamp(19px,1.8vw,26px)/1.45 var(--serif);max-width:34ch}
+.hrow{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.chip{margin-top:34px;display:inline-flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font:400 13px var(--sans);padding:9px 16px;border-radius:999px;background:rgba(12,20,24,.35);border:1px solid rgba(255,255,255,.25)}
+
+/* ---------- intro ---------- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,80px);align-items:center}
+.split .txt{display:flex;flex-direction:column;gap:22px}
+.split .photo{aspect-ratio:4/5;max-height:640px}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.fact{padding:28px 22px 6px 0;display:flex;flex-direction:column;gap:10px}
+.fact + .fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact b{font:500 clamp(26px,2.6vw,40px)/1.05 var(--sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.fact span{font:300 16px/1.45 var(--serif);color:var(--muted)}
+
+/* ---------- game / cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:var(--warm);border-radius:var(--r);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:220px}
+.card .n{font:500 13px var(--sans);letter-spacing:.14em;color:var(--muted)}
+.card h3{margin:0;font:500 22px/1.15 var(--sans);letter-spacing:-.02em}
+.card p{margin:0;font:300 17px/1.5 var(--serif)}
+.pine{background:var(--pine)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(28px,5vw,80px)}
+.row{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:26px 0;border-top:1px solid var(--lightLine)}
+.row .n{font:300 italic 28px var(--serif);color:var(--sand)}
+.row h3{margin:0 0 6px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
+.row p{margin:0;font:300 17px/1.5 var(--serif);color:var(--light)}
+
+/* ---------- triptych ---------- */
+.trip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+.tr{padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;position:relative}
+.tr .big{font:300 italic clamp(56px,6vw,96px)/.9 var(--serif);color:var(--slate)}
+.tr h3{margin:0;font:500 22px/1.2 var(--sans);letter-spacing:-.02em}
+.tr .when{font:500 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tr p{margin:0;font:300 17px/1.5 var(--serif)}
+.tr.here{border-top:2px solid var(--acc)}
+.tr.here .big{color:var(--acc)}
+.here-tag{position:absolute;top:24px;right:0;font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+
+/* ---------- do ---------- */
+.do{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,80px);align-items:stretch}
+.do .photo{min-height:420px}
+.dolist{display:flex;flex-direction:column}
+.doi{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:12px}
+.doi .n{font:300 italic 24px var(--serif);color:var(--slate)}
+.doi h3{margin:0 0 4px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
+.doi p{margin:0;font:300 17px/1.5 var(--serif);color:var(--muted)}
+
+/* ---------- change ---------- */
+.slate{background:var(--slate)}
+.chg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,48px)}
+.chg div{padding-top:22px;border-top:1px solid var(--lightLine);display:flex;flex-direction:column;gap:12px}
+.chg h3{margin:0;font:300 italic 30px/1.1 var(--serif);color:var(--sand)}
+.chg p{margin:0;font:300 19px/1.5 var(--serif);color:var(--light)}
+
+/* ---------- bring ---------- */
+.bring{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+.bring blockquote{margin:0;font:300 italic clamp(26px,3vw,42px)/1.25 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.bring .photo{aspect-ratio:5/4}
+
+/* ---------- host ---------- */
+.host{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:center}
+.host .photo{aspect-ratio:4/5;max-height:600px}
+.host h2{margin:0}
+.host p{margin:0;font:300 20px/1.55 var(--serif);max-width:44ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:400 14px var(--sans);padding:7px 14px;border:1px solid var(--line);border-radius:999px}
+
+/* ---------- price ---------- */
+.price{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,80px);align-items:end}
+.price .sum{font:500 clamp(64px,9vw,136px)/.9 var(--sans);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.price .note{font:300 20px/1.5 var(--serif);color:var(--light);margin:14px 0 0}
+.plines{display:flex;flex-direction:column}
+.pl{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--lightLine);font:300 18px/1.45 var(--serif)}
+.pl span:first-child{font:500 12px/1.9 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+
+/* ---------- faq ---------- */
+.faq{max-width:900px}
+.fq{border-top:1px solid var(--line)}
+.fq:last-child{border-bottom:1px solid var(--line)}
+.fq-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;font:500 20px/1.3 var(--sans);letter-spacing:-.01em}
+.fq-h i{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);position:relative;font-style:normal}
+.fq-h i::before,.fq-h i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.fq-h i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+.fq.open .fq-h i::after{transform:translate(-50%,-50%) rotate(0)}
+.fq-b{display:none;padding:0 0 24px;font:300 19px/1.55 var(--serif);max-width:60ch;color:var(--muted)}
+.fq.open .fq-b{display:block}
+
+/* ---------- cta / footer ---------- */
+#register{position:relative;min-height:min(86svh,760px);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+#register .bg{filter:blur(5px);transform:scale(1.04)}
+#register .in{position:relative;padding:var(--padY) var(--padX);display:flex;flex-direction:column;align-items:center;gap:30px}
+#register h2{margin:0;font:300 clamp(36px,5vw,76px)/1.06 var(--serif);letter-spacing:-.01em;max-width:20ch;text-wrap:balance}
+footer{background:var(--ink);color:var(--light);padding:44px var(--padX) calc(44px + env(safe-area-inset-bottom,0px));font:400 14px/1.6 var(--sans)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 40px}
+footer .credits{opacity:.6;font-size:12px;max-width:70ch}
+
+.stack{display:flex;flex-direction:column;gap:clamp(34px,4vw,60px)}
+.head{display:flex;flex-direction:column;gap:18px;max-width:900px}
+
+.split>*,.facts>*,.cards>*,.list>*,.row>*,.trip>*,.do>*,.doi>*,.chg>*,.bring>*,.host>*,.price>*,.hero,.head{min-width:0}
+.h2,.hero h1,#register h2{overflow-wrap:break-word;hyphens:auto}
+@media (max-width:980px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  #hdr nav{display:none}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .split,.do,.bring,.host,.price,.list,.trip,.chg{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:0}
+  .split .photo,.host .photo{aspect-ratio:4/3}
+  .do .photo{min-height:260px}
+  .pl{grid-template-columns:1fr;gap:2px}
+  .facts{grid-template-columns:1fr 1fr}
+  .opt{min-width:100%}
+  .facts{grid-template-columns:1fr}
+  .fact + .fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .fact{padding:18px 0}
+  #hdr .pill{padding:8px 14px;font-size:13px}
+  .chip{border-radius:18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<section id="quiz" hidden>
+  <img class="bg" src="assets/img/obshee/sosny-snizu-foto-polzovatelya-blur.jpg" alt="">
+  <div class="shade"></div>
+  <div class="qtop">
+    <span class="logo">Онтоклуб <span class="it">«108»</span></span>
+    <span class="qmeta" id="qmeta"></span>
+  </div>
+  <div class="qbody" id="qbody"></div>
+  <div class="qfoot">
+    <button class="link" id="qback" hidden>← Назад</button><span></span>
+    <div class="dots" id="qdots"><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<div id="landing" hidden>
+  <header id="hdr">
+    <a class="logo" href="#top">Онтоклуб <span class="it">«108»</span></a>
+    <nav>
+      <a href="#game">Об игре</a><a href="#do">Что делать</a><a href="#host">Ведущий</a><a href="#price">Условия</a><a href="#faq">Вопросы</a>
+    </nav>
+    <a class="pill" href="#register" data-t="hero.button"></a>
+  </header>
+
+  <section id="top">
+    <img class="bg" id="heroImg" alt="">
+    <div class="shade"></div>
+    <div class="hero wrap">
+      <div class="eyebrow" data-t="hero.eyebrow"></div>
+      <h1><span class="it">Праксеология</span>менеджмента</h1>
+      <p class="hsub" id="heroSub"></p>
+      <div class="hrow">
+        <a class="pill" href="#register" data-t="hero.button"></a>
+        <a class="link" href="#game" style="color:#fff">Как устроена игра ↓</a>
+      </div>
+      <div class="chip"><span style="opacity:.8">Страница собрана для:</span><b id="profile" style="font-weight:500"></b><button class="link" id="reopen" style="color:#fff">изменить</button></div>
+    </div>
+  </section>
+
+  <section class="sec" id="intro">
+    <div class="wrap split">
+      <div class="txt"><h2 class="h2" id="introTitle"></h2><p class="lead" id="introText"></p></div>
+      <div class="photo"><img id="introImg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap facts" id="facts"></div>
+  </section>
+
+  <section class="sec" id="game"></section>
+
+  <section class="sec" id="triptych" style="padding-top:0"></section>
+
+  <section class="sec" id="do" style="background:var(--warm)">
+    <div class="wrap stack">
+      <div class="head"><div class="eyebrow">На игре</div><h2 class="h2" id="doTitle"></h2></div>
+      <div class="do">
+        <div class="photo"><img id="doImg" alt=""></div>
+        <div class="dolist" id="doList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec slate on-dark">
+    <div class="wrap stack">
+      <div class="head"><div class="eyebrow">Что меняется</div></div>
+      <div class="chg" id="chg"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap bring">
+      <div class="stack" style="gap:22px"><div class="eyebrow">С чем приезжать</div><blockquote id="bring"></blockquote></div>
+      <div class="photo"><img id="bringImg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="sec" id="host" style="padding-top:0">
+    <div class="wrap host">
+      <div class="photo"><img src="assets/img/orlov-portret-1680.jpg" alt="Константин Орлов"></div>
+      <div class="stack" style="gap:22px">
+        <div class="eyebrow">Ведущий</div>
+        <h2 class="h2" data-t="host.name"></h2>
+        <p data-t="host.text"></p>
+        <div class="tags" id="hostTags"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec pine on-dark" id="price">
+    <div class="wrap price">
+      <div>
+        <div class="eyebrow">Участие</div>
+        <div class="sum" data-t="facts.price"></div>
+        <p class="note" data-t="facts.price_note"></p>
+        <div style="margin-top:30px"><a class="pill" href="#register" data-t="cta.button"></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap stack">
+      <div class="head"><div class="eyebrow">Вопросы</div></div>
+      <div class="faq" id="faqList"></div>
+    </div>
+  </section>
+
+  <section id="register">
+    <img class="bg" id="ctaImg" alt="">
+    <div class="shade"></div>
+    <div class="in">
+      <h2 id="ctaTitle"></h2>
+      <a class="pill" href="#register" data-t="cta.button"></a>
+      <div class="eyebrow" style="color:rgba(255,255,255,.8)" data-t="hero.eyebrow"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div data-t="footer"></div>
+      <div class="credits" data-t="footer.credits"></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const C={"quiz.welcome.title": "Здравствуйте", "quiz.welcome.text": "Страница третьей игры Онтоклуба «108» соберётся под ваш опыт и вашу работу.", "quiz.welcome.button": "Дальше", "quiz.exp.question": "Вы уже бывали на наших играх?", "quiz.exp.first": "Нет, впервые", "quiz.exp.been": "Да, был(а) на играх", "quiz.sph.question": "Что ближе к вашей работе сейчас?", "quiz.sph.manager": "Управленец | Руковожу людьми или направлением", "quiz.sph.owner": "Предприниматель | У меня своё дело", "quiz.sph.artist": "Свободный художник | Работаю сам на себя", "hero.eyebrow": "Форсайт-игра · 30 октября – 2 ноября 2026 · Светлогорск", "hero.title": "Праксеология менеджмента", "hero.sub.manager": "Четыре дня о том, как подобрать способ действия под свою позицию и команду, а если готового нет, собрать новый.", "hero.sub.owner": "Четыре дня о том, куда вести своё дело дальше и что в нём менять.", "hero.sub.artist": "Четыре дня о том, как устроить практику, где вы сами руководитель, команда и заказчик.", "hero.button": "Участвовать", "intro.manager.title": "Когда привычный приём перестаёт срабатывать", "intro.manager.text": "Приёмы руководителя складываются у первого начальника, в первой команде, в семье. На новой позиции те же действия дают другой результат.", "intro.owner.title": "Когда дело упирается в своё устройство", "intro.owner.text": "Роли, клиенты и цепочка от поставщика до покупателя складываются в деле сами. Дальше можно делать то же самое чуть лучше или пересобрать устройство.", "intro.artist.title": "Когда вы сами себе организация", "intro.artist.text": "Выбрать, над чем работать и ради чего, удержать и заказчика, и замысел — задачи те же, что у компании. Обычно их решают по наитию.", "game.first.title": "Что такое форсайт-игра", "game.first.1": "Команды исследуют сами | Лекция одна, в первый вечер; дальше работают участники.", "game.first.2": "Такты и пленары | Команды работают отдельно, потом докладывают друг другу.", "game.first.3": "Задания | В сентябре ведущий присылал их короткими видео: разобрать объект управления, посмотреть фильм с вопросами.", "game.first.4": "Плотный язык | Первые день-два уходят на то, чтобы в нём освоиться; работа идёт до ночи.", "game.been.title": "Что нового в третьей игре", "game.been.1": "Способы действия | Скрипты, механики и практические разработки с опорой на онтологию и аксиологию.", "game.been.2": "Под свою позицию | У собственника небольшой компании и члена совета директоров средства разные, а для новых позиций их придётся создавать.", "game.been.3": "Традиции на столе | СМД-методология, австрийская политэкономия и вопрос, каких средств не хватает.", "game.been.4": "Учебники и курсы | С третьей игры клуб собирается писать учебники и курсы по менеджменту.", "triptych.title": "Третья часть триптиха", "triptych.1": "Онтология менеджмента | игра, 17–20 сентября | Что существует в менеджменте.", "triptych.2": "Аксиология менеджмента | лаборатория, четыре недели | Что из этого ценно.", "triptych.3": "Праксеология менеджмента | эта игра | Как действовать и воплощать выбранное.", "do.manager.title": "Что вы будете делать", "do.manager.1": "Своя позиция | Какие продукты вы создаёте и чем ваша позиция отличается от соседних.", "do.manager.2": "Нижняя часть айсберга | Усвоенные в детстве способы добиваться своего, которые работают и на совещаниях.", "do.manager.3": "Эксперимент | Способ действия под вашу задачу, проверенный тут же в команде.", "do.owner.title": "Что вы будете делать", "do.owner.1": "Цепочка целиком | От поставщиков до покупателя, включая то, что вам не подчиняется.", "do.owner.2": "Точки воздействия | Места, где небольшое вмешательство меняет всю систему.", "do.owner.3": "Глубина перемен | Реинжиниринг, репозиционирование, реструктуризация или работа с продуктом как с целым.", "do.artist.title": "Что вы будете делать", "do.artist.1": "Практика как объект | Состав, границы и то, что меняется со временем.", "do.artist.2": "Свои способы работы | Готовых для свободной практики почти нет; игра даёт язык и команду, чтобы собрать свои.", "do.artist.3": "Творческий замысел | Как он работает в управлении и можно ли сделать его технологией.", "change.manager.self": "Замечаете новую ситуацию раньше, чем применили к ней прежний приём.", "change.manager.rel": "Видите систему разделения труда вокруг себя: кто что производит и что можно передать.", "change.manager.work": "Объект управления назван и разобран: состав, границы, ограничения.", "change.owner.self": "Отличаете решения, которые принимаете сами по привычке, от тех, что без вас теряют смысл.", "change.owner.rel": "Партнёры, поставщики и покупатели видны одной системой, где есть основания для кооперации.", "change.owner.work": "Понятно, что в деле перестраивать и с чего начинать.", "change.artist.self": "Знаете, в каком состоянии работа идёт и как в него входить.", "change.artist.rel": "Заказчики, соавторы и аудитория видны системой, где у вас своя позиция.", "change.artist.work": "Понятно, что в практике держит вас, а что можно перестроить.", "bring.manager": "С задачей, где нужна кооперация за пределами вашей функции, или с вопросом о следующем профессиональном шаге.", "bring.owner": "С вопросом об устройстве бизнеса, о команде или о новом направлении.", "bring.artist": "С практикой — творческой, исследовательской, преподавательской — и вопросом, как её устроить.", "host.name": "Константин Орлов", "host.text": "Ведёт весь триптих. На форсайт-игру впервые попал участником в 1996 году, с 2002-го проводит игры сам.", "host.list": "Программы для сотрудников и партнёров Microsoft; преподавание в SAP, РАНХиГС, «Сколково»; развитие проектов: Рыбаков Фонд, Global Shapers, Балтийский Артек", "facts.dates": "30 октября – 2 ноября 2026, с 18:00 пятницы до 12:00 понедельника", "facts.place": "Светлогорск, Калининградская область", "facts.format": "Форсайт-игра; очно, дистанционно или асинхронно", "facts.price": "54 000 ₽", "facts.price_note": "при регистрации до 15 октября, с 16 октября — 108 000 ₽", "faq.all.1": "Нужна методологическая подготовка? | Нет. Нужны интерес и готовность спрашивать, пробовать, переделывать.", "faq.all.2": "Можно участвовать дистанционно? | Да. Очные и дистанционные участники работают в одних командах, асинхронные — по записям.", "faq.all.3": "Что я увезу? | Точнее поставленную задачу, варианты решения и программу продолжения: что спроектировать и проверить, чему научиться, кого привлечь.", "faq.first": "Можно без первых двух частей? | Да. С языком игры помогут ведущий и участники сентябрьской игры в команде.", "faq.been": "Работа с первой игры продолжится? | Да. Недоделанное в сентябре собирают в исследовательскую программу, третья игра продолжает её в горизонте практики.", "faq.manager": "Это корпоративный тренинг? | Нет. Вы работаете над своей задачей с людьми из других компаний и отраслей и сами выбираете способ действия.", "faq.owner": "Делегирование разбирают? | Да, как частный случай: воздействия на дело — от передачи решений до перестройки всей цепочки.", "faq.artist": "Я не руковожу ни людьми, ни бизнесом. Мне здесь место? | Да. Управление своей жизнью и практикой в триптихе считается менеджментом. Примеры в основном из мира компаний, переводить их придётся самому.", "cta.manager.title": "Привезите задачу, которую не получается решить привычным способом", "cta.owner.title": "Привезите замысел, который давно не помещается в ваше дело", "cta.artist.title": "Привезите практику, которую хочется устроить по-своему", "cta.button": "Участвовать", "footer": "Онтоклуб «108» · Orlov Academy · ИП Орлов Константин Викторович · ИНН 390702089608 · me@orlov.academy", "footer.credits": "Фото и видео: Alexander Grebenkov (CC BY 3.0), Karlheinz Schreiber, Kirill.uyutnov, Николай Ягунов (CC BY-SA 4.0) — Wikimedia Commons; Pexels."};
+const IMG={
+  manager:{hero:'assets/img/upravlenets/volnorezy-zakat-soft.jpg',intro:'assets/img/upravlenets/volnorezy-zakat.jpg',do:'assets/img/upravlenets/bor-ryady.jpg',bring:'assets/img/obshee/dyuna-sand.jpg',cta:'assets/img/upravlenets/volnorezy-kurshskaya-kosa-soft.jpg'},
+  owner:{hero:'assets/img/predprinimatel/more-gorizont-soft.jpg',intro:'assets/img/predprinimatel/mayak-taran.jpg',do:'assets/img/predprinimatel/kosa-sverhu-dyuna-efa.jpg',bring:'assets/img/obshee/kurshskaya-kosa-more.jpg',cta:'assets/img/predprinimatel/kosa-sverhu-dyuna-efa-soft.jpg'},
+  artist:{hero:'assets/img/svobodnyi-hudozhnik/trava-dyuna-veter-soft.jpg',intro:'assets/img/svobodnyi-hudozhnik/sosny-svet.jpg',do:'assets/img/svobodnyi-hudozhnik/trava-dyuna-veter.jpg',bring:'assets/img/obshee/sosny-u-morya.jpg',cta:'assets/img/svobodnyi-hudozhnik/sosny-svet-blur.jpg'}
+};
+const SPH={manager:'управленец',owner:'предприниматель',artist:'свободный художник'};
+const EXP={first:'впервые',been:'были на играх'};
+const $=s=>document.querySelector(s);
+const esc=t=>String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const get=k=>C[k]??'';
+const split=k=>get(k).split('|').map(x=>x.trim());
+const nums=(p)=>Object.keys(C).filter(k=>k.startsWith(p)&&/\.\d+$/.test(k)).sort((a,b)=>+a.split('.').pop()-+b.split('.').pop());
+const has=k=>get(k)&&get(k)!=='—';
+
+let st={exp:'first',sphere:'manager'};
+const KEY='praxeo-final-v1';
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&EXP[s.exp]&&SPH[s.sphere])st=s;}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+
+/* quiz */
+let step=0;
+function quiz(n){
+  step=n;$('#landing').hidden=true;$('#quiz').hidden=false;document.body.style.overflow='hidden';
+  $('#qmeta').textContent=get('hero.eyebrow');
+  [...$('#qdots').children].forEach((d,i)=>d.classList.toggle('on',i===n));
+  $('#qback').hidden=n===0;
+  let h='';
+  if(n===0){h=`<h1 class="qh">${esc(get('quiz.welcome.title'))}</h1><p class="qt">${esc(get('quiz.welcome.text'))}</p><button class="pill" data-go="1">${esc(get('quiz.welcome.button'))}</button><button class="link" data-skip style="color:#fff;font-size:14px;opacity:.85">Пропустить и читать всё подряд</button>`;}
+  if(n===1){h=`<h2 class="qh">${esc(get('quiz.exp.question'))}</h2><div class="opts"><button class="opt" data-exp="first">${esc(get('quiz.exp.first'))}</button><button class="opt" data-exp="been">${esc(get('quiz.exp.been'))}</button></div>`;}
+  if(n===2){h=`<h2 class="qh">${esc(get('quiz.sph.question'))}</h2><div class="opts">${['manager','owner','artist'].map(s=>{const[a,b]=split('quiz.sph.'+s);return `<button class="opt" data-sph="${s}">${esc(a)}${b?`<small>${esc(b)}</small>`:''}</button>`}).join('')}</div>`;}
+  $('#qbody').innerHTML=`<div class="qstep">${h}</div>`;
+  const f=$('#qbody').querySelector('button');f&&f.focus({preventScroll:true});
+}
+function open(){$('#quiz').hidden=true;$('#landing').hidden=false;document.body.style.overflow='';render();window.scrollTo(0,0);}
+
+/* render */
+function render(){
+  const s=st.sphere,e=st.exp,m=IMG[s];
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=get(el.dataset.t));
+  $('#heroImg').src=m.hero;$('#introImg').src=m.intro;$('#doImg').src=m.do;$('#bringImg').src=m.bring;$('#ctaImg').src=m.cta;
+  $('#heroSub').textContent=get('hero.sub.'+s);
+  $('#profile').textContent=`${EXP[e]} · ${SPH[s]}`;
+  $('#introTitle').textContent=get(`intro.${s}.title`);$('#introText').textContent=get(`intro.${s}.text`);
+
+  const cut=(t,sep)=>{const i=t.indexOf(sep);return i<0?[t,'']:[t.slice(0,i),t.slice(i+sep.length)]};
+  const F=[['Даты',...cut(get('facts.dates'),', ')],['Место',...cut(get('facts.place'),', ')],['Формат',...cut(get('facts.format'),'; ')],['Участие',get('facts.price'),cut(get('facts.price_note'),', ')[0]]];
+  $('#facts').innerHTML=F.filter(f=>f[1]).map(([l,a,b])=>`<div class="fact"><span class="eyebrow">${l}</span><b>${esc(a)}</b>${b?`<span>${esc((l==='Участие'?b:b.charAt(0).toUpperCase()+b.slice(1)))}</span>`:''}</div>`).join('');
+
+  const g=$('#game');
+  if(e==='first'){
+    g.className='sec';
+    g.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Как устроена игра</div><h2 class="h2">${esc(get('game.first.title'))}</h2></div><div class="cards">${nums('game.first.').map((k,i)=>{const[a,b]=split(k);return `<div class="card"><span class="n">0${i+1}</span><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`}).join('')}</div></div>`;
+  }else{
+    g.className='sec pine on-dark';
+    g.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Что нового</div><h2 class="h2">${esc(get('game.been.title'))}</h2></div><div class="list">${nums('game.been.').map((k,i)=>{const[a,b]=split(k);return `<div class="row"><span class="n">${i+1}</span><div><h3>${esc(a)}</h3><p>${esc(b)}</p></div></div>`}).join('')}</div></div>`;
+  }
+
+  const t=$('#triptych');
+  t.hidden=e!=='first'||!has('triptych.title');
+  if(!t.hidden){t.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Триптих Онтоклуба «108»</div><h2 class="h2">${esc(get('triptych.title'))}</h2></div><div class="trip">${nums('triptych.').map((k,i,a)=>{const[n,w,d]=split(k);const here=i===a.length-1;return `<div class="tr${here?' here':''}">${here?'<span class="here-tag">вы здесь</span>':''}<span class="big">0${i+1}</span><h3>${esc(n)}</h3><span class="when">${esc(w)}</span><p>${esc(d)}</p></div>`}).join('')}</div></div>`;}
+
+  $('#doTitle').textContent=get(`do.${s}.title`);
+  $('#doList').innerHTML=nums(`do.${s}.`).map((k,i)=>{const[a,b]=split(k);return `<div class="doi"><span class="n">${i+1}</span><div><h3>${esc(a)}</h3><p>${esc(b)}</p></div></div>`}).join('');
+
+  $('#chg').innerHTML=[['self','В себе'],['rel','В отношениях'],['work','В деле']].filter(([k])=>has(`change.${s}.${k}`)).map(([k,l])=>`<div><h3>${l}</h3><p>${esc(get(`change.${s}.${k}`))}</p></div>`).join('');
+
+  $('#bring').textContent=get('bring.'+s);
+  $('#hostTags').innerHTML=has('host.list')?get('host.list').split(';').map(x=>x.trim()).filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join(''):'';
+
+  const q=[...nums('faq.all.'),'faq.'+e,'faq.'+s].filter(has);
+  $('#faqList').innerHTML=q.map(k=>{const[a,...b]=split(k);return `<div class="fq"><button class="fq-h" aria-expanded="false">${esc(a)}<i></i></button><div class="fq-b">${esc(b.join(' | '))}</div></div>`}).join('');
+
+  $('#ctaTitle').textContent=get(`cta.${s}.title`);
+}
+
+document.addEventListener('click',ev=>{
+  const b=ev.target.closest('button');if(!b)return;
+  if(b.dataset.go){quiz(+b.dataset.go);}
+  else if('skip' in b.dataset){st={exp:'first',sphere:'manager'};save();open();}
+  else if(b.dataset.exp){st.exp=b.dataset.exp;quiz(2);}
+  else if(b.dataset.sph){st.sphere=b.dataset.sph;save();open();}
+  else if(b.id==='qback'){quiz(Math.max(0,step-1));}
+  else if(b.id==='reopen'){quiz(1);}
+  else if(b.classList.contains('fq-h')){const it=b.parentElement,o=!it.classList.contains('open');it.classList.toggle('open',o);b.setAttribute('aria-expanded',o);}
+});
+const hdr=$('#hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*.7),{passive:true});
+
+const p=new URLSearchParams(location.search);
+if(p.get('exp')&&p.get('sphere')&&EXP[p.get('exp')]&&SPH[p.get('sphere')]){st={exp:p.get('exp'),sphere:p.get('sphere')};open();}
+else if(p.get('quiz')==='1'||!localStorage.getItem||(()=>{try{return !localStorage.getItem(KEY)}catch(e){return true}})()){quiz(0);}
+else open();
+</script>
+</body>
+</html>
