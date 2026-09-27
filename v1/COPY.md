@@ -5,7 +5,8 @@
 [quiz.welcome.button] Дальше
 [quiz.exp.question] Вы уже бывали на наших играх?
 [quiz.exp.first] Нет, впервые
-[quiz.exp.been] Да, был(а) на играх
+[quiz.exp.been] Был(а) на «Онтологии менеджмента»
+[quiz.exp.many] Был(а) на играх не раз
 [quiz.sph.question] Что ближе к вашей работе сейчас?
 [quiz.sph.manager] Управленец | Руковожу людьми или направлением
 [quiz.sph.owner] Предприниматель | У меня своё дело

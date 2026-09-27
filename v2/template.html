@@ -46,7 +46,7 @@ button{font:inherit}
     <div style="position:absolute;inset:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:16px var(--side);opacity:{{ q1.o }};transform:{{ q1.t }};pointer-events:{{ q1.pe }};transition:opacity .6s ease, transform .8s cubic-bezier(.2,.7,.2,1);">
       <button onClick="{{ goBack }}" style="align-self:flex-start;padding:6px 0;margin-bottom:clamp(16px,3vh,40px);background:none;border:0;cursor:pointer;color:#8A918F;font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;" style-hover="color:#EDEDEA;">⟦quiz.06⟧</button>
       <h2 style="margin:0;max-width:1100px;font-weight:200;font-size:calc(var(--hs) * clamp(34px, 5.4vw, 84px));line-height:1.02;letter-spacing:-0.03em;text-wrap:balance;">⟦quiz.07⟧</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));margin-top:clamp(24px,5vh,64px);border-right:1px solid rgba(237,237,234,.22);border-bottom:1px solid rgba(237,237,234,.22);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:clamp(24px,5vh,64px);border-right:1px solid rgba(237,237,234,.22);border-bottom:1px solid rgba(237,237,234,.22);">
         <button onClick="{{ pickFirst }}" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:clamp(96px,20vh,220px);padding:clamp(18px,2.4vw,36px);background:transparent;color:#EDEDEA;border:0;border-left:1px solid rgba(237,237,234,.22);border-top:1px solid rgba(237,237,234,.22);text-align:left;cursor:pointer;transition:background .3s,color .3s;" style-hover="background:#EDEDEA;color:#0B0F0F;">
           <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">01</span>
           <span style="font-size:clamp(18px,1.8vw,26px);font-weight:300;line-height:1.3;">⟦quiz.08⟧</span>
@@ -54,6 +54,10 @@ button{font:inherit}
         <button onClick="{{ pickWas }}" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:clamp(96px,20vh,220px);padding:clamp(18px,2.4vw,36px);background:transparent;color:#EDEDEA;border:0;border-left:1px solid rgba(237,237,234,.22);border-top:1px solid rgba(237,237,234,.22);text-align:left;cursor:pointer;transition:background .3s,color .3s;" style-hover="background:#EDEDEA;color:#0B0F0F;">
           <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">02</span>
           <span style="font-size:clamp(18px,1.8vw,26px);font-weight:300;line-height:1.3;">⟦quiz.09⟧</span>
+        </button>
+        <button onClick="{{ pickMany }}" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:clamp(96px,20vh,220px);padding:clamp(18px,2.4vw,36px);background:transparent;color:#EDEDEA;border:0;border-left:1px solid rgba(237,237,234,.22);border-top:1px solid rgba(237,237,234,.22);text-align:left;cursor:pointer;transition:background .3s,color .3s;" style-hover="background:#EDEDEA;color:#0B0F0F;">
+          <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">03</span>
+          <span style="font-size:clamp(18px,1.8vw,26px);font-weight:300;line-height:1.3;">⟦quiz.exp.many⟧</span>
         </button>
       </div>
       <p style="margin:18px 0 0;max-width:560px;font-size:13px;line-height:1.5;color:#8A918F;">⟦quiz.10⟧</p>
@@ -97,15 +101,13 @@ button{font:inherit}
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,38,38,.72) 0%,rgba(19,64,64,.38) 45%,rgba(11,15,15,.86) 100%);"></div>
   </sc-if>
   <sc-if value="{{ heroPhoto }}" hint-placeholder-val="{{ false }}">
-    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(260px,38vw,64vh);aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;background:#1d5a55;">
-      <img src="media/orlov-portret-1680.jpg" alt="Константин Орлов" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95);mix-blend-mode:luminosity;">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,64,64,.2) 0%,rgba(12,38,38,.7) 100%);"></div>
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(260px,38vw,64vh);aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;background:#0B0F0F;">
+      <img src="media/orlov-portret-1680.jpg" alt="Константин Орлов" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95);">
     </div>
   </sc-if>
   <div style="position:absolute;inset:0;background:#0B0F0F;opacity:var(--ov);pointer-events:none;"></div>
 
-  <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px var(--side) 0;">
-    <div style="max-width:380px;font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;line-height:1.7;">⟦hero.01⟧</div>
+  <div style="position:relative;display:flex;justify-content:flex-end;align-items:flex-start;gap:24px;padding:28px var(--side) 0;">
     <a href="#register" style="flex:none;display:inline-flex;align-items:center;padding:16px 28px;background:#EDEDEA;color:#0B0F0F;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:var(--accent);color:#0B0F0F;">⟦hero.02⟧</a>
   </div>
 
@@ -117,9 +119,7 @@ button{font:inherit}
   </div>
 
   <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:end;gap:24px 40px;padding:0 var(--side) 32px;">
-    <div><a href="#game" style="display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border:1px solid rgba(237,237,234,.5);color:#EDEDEA;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:border-color .25s,color .25s;" style-hover="border-color:var(--accent);color:var(--accent);">⟦hero.16⟧</a></div>
     <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;">{{ s.heroText }}</p>
-    <div style="text-align:right;font-family:var(--f-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;line-height:1.8;"><span style="color:#8A918F;">⟦hero.17⟧</span> {{ expLabel }} · {{ s.label }} <button onClick="{{ openChange }}" style="padding:0;margin-left:6px;background:none;border:0;cursor:pointer;color:#EDEDEA;font-family:var(--f-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;" style-hover="color:var(--accent);">⟦hero.18⟧</button></div>
   </div>
 </section>
 
@@ -341,9 +341,8 @@ button{font:inherit}
 <!-- 8 ВЕДУЩИЙ -->
 <section data-screen-label="08 Ведущий" style="background:#0B0F0F;color:#EDEDEA;padding:var(--sec) var(--side);">
   <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:clamp(40px,6vw,112px);">
-    <div data-reveal="1" style="flex:1 1 400px;position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--r);background:#1d5a55;">
-      <img src="media/orlov-portret-1680.jpg" alt="Константин Орлов" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95);mix-blend-mode:luminosity;">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,64,64,.15) 0%,rgba(12,38,38,.6) 100%);"></div>
+    <div data-reveal="1" style="flex:1 1 400px;position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--r);background:#0B0F0F;">
+      <img src="media/orlov-portret-1680.jpg" alt="Константин Орлов" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95);">
     </div>
     <div data-reveal="1" style="flex:1 1 520px;display:flex;flex-direction:column;gap:22px;">
       <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">⟦host.01⟧</div>
@@ -447,7 +446,7 @@ button{font:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
 &quot;showQuiz&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Показывать квиз&quot;},
-&quot;experience&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Впервые&quot;,&quot;Были на играх&quot;],&quot;default&quot;:&quot;Впервые&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Опыт&quot;},
+&quot;experience&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Впервые&quot;,&quot;Были на играх&quot;,&quot;Не раз&quot;],&quot;default&quot;:&quot;Впервые&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Опыт&quot;},
 &quot;sphere&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Управленец&quot;,&quot;Предприниматель&quot;,&quot;Свободный художник&quot;],&quot;default&quot;:&quot;Предприниматель&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Сфера&quot;},
 &quot;baseSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:15,&quot;max&quot;:22,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;default&quot;:18,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Типографика&quot;,&quot;label&quot;:&quot;Базовый размер текста&quot;},
 &quot;headingScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0.8,&quot;max&quot;:1.6,&quot;step&quot;:0.05,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Типографика&quot;,&quot;label&quot;:&quot;Масштаб заголовков&quot;},
@@ -643,7 +642,7 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.state;
     const s = this.SPH[st.sphere] || this.SPH['Предприниматель'];
-    const first = st.exp !== 'Были на играх';
+    const first = st.exp === 'Впервые';
     const scr = (i) => {
       const cur = st.step;
       return { o: cur === i ? 1 : 0, t: cur === i ? 'translateY(0)' : (cur > i ? 'translateY(-32px)' : 'translateY(32px)'), pe: cur === i ? 'auto' : 'none' };
@@ -657,7 +656,7 @@ class Component extends DCLogic {
     const on = '#EDEDEA', off = 'rgba(237,237,234,.25)';
     return {
       s, isFirst: first, isWas: !first,
-      expLabel: first ? 'впервые' : 'были на играх',
+      expLabel: first ? 'впервые' : (st.exp === 'Не раз' ? 'были на играх не раз' : 'были на «Онтологии менеджмента»'),
       heroVideo: this.props.heroMedia !== 'Фото', heroPhoto: this.props.heroMedia === 'Фото',
       faq,
       quiz: { o: st.quizOpen ? 1 : 0, pe: st.quizOpen ? 'auto' : 'none', vis: st.quizOpen ? 'visible' : 'hidden' },
@@ -668,6 +667,7 @@ class Component extends DCLogic {
       skip: () => close({ exp: 'Впервые', sphere: 'Управленец' }),
       pickFirst: () => this.setState({ exp: 'Впервые', step: 2 }),
       pickWas: () => this.setState({ exp: 'Были на играх', step: 2 }),
+      pickMany: () => this.setState({ exp: 'Не раз', step: 2 }),
       pickUpr: () => close({ sphere: 'Управленец' }),
       pickPred: () => close({ sphere: 'Предприниматель' }),
       pickArt: () => close({ sphere: 'Свободный художник' }),

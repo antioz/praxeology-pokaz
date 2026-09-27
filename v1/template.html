@@ -180,7 +180,7 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .head{display:flex;flex-direction:column;gap:18px;max-width:900px}
 
 .split>*,.facts>*,.cards>*,.list>*,.row>*,.trip>*,.do>*,.doi>*,.chg>*,.bring>*,.host>*,.price>*,.hero,.head{min-width:0}
-.h2,.hero h1,#register h2{overflow-wrap:break-word;hyphens:auto}
+.h2,.hero h1,#register h2{overflow-wrap:break-word;hyphens:manual}
 @media (max-width:980px){
   .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -235,14 +235,8 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
     <img class="bg" id="heroImg" alt="">
     <div class="shade"></div>
     <div class="hero wrap">
-      <div class="eyebrow" data-t="hero.eyebrow"></div>
       <h1><span class="it">Праксеология</span>менеджмента</h1>
       <p class="hsub" id="heroSub"></p>
-      <div class="hrow">
-        <a class="pill" href="#register" data-t="hero.button"></a>
-        <a class="link" href="#game" style="color:#fff">Как устроена игра ↓</a>
-      </div>
-      <div class="chip"><span style="opacity:.8">Страница собрана для:</span><b id="profile" style="font-weight:500"></b><button class="link" id="reopen" style="color:#fff">изменить</button></div>
     </div>
   </section>
 
@@ -341,7 +335,7 @@ const IMG={
   artist:{hero:'assets/img/svobodnyi-hudozhnik/trava-dyuna-veter-soft.jpg',intro:'assets/img/svobodnyi-hudozhnik/sosny-svet.jpg',do:'assets/img/svobodnyi-hudozhnik/trava-dyuna-veter.jpg',bring:'assets/img/obshee/sosny-u-morya.jpg',cta:'assets/img/svobodnyi-hudozhnik/sosny-svet-blur.jpg'}
 };
 const SPH={manager:'управленец',owner:'предприниматель',artist:'свободный художник'};
-const EXP={first:'впервые',been:'были на играх'};
+const EXP={first:'впервые',been:'были на «Онтологии менеджмента»',many:'были на играх не раз'};
 const $=s=>document.querySelector(s);
 const esc=t=>String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const get=k=>C[k]??'';
@@ -363,7 +357,7 @@ function quiz(n){
   $('#qback').hidden=n===0;
   let h='';
   if(n===0){h=`<h1 class="qh">${esc(get('quiz.welcome.title'))}</h1><p class="qt">${esc(get('quiz.welcome.text'))}</p><button class="pill" data-go="1">${esc(get('quiz.welcome.button'))}</button><button class="link" data-skip style="color:#fff;font-size:14px;opacity:.85">Пропустить и читать всё подряд</button>`;}
-  if(n===1){h=`<h2 class="qh">${esc(get('quiz.exp.question'))}</h2><div class="opts"><button class="opt" data-exp="first">${esc(get('quiz.exp.first'))}</button><button class="opt" data-exp="been">${esc(get('quiz.exp.been'))}</button></div>`;}
+  if(n===1){h=`<h2 class="qh">${esc(get('quiz.exp.question'))}</h2><div class="opts"><button class="opt" data-exp="first">${esc(get('quiz.exp.first'))}</button><button class="opt" data-exp="been">${esc(get('quiz.exp.been'))}</button><button class="opt" data-exp="many">${esc(get('quiz.exp.many'))}</button></div>`;}
   if(n===2){h=`<h2 class="qh">${esc(get('quiz.sph.question'))}</h2><div class="opts">${['manager','owner','artist'].map(s=>{const[a,b]=split('quiz.sph.'+s);return `<button class="opt" data-sph="${s}">${esc(a)}${b?`<small>${esc(b)}</small>`:''}</button>`}).join('')}</div>`;}
   $('#qbody').innerHTML=`<div class="qstep">${h}</div>`;
   const f=$('#qbody').querySelector('button');f&&f.focus({preventScroll:true});
@@ -376,7 +370,7 @@ function render(){
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=get(el.dataset.t));
   $('#heroImg').src=m.hero;$('#introImg').src=m.intro;$('#doImg').src=m.do;$('#bringImg').src=m.bring;$('#ctaImg').src=m.cta;
   $('#heroSub').textContent=get('hero.sub.'+s);
-  $('#profile').textContent=`${EXP[e]} · ${SPH[s]}`;
+  ($('#profile')||{}).textContent=`${EXP[e]} · ${SPH[s]}`;
   $('#introTitle').textContent=get(`intro.${s}.title`);$('#introText').textContent=get(`intro.${s}.text`);
 
   const cut=(t,sep)=>{const i=t.indexOf(sep);return i<0?[t,'']:[t.slice(0,i),t.slice(i+sep.length)]};
@@ -404,7 +398,7 @@ function render(){
   $('#bring').textContent=get('bring.'+s);
   $('#hostTags').innerHTML=has('host.list')?get('host.list').split(';').map(x=>x.trim()).filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join(''):'';
 
-  const q=[...nums('faq.all.'),'faq.'+e,'faq.'+s].filter(has);
+  const q=[...nums('faq.all.'),'faq.'+(e==='first'?'first':'been'),'faq.'+s].filter(has);
   $('#faqList').innerHTML=q.map(k=>{const[a,...b]=split(k);return `<div class="fq"><button class="fq-h" aria-expanded="false">${esc(a)}<i></i></button><div class="fq-b">${esc(b.join(' | '))}</div></div>`}).join('');
 
   $('#ctaTitle').textContent=get(`cta.${s}.title`);
