@@ -36,7 +36,7 @@ button{font:inherit}
   <div style="position:relative;flex:1;min-height:0;">
     <div style="position:absolute;inset:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:16px var(--side);opacity:{{ q0.o }};transform:{{ q0.t }};pointer-events:{{ q0.pe }};transition:opacity .6s ease, transform .8s cubic-bezier(.2,.7,.2,1);">
       <h2 style="margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(52px, 9vw, 144px));line-height:.95;letter-spacing:-0.04em;">Здравствуйте.</h2>
-      <p style="margin:clamp(20px,3.5vh,44px) 0 0;max-width:var(--tw);font-size:min(calc(var(--fs) * 1.1), 4.2vw);line-height:var(--lh);font-weight:300;text-wrap:pretty;">Страница соберётся под ваш опыт и вашу работу.</p>
+      <p style="margin:clamp(20px,3.5vh,44px) 0 0;max-width:var(--tw);font-size:min(calc(var(--fs) * 1.1), 4.2vw);line-height:var(--lh);font-weight:300;text-wrap:pretty;">Два вопроса — и страница соберётся под ваш опыт и вашу работу.</p>
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-top:clamp(24px,4.5vh,56px);">
         <button onClick="{{ goNext }}" style="display:inline-flex;align-items:center;padding:20px 40px;background:#EDEDEA;color:#0B0F0F;border:0;cursor:pointer;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:var(--accent);">Дальше</button>
         <button onClick="{{ skip }}" style="padding:0;background:none;border:0;cursor:pointer;color:#8A918F;font-size:13px;text-decoration:underline;text-underline-offset:4px;" style-hover="color:#EDEDEA;">Пропустить</button>
@@ -134,7 +134,7 @@ button{font:inherit}
       <p style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
     </div>
   </div>
-  <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">
+  <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">
     <img src="{{ s.wide }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <div style="position:absolute;inset:0;background:#0B0F0F;opacity:var(--ov);"></div>
     <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;">
@@ -150,43 +150,48 @@ button{font:inherit}
   <div data-reveal="1" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(40px,5vw,80px);">
     <div style="display:flex;flex-direction:column;gap:20px;">
       <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;">Если вы впервые</div>
-      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Что такое форсайт-игра</h2>
+      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Как шли четыре дня в сентябре</h2>
     </div>
     <a href="#register" style="display:inline-flex;align-items:center;padding:18px 32px;background:#0B0F0F;color:#EDEDEA;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:#134040;color:#EDEDEA;">Участвовать</a>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:var(--gap);">
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;min-height:240px;padding:clamp(24px,3vw,44px);border:1px solid rgba(11,15,15,.16);border-radius:var(--r);">
       <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">01</span>
-      <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Команды исследуют сами</h3>
-      <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Лекция одна, в первый вечер.</p>
+      <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Первый вечер</h3>
+      <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Капитаны за минуту рассказывают, куда поведут, и за 11 минут собирают команды. Потом все смотрят фильм и разбирают, как в нём устроено управление.</p>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="margin-top:auto;align-self:flex-end;"><path d="M22 6 L38 14 L22 22 L6 14 Z"></path><path d="M6 22 L22 30 L38 22"></path><path d="M6 30 L22 38 L38 30"></path></svg>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;min-height:240px;padding:clamp(24px,3vw,44px);border:1px solid rgba(11,15,15,.16);border-radius:var(--r);">
       <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">02</span>
       <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Такты и пленары</h3>
-      <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Команды работают отдельно, потом докладывают друг другу.</p>
+      <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Днём команды работают отдельно и трижды в день докладывают друг другу. Ведущий разбирает без скидок: «Бригада осталась довольна, заказчик недоумевает».</p>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="margin-top:auto;align-self:flex-end;"><circle cx="22" cy="22" r="17"></circle><path d="M22 9 L33.5 29 L10.5 29 Z"></path></svg>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;min-height:240px;padding:clamp(24px,3vw,44px);border:1px solid rgba(11,15,15,.16);border-radius:var(--r);">
       <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">03</span>
       <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Задания</h3>
-      <p style="margin:0;max-width:var(--tw);">В сентябре ведущий присылал их короткими видео.</p>
+      <p style="margin:0;max-width:var(--tw);">Ведущий давал их короткими видео, иногда ночью.</p>
       <div style="display:flex;flex-direction:column;max-width:var(--tw);">
+        <p style="margin:0;padding:14px 0;border-top:1px solid rgba(11,15,15,.12);text-wrap:pretty;">Разобрать фильм «Последний замок»: у полковника много ресурсов, у генерала только квалификация, а замысел воплощает генерал.</p>
+        <p style="margin:0;padding:14px 0;border-top:1px solid rgba(11,15,15,.12);text-wrap:pretty;">Разобрать, какие продукты производит управленец: у сержанта морской пехоты и у логиста деревообрабатывающего завода они разные.</p>
+        <p style="margin:0;padding:14px 0;border-top:1px solid rgba(11,15,15,.12);text-wrap:pretty;">К десяти утра показать, чем именно вы управляете и что в этом хотите перестроить.</p>
         </div>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="margin-top:auto;align-self:flex-end;"><ellipse cx="22" cy="34" rx="14" ry="4"></ellipse><path d="M8 34 L22 6 L36 34"></path></svg>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;min-height:240px;padding:clamp(24px,3vw,44px);border:1px solid rgba(11,15,15,.16);border-radius:var(--r);">
       <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;">04</span>
-      <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Свой объект</h3>
+      <h3 style="margin:0;font-weight:400;font-size:calc(var(--hs) * clamp(24px, 2.2vw, 32px));letter-spacing:-0.015em;">Своя задача</h3>
+      <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Каждое задание участник примеряет к своей работе и сначала отвечает себе, чем в ней управляет.</p>
       <p style="margin:0;padding-top:16px;border-top:1px solid rgba(11,15,15,.12);max-width:var(--tw);font-weight:500;text-wrap:pretty;">{{ s.obj }}</p>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="margin-top:auto;align-self:flex-end;"><circle cx="22" cy="22" r="17"></circle><circle cx="22" cy="12" r="1.6" fill="currentColor"></circle><circle cx="32" cy="22" r="1.6" fill="currentColor"></circle><circle cx="22" cy="32" r="1.6" fill="currentColor"></circle><circle cx="12" cy="22" r="1.6" fill="currentColor"></circle><circle cx="22" cy="22" r="1.6" fill="currentColor"></circle></svg>
     </div>
     <div data-reveal="1" style="grid-column:1 / -1;display:flex;flex-direction:column;gap:20px;padding:clamp(24px,3vw,44px);background:#0B0F0F;color:#EDEDEA;border:1px solid #0B0F0F;border-radius:var(--r);">
       <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;color:var(--accent);">05</span>
-      <h3 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(28px, 3vw, 44px));letter-spacing:-0.02em;">Плотный язык</h3>
+      <h3 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(28px, 3vw, 44px));letter-spacing:-0.02em;">Последний день</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px clamp(32px,5vw,96px);">
-        <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Первые день-два уходят на то, чтобы освоиться в языке игры. Работа идёт до ночи.</p>
-        </div>
+        <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Каждый выходит с докладом о своей задаче. Ведущий их не комментирует: главное, что человек проделал работу и будет копать дальше.</p>
+        <p style="margin:0;max-width:var(--tw);text-wrap:pretty;">Первые день-два уходят на то, чтобы освоиться в языке игры. Работа идёт до ночи, а иногда и до утра.</p>
+      </div>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="margin-top:12px;align-self:flex-end;"><path d="M9 8 L37 22 L9 36 Z"></path><path d="M9 22 L37 22"></path></svg>
     </div>
   </div>
@@ -199,18 +204,20 @@ button{font:inherit}
   <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);align-items:start;margin-bottom:clamp(48px,6vw,96px);">
     <div style="display:flex;flex-direction:column;gap:20px;">
       <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">Если вы были с нами</div>
-      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Что нового в третьей игре</h2>
+      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Третья часть замыкает цикл</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
-      </div>
+      <p style="margin:0;text-wrap:pretty;">В сентябре собрали карту того, что есть в менеджменте. На воркшопе по аксиологии, 1–22 октября, выбирают, что из этого важно. Третья игра превращает это в действия.</p>
+      <p style="margin:0;text-wrap:pretty;">Она ценна и без воркшопа: здесь собирают то, чего в сентябре сознательно не было.</p>
+    </div>
   </div>
   <div style="border-bottom:1px solid rgba(237,237,234,.16);">
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Способы действия</div>
-      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, практические разработки</strong> с опорой на онтологию и аксиологию.</p>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, осязаемые разработки.</strong> На первой игре ведущий оставил их за рамками, на третьей с них начинают.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
-      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Подбор средств</div>
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Под позицию</div>
       <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Средства подбирают под ситуацию и позицию.</strong> У собственника небольшой компании и члена совета директоров они разные.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
@@ -219,7 +226,7 @@ button{font:inherit}
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Продолжение</div>
-      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Недоделанное в сентябре продолжается.</strong> Из пробелов сентября складывается исследовательская программа.</p>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Дефектная ведомость сентября пойдёт в работу.</strong> Пробелы и недоделанное первой игры третья продолжает на практике.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Учебники</div>
@@ -233,8 +240,46 @@ button{font:inherit}
 </section>
 </sc-if>
 
-<!-- 4 ТРИПТИХ -->
-<sc-if value="{{ isFirst }}" hint-placeholder-val="{{ true }}">
+<!-- 3 НЕ РАЗ (опытные игроки, не были на первых двух частях) -->
+<sc-if value="{{ isMany }}" hint-placeholder-val="{{ false }}">
+<section id="game" data-screen-label="03 Для опытных игроков" style="background:#0B0F0F;color:#EDEDEA;padding:var(--sec) var(--side);">
+  <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);align-items:start;margin-bottom:clamp(48px,6vw,96px);">
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">Если вы бывали на играх</div>
+      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Третья часть, где переходят к практике</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
+      <p style="margin:0;text-wrap:pretty;">Первые две части триптиха разбирали, что есть в менеджменте и что в нём ценно. Третья самая прикладная: всё понятое здесь превращают в действия.</p>
+      <p style="margin:0;text-wrap:pretty;">Один из участников сентябрьской игры признался: с игр он обычно увозил ворох находок, а дальше — «стухнет, пока ты до офиса доедешь».</p>
+    </div>
+  </div>
+  <div style="border-bottom:1px solid rgba(237,237,234,.16);">
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Практика</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, осязаемые разработки.</strong> Ведущий говорит, что они опираются на первые две части и при этом понятны «гражданским».</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Несколько подходов</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Одного привычного набора практик мало.</strong> Он сложился под прежние представления о мире, а разные ситуации требуют разных способов.</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Под позицию</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Средства подбирают под ситуацию и позицию.</strong> У собственника небольшой компании и члена совета директоров они разные.</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Своими руками</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Часть средств придётся создать.</strong> Инструментов для управления в ближайшие десятилетия пока никто не продаёт. На столе СМД-методология и австрийская политэкономия.</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Учебники</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Клуб собирается писать учебники.</strong> С третьей игры — книги и курсы по менеджменту, в том числе наглядные.</p>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- 4 ТРИПТИХ — не показываем никому (решение 28.09.2026) -->
+<sc-if value="{{ false }}" hint-placeholder-val="{{ false }}">
 <section data-screen-label="04 Триптих" style="background:linear-gradient(180deg,#0C2626 0%,#134040 100%);color:#EDEDEA;padding:var(--sec) var(--side);">
   <div data-reveal="1" style="display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;">
     <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">Где эта игра в триптихе</div>
@@ -254,7 +299,7 @@ button{font:inherit}
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid rgba(237,237,234,.25);">
       <span style="font-weight:200;font-size:calc(var(--hs) * 64px);line-height:1;letter-spacing:-0.03em;">02</span>
-      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Аксиология менеджмента.</strong> Лаборатория, четыре недели: что из этого ценно.</p>
+      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Аксиология менеджмента.</strong> Воркшоп, 1–22 октября: что из этого для вас важно.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid #EDEDEA;">
       <span style="font-weight:200;font-size:calc(var(--hs) * 64px);line-height:1;letter-spacing:-0.03em;color:var(--accent);">03</span>
@@ -334,7 +379,7 @@ button{font:inherit}
     <div data-reveal="1" style="flex:1 1 520px;display:flex;flex-direction:column;gap:22px;">
       <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">Ведущий</div>
       <h2 style="margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(44px, 6vw, 96px));line-height:.95;letter-spacing:-0.04em;">Константин Орлов</h2>
-      <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;">Ведёт весь триптих. На форсайт-игру впервые попал участником в 1996 году, с 2002-го проводит игры сам.</p>
+      <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;">Впервые попал на форсайт-игру в 1996 году и был там капитаном команды. С 2002-го проводит игры сам.</p>
       <div style="margin-top:12px;max-width:var(--tw);border-bottom:1px solid rgba(237,237,234,.16);">
         <p style="margin:0;padding:16px 0;border-top:1px solid rgba(237,237,234,.16);text-wrap:pretty;">Программы для сотрудников и партнёров Microsoft.</p>
         <p style="margin:0;padding:16px 0;border-top:1px solid rgba(237,237,234,.16);text-wrap:pretty;">Развитие проектов: Рыбаков Фонд, Global Shapers, Балтийский Артек.</p>
@@ -464,98 +509,99 @@ class Component extends DCLogic {
         name: 'Управленец', label: 'управленец',
         still: B + 'temnyi-koridor-svet-kadr.jpg',
         wide: B + 'beton-kuby-monohrom.jpg', tall: B + 'beton-lestnitsa-temnota.jpg',
-        heroText: "Четыре дня о способах действия руководителя: какие подходят вашей позиции и команде и откуда брать новые.",
-        introRest: "привычный приём перестаёт срабатывать",
-        intro1: "Приёмы руководителя складываются у первого начальника, в первой команде, в семье. На новой позиции те же действия дают другой результат.",
-        intro2: "Вопрос игры: с каким объектом вы работаете, что в нём значимо и ради какого изменения выбираете способ действия.",
-        obj: "Процесс, продукт, отношения в команде или своя позиция. От выбора объекта зависит, какое действие окажется верным.",
-        was: "Если в сентябре вы разбирали управленческий труд, теперь выбираете способы действия под свою позицию.",
+        heroText: "Старый способ управлять привёл вас туда, где вы сейчас. Четыре дня — чтобы собрать новый под свою задачу.",
+        introRest: "на любую ситуацию находится один ответ",
+        intro1: "Ведущий игры называет это «одноходовкой»: что бы ни случилось, в ход идёт привычный приём. На сентябрьской игре он сказал прямо, что время одноходовок прошло.",
+        intro2: "Игра о другом ходе: понять, чем вы на самом деле управляете, что хотите сохранить, что изменить, и подобрать под это способ действия.",
+        obj: "Процесс, продукт, отношения в команде или своя позиция: от того, что выбрано, зависит, какой ход сработает.",
+        was: "Если в сентябре вы разбирали свой управленческий труд, теперь превращаете это в способы действия под свою позицию.",
         doItems: [
-          "Разберёте свою позицию: какие продукты вы создаёте.",
-          "Посмотрите, как усвоенные в детстве способы добиваться своего работают на совещаниях.",
-          "Подберёте способ действия под свою задачу и проверите его в команде.",
+          "Ответите себе без прикрас, в какие игры играете вместо работы: за уважение, за власть, за то, как выглядите в глазах коллег.",
+          "Посмотрите на нижнюю часть айсберга: способы добиваться своего, выученные в детстве, и то, как они работают на совещаниях.",
+          "Соберёте способ действия под свою задачу и тут же попробуете его на команде.",
           ""
         ],
-        insetTitle: "Другой руководитель увидел бы другую задачу",
-        inset: "Один видит несамостоятельных сотрудников, другой — что у них нет полномочий. Из другого понимания вырастают другие действия.",
-        ch1: "Замечаете новую ситуацию раньше, чем применили к ней привычный приём.",
-        ch2: "Видите систему разделения труда вокруг себя: кто что производит и что можно передать.",
-        ch3: "Объект управления назван и разобран: состав, границы, ограничения.",
-        bring1: "С задачей, где нужна кооперация за пределами вашей функции.",
-        bring2: "Или с вопросом о следующем профессиональном шаге.",
-        bringSmall: "Игра не подойдёт тем, кто ждёт единственного правильного регламента.",
+        insetTitle: "Две студии, два руководителя",
+        inset: "Владелец одной студии, инженер, удивляется, что люди не работают как машины. Руководительница другой не решает ни одного технического вопроса: спрашивает, как бабушка и кошка, и подсыпает маршмеллоу в какао. Приложения у неё выходят.",
+        ch1: "Замечаете, что тянетесь к привычному приёму, раньше, чем применили его.",
+        ch2: "Видите, кто вокруг что производит, что можно отдать и кому.",
+        ch3: "Можете одной фразой сказать, чем управляете, что хотите сохранить и что изменить.",
+        bring1: "С задачей, которую не решить внутри своего отдела.",
+        bring2: "Или с вопросом, куда расти дальше.",
+        bringSmall: "Тем, кто хочет схватить готовый рецепт и убежать, будет тяжело: ведущий называет это «методом сосиски».",
         faqQ: "Это корпоративный тренинг?",
-        faqA: "Нет. Вы работаете над своей задачей с людьми из других компаний и отраслей.",
-        cta: "Привезите задачу, которую не получается решить привычным способом"
+        faqA: "Нет. Вы работаете над своей задачей с людьми из других компаний и отраслей и сами выбираете способ действия.",
+        cta: "Привезите задачу, где старый способ уже не срабатывает"
       }),
       'Предприниматель': mk({
         name: 'Предприниматель', label: 'предприниматель',
         still: B + 'razvyazka-v-tumane-kadr.jpg',
         wide: B + 'doroga-skvoz-dyuny-sverhu-holodnyi.jpg', tall: B + 'most-v-tumane-monohrom.jpg',
-        heroText: "Четыре дня о том, куда вести своё дело дальше и что в нём менять.",
-        introRest: "дело упирается в своё устройство",
-        intro1: "Роли, клиенты и цепочка от поставщика до покупателя складываются в деле сами. Дальше можно делать то же самое чуть лучше или пересобрать устройство.",
-        intro2: "Вопрос игры: с каким объектом вы работаете, что в нём значимо и ради какого изменения выбираете способ действия.",
-        obj: "Компания, цепочка от поставщика до покупателя или рынок целиком. От выбора объекта зависит, какие воздействия вам доступны.",
-        was: "Если в сентябре вы собирали свой бизнес как объект, теперь решаете, что с ним делать.",
+        heroText: "Четыре дня, чтобы разобрать своё дело до винтика и найти, где небольшое изменение сдвигает всё.",
+        introRest: "у четырёх аптек одни лекарства, а дела разные",
+        intro1: "Одна аптека живёт производством, другая торговым залом, третья финансовой схемой. Четвёртая пять часов в неделю учит провизоров: её владелец уверен, что у прилавка ставят девять диагнозов из десяти.",
+        intro2: "Игра о том, на чём держится ваше дело, где у него рычаги и какой способ действия выбрать, чтобы его перестроить.",
+        obj: "Компания, цепочка от поставщика до покупателя или рынок целиком: от выбора зависит, какие рычаги вам доступны.",
+        was: "Если в сентябре вы собирали своё дело как объект, теперь решаете, что в нём перестраивать и чем.",
         doItems: [
-          "Посмотрите на цепочку от поставщиков до покупателя целиком, включая то, что вам не подчиняется.",
-          "Будете искать места, где небольшое воздействие пересобирает всю систему.",
-          "Разберёте глубину перемен: от реинжиниринга до работы с продуктом как с целым.",
+          "Разберёте своё место в отраслевой цепочке — то, до чего у торговца кофе, по словам ведущего, руки почти никогда не доходят.",
+          "Найдёте рычаги: команда, которая в сентябре разбирала кофейню, обнаружила, что за вывеской их непочатый край.",
+          "Решите, что нужно делу: наладить процессы, сменить место на рынке или пересобрать продукт целиком.",
           ""
         ],
-        insetTitle: "Два переворота",
-        inset: "Маркетинг первым стал управлять каналами, которые компании не принадлежат. Логистика сделала объектом всю цепочку создания стоимости.",
-        ch1: "Отличаете решения, которые принимаете сами по привычке, от тех, что без вас теряют смысл.",
-        ch2: "Партнёры, поставщики и покупатели видны одной системой, где есть основания для кооперации.",
-        ch3: "Понятно, что в деле перестраивать и с чего начинать.",
-        bring1: "С вопросом об устройстве бизнеса, о команде или о новом направлении.",
+        insetTitle: "Из пешек в ферзи",
+        inset: "Один собственник всю жизнь метался между диктатурой и демократией и считал свой стиль неправильным. На сентябрьской игре он понял, что управляет чужим управлением: делает из пешек ферзей, которые решают сами. Свои косяки он теперь считает преимуществом.",
+        ch1: "Видите, какие решения держатся на вас по привычке, а какие без вас теряют смысл.",
+        ch2: "Поставщики, партнёры и покупатели видны одной цепочкой, и в ней видно, с кем можно договориться.",
+        ch3: "Знаете, что перестраивать первым и какой результат нужен от этой части дела.",
+        bring1: "С вопросом об устройстве дела, о команде или о новом направлении.",
         bring2: "Или с замыслом, который давно носите с собой.",
         bringSmall: "Разбирают ваше дело на вашем материале.",
         faqQ: "Делегирование разбирают?",
-        faqA: "Да, как частный случай: от передачи решений до перестройки всей цепочки.",
-        cta: "Привезите замысел, который давно не помещается в ваше дело"
+        faqA: "Да. В сентябре ведущий разбирал, почему не срабатывает мечта «опишу бизнес-процессы и заживу на Мальдивах»: сначала нужно понять, какую часть дела вы налаживаете и от чего зависит результат.",
+        cta: "Привезите дело, которое хочется устроить иначе"
       }),
       'Свободный художник': mk({
         name: 'Свободный художник', label: 'свободный художник',
         still: B + 'teni-na-stene-kadr.jpg',
         wide: B + 'pesok-ryab-holodnyi.jpg', tall: B + 'dym-v-temnote.jpg',
-        heroText: "Четыре дня о том, как устроить практику, где вы сами руководитель, команда и заказчик.",
-        introRest: "наития перестаёт хватать",
-        intro1: "Выбрать, над чем работать и ради чего, удержать и заказчика, и замысел — задачи те же, что у компании. Обычно их решают по наитию.",
-        intro2: "Вопрос игры: с каким объектом вы работаете, что в нём значимо и ради какого изменения выбираете способ действия.",
-        obj: "Практика, замысел, который ищет форму, или жизнь целиком. От выбора объекта зависит, какое действие окажется верным.",
-        was: "Если в сентябре вы разбирали свою практику как объект, теперь собираете для неё способы действия.",
+        heroText: "Вы сами себе мастер, продавец и администратор. Четыре дня — чтобы понять, что в этой практике ваше, а что можно устроить иначе.",
+        introRest: "талант приходит в комплекте с суетой",
+        intro1: "Хороший репетитор учит легко, а вокруг — продажи, реклама, переписка с опоздавшими. Ведущий прикинул: из десяти дел, которые мы делаем, шесть идут через силу, два в радость, и с этими двумя мы проводим меньше всего времени.",
+        intro2: "Игра о том, как устроить практику, чтобы больше времени уходило на своё, и какими способами этого добиться.",
+        obj: "Практика, замысел, который ищет форму, или жизнь целиком: от выбора зависит, какое действие окажется верным.",
+        was: "Если в сентябре вы разбирали свою практику, теперь собираете для неё способы работы.",
         doItems: [
-          "Разберёте практику как объект управления: состав, границы, что меняется со временем.",
-          "Подберёте способы работы под себя: для свободной практики готовых почти нет.",
-          "Посмотрите, как в управлении работает творческий замысел и можно ли сделать его технологией.",
+          "Разберёте практику как дело: что в ней ваше, а что приходит в нагрузку.",
+          "Соберёте свои способы работы: для свободной практики готовых почти нет.",
+          "Посмотрите, как работает творческий замысел и можно ли сделать его технологией.",
           ""
         ],
-        insetTitle: "Холм, дерево, человек",
-        inset: "Режиссёр говорит сценаристу: холм, на холме дерево, под деревом человек. Сценарист приносит тот сценарий, которого режиссёр ждал. Орлов считает, что такую провокацию можно технологизировать.",
-        ch1: "Знаете, в каком состоянии работа идёт и как в него входить.",
-        ch2: "Заказчики, соавторы и аудитория видны системой, где у вас своя позиция.",
-        ch3: "Понятно, что в практике держит вас, а что можно перестроить.",
-        bring1: "С практикой — творческой, исследовательской, преподавательской — и вопросом, как её устроить.",
-        bring2: "С замыслом, для которого пока нет формы. Бизнес-опыт не нужен.",
+        insetTitle: "Мастерская на одном человеке",
+        inset: "У мастера всё держится на ней самой, от идеи до продажи, даже часть инструментов она делает себе сама. На сентябрьской игре, своей первой, она разобралась, что оставит себе ради авторского стиля. Под остальное она соберёт временные творческие коллективы.",
+        ch1: "Отличаете дела, которые даются легко, от тех, что отнимают силы, и видите, сколько времени уходит на каждые.",
+        ch2: "Заказчики, соавторы и аудитория видны вместе, и у вас в этой картине своё место.",
+        ch3: "Понятно, что в практике ваше, а что можно отдать или устроить иначе.",
+        bring1: "С практикой — творческой, преподавательской, консультационной — и вопросом, как её устроить.",
+        bring2: "Или с замыслом, для которого пока нет формы. Бизнес-опыт не нужен.",
         bringSmall: "Примеры в основном из мира компаний, переводить их придётся самому.",
         faqQ: "Я не руковожу ни людьми, ни бизнесом. Мне здесь место?",
-        faqA: "Да. Управление своей жизнью и практикой в триптихе считается менеджментом.",
+        faqA: "Да. Управление своей жизнью и практикой здесь считается менеджментом.",
         cta: "Привезите практику, которую хочется устроить по-своему"
       })
     };
   })();
 
   EXP_FAQ = {
-    'Впервые': { q: "Можно без первых двух частей?", a: "Да. С языком помогут ведущий и участники сентябрьской игры в команде." },
-    'Были на играх': { q: "Нужно ли пройти лабораторию по аксиологии?", a: "Нет. На третью игру можно приехать и без неё." }
+    'Впервые': { q: "Я никогда не был на таких играх. Справлюсь?", a: "Да. В сентябре участница, впервые попавшая на игру, к финалу разобрала свою мастерскую, и ведущий назвал это очень сильным результатом для первой игры." },
+    'Были на играх': { q: "Нужно ли пройти воркшоп по аксиологии?", a: "Нет. На третью игру можно приехать и без него." },
+    'Не раз': { q: "Можно без первых двух частей?", a: "Да. С их языком помогут ведущий и участники сентябрьской игры в вашей команде." }
   };
 
   COMMON_FAQ = [
     { q: "Можно участвовать дистанционно?", a: "Да. Очные и дистанционные участники работают в одних командах." },
     { q: "Нужна методологическая подготовка?", a: "Нет. Нужны интерес и готовность спрашивать, пробовать, переделывать." },
-    { q: "Что я увезу?", a: "Точнее поставленную задачу и план: что проверить, чему научиться, кого привлечь." },
+    { q: "Что я увезу?", a: "Точнее поставленную задачу и план: что проверить, чему научиться, кого позвать." },
     { q: "Сколько стоит участие?", a: "108 000 ₽. При регистрации до 15 октября — 54 000 ₽." },
     { q: "Остался вопрос", a: "Напишите Константину Орлову: me@orlov.academy." }
   ];
@@ -632,7 +678,7 @@ class Component extends DCLogic {
       const cur = st.step;
       return { o: cur === i ? 1 : 0, t: cur === i ? 'translateY(0)' : (cur > i ? 'translateY(-32px)' : 'translateY(32px)'), pe: cur === i ? 'auto' : 'none' };
     };
-    const faqBase = [this.EXP_FAQ[first ? 'Впервые' : 'Были на играх'], { q: s.faqQ, a: s.faqA }, ...this.COMMON_FAQ];
+    const faqBase = [this.EXP_FAQ[st.exp] || this.EXP_FAQ['Впервые'], { q: s.faqQ, a: s.faqA }, ...this.COMMON_FAQ];
     const faq = faqBase.map((it, i) => ({
       q: it.q, a: it.a, open: st.faq === i, sign: st.faq === i ? '−' : '+',
       toggle: () => this.setState(x => ({ faq: x.faq === i ? -1 : i }))
@@ -640,7 +686,7 @@ class Component extends DCLogic {
     const close = (up) => { this.setState({ ...up, quizOpen: false, faq: -1 }); window.scrollTo(0, 0); };
     const on = '#EDEDEA', off = 'rgba(237,237,234,.25)';
     return {
-      s, isFirst: first, isWas: !first,
+      s, isFirst: first, isWas: st.exp === 'Были на играх', isMany: st.exp === 'Не раз',
       expLabel: first ? 'впервые' : (st.exp === 'Не раз' ? 'были на играх не раз' : 'были на «Онтологии менеджмента»'),
       heroVideo: this.props.heroMedia !== 'Фото', heroPhoto: this.props.heroMedia === 'Фото',
       faq,

@@ -383,11 +383,11 @@ function render(){
     g.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Как устроена игра</div><h2 class="h2">${esc(get('game.first.title'))}</h2></div><div class="cards">${nums('game.first.').map((k,i)=>{const[a,b]=split(k);return `<div class="card"><span class="n">0${i+1}</span><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`}).join('')}</div></div>`;
   }else{
     g.className='sec pine on-dark';
-    g.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Что нового</div><h2 class="h2">${esc(get('game.been.title'))}</h2></div><div class="list">${nums('game.been.').map((k,i)=>{const[a,b]=split(k);return `<div class="row"><span class="n">${i+1}</span><div><h3>${esc(a)}</h3><p>${esc(b)}</p></div></div>`}).join('')}</div></div>`;
+    g.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">${e==='many'?'Для опытных игроков':'Что нового'}</div><h2 class="h2">${esc(get(e==='many'?'game.many.title':'game.been.title'))}</h2></div><div class="list">${nums(e==='many'?'game.many.':'game.been.').map((k,i)=>{const[a,b]=split(k);return `<div class="row"><span class="n">${i+1}</span><div><h3>${esc(a)}</h3><p>${esc(b)}</p></div></div>`}).join('')}</div></div>`;
   }
 
   const t=$('#triptych');
-  t.hidden=e!=='first'||!has('triptych.title');
+  t.hidden=true; // триптих не показываем никому (решение 28.09.2026)
   if(!t.hidden){t.innerHTML=`<div class="wrap stack"><div class="head"><div class="eyebrow">Триптих Онтоклуба «108»</div><h2 class="h2">${esc(get('triptych.title'))}</h2></div><div class="trip">${nums('triptych.').map((k,i,a)=>{const[n,w,d]=split(k);const here=i===a.length-1;return `<div class="tr${here?' here':''}">${here?'<span class="here-tag">вы здесь</span>':''}<span class="big">0${i+1}</span><h3>${esc(n)}</h3><span class="when">${esc(w)}</span><p>${esc(d)}</p></div>`}).join('')}</div></div>`;}
 
   $('#doTitle').textContent=get(`do.${s}.title`);
@@ -398,7 +398,7 @@ function render(){
   $('#bring').textContent=get('bring.'+s);
   $('#hostTags').innerHTML=has('host.list')?get('host.list').split(';').map(x=>x.trim()).filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join(''):'';
 
-  const q=[...nums('faq.all.'),'faq.'+(e==='first'?'first':'been'),'faq.'+s].filter(has);
+  const q=[...nums('faq.all.'),'faq.'+e,'faq.'+s].filter(has);
   $('#faqList').innerHTML=q.map(k=>{const[a,...b]=split(k);return `<div class="fq"><button class="fq-h" aria-expanded="false">${esc(a)}<i></i></button><div class="fq-b">${esc(b.join(' | '))}</div></div>`}).join('');
 
   $('#ctaTitle').textContent=get(`cta.${s}.title`);

@@ -136,7 +136,7 @@ button{font:inherit}
       <p style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
     </div>
   </div>
-  <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">
+  <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">
     <img src="{{ s.wide }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <div style="position:absolute;inset:0;background:#0B0F0F;opacity:var(--ov);"></div>
     <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;">
@@ -243,8 +243,46 @@ button{font:inherit}
 </section>
 </sc-if>
 
-<!-- 4 ТРИПТИХ -->
-<sc-if value="{{ isFirst }}" hint-placeholder-val="{{ true }}">
+<!-- 3 НЕ РАЗ (опытные игроки, не были на первых двух частях) -->
+<sc-if value="{{ isMany }}" hint-placeholder-val="{{ false }}">
+<section id="game" data-screen-label="03 Для опытных игроков" style="background:#0B0F0F;color:#EDEDEA;padding:var(--sec) var(--side);">
+  <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);align-items:start;margin-bottom:clamp(48px,6vw,96px);">
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">⟦game.many.01⟧</div>
+      <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">⟦game.many.02⟧</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
+      <p style="margin:0;text-wrap:pretty;">⟦game.many.03⟧</p>
+      <p style="margin:0;text-wrap:pretty;">⟦game.many.04⟧</p>
+    </div>
+  </div>
+  <div style="border-bottom:1px solid rgba(237,237,234,.16);">
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">⟦game.many.05⟧</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">⟦game.many.06⟧</strong> ⟦game.many.07⟧</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">⟦game.many.08⟧</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">⟦game.many.09⟧</strong> ⟦game.many.10⟧</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">⟦game.many.11⟧</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">⟦game.many.12⟧</strong> ⟦game.many.13⟧</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">⟦game.many.14⟧</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">⟦game.many.15⟧</strong> ⟦game.many.16⟧</p>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">⟦game.many.17⟧</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">⟦game.many.18⟧</strong> ⟦game.many.19⟧</p>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- 4 ТРИПТИХ — не показываем никому (решение 28.09.2026) -->
+<sc-if value="{{ false }}" hint-placeholder-val="{{ false }}">
 <section data-screen-label="04 Триптих" style="background:linear-gradient(180deg,#0C2626 0%,#134040 100%);color:#EDEDEA;padding:var(--sec) var(--side);">
   <div data-reveal="1" style="display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;">
     <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;">⟦triptych.01⟧</div>
@@ -564,7 +602,8 @@ class Component extends DCLogic {
 
   EXP_FAQ = {
     'Впервые': { q: ⟦js:faq.first.q⟧, a: ⟦js:faq.first.a⟧ },
-    'Были на играх': { q: ⟦js:faq.been.q⟧, a: ⟦js:faq.been.a⟧ }
+    'Были на играх': { q: ⟦js:faq.been.q⟧, a: ⟦js:faq.been.a⟧ },
+    'Не раз': { q: ⟦js:faq.many.q⟧, a: ⟦js:faq.many.a⟧ }
   };
 
   COMMON_FAQ = [
@@ -647,7 +686,7 @@ class Component extends DCLogic {
       const cur = st.step;
       return { o: cur === i ? 1 : 0, t: cur === i ? 'translateY(0)' : (cur > i ? 'translateY(-32px)' : 'translateY(32px)'), pe: cur === i ? 'auto' : 'none' };
     };
-    const faqBase = [this.EXP_FAQ[first ? 'Впервые' : 'Были на играх'], { q: s.faqQ, a: s.faqA }, ...this.COMMON_FAQ];
+    const faqBase = [this.EXP_FAQ[st.exp] || this.EXP_FAQ['Впервые'], { q: s.faqQ, a: s.faqA }, ...this.COMMON_FAQ];
     const faq = faqBase.map((it, i) => ({
       q: it.q, a: it.a, open: st.faq === i, sign: st.faq === i ? '−' : '+',
       toggle: () => this.setState(x => ({ faq: x.faq === i ? -1 : i }))
@@ -655,7 +694,7 @@ class Component extends DCLogic {
     const close = (up) => { this.setState({ ...up, quizOpen: false, faq: -1 }); window.scrollTo(0, 0); };
     const on = '#EDEDEA', off = 'rgba(237,237,234,.25)';
     return {
-      s, isFirst: first, isWas: !first,
+      s, isFirst: first, isWas: st.exp === 'Были на играх', isMany: st.exp === 'Не раз',
       expLabel: first ? 'впервые' : (st.exp === 'Не раз' ? 'были на играх не раз' : 'были на «Онтологии менеджмента»'),
       heroVideo: this.props.heroMedia !== 'Фото', heroPhoto: this.props.heroMedia === 'Фото',
       faq,
