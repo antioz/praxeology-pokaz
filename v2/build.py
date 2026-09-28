@@ -4,6 +4,15 @@ copy = {}
 for ln in open('COPY.md', encoding='utf-8'):
     m = re.match(r'\[([\w.]+)\] ?(.*)$', ln.rstrip('\n'))
     if m: copy[m.group(1)] = m.group(2)
+# даты не рвать: «30 октября – 2 ноября 2026» переносится только после тире
+MON = r'(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)'
+def nbsp(v):
+    v = re.sub(r'(\d) ' + MON, '\\1\u00a0\\2', v)
+    v = re.sub(MON + r' (\d{4})', '\\1\u00a0\\2', v)
+    v = re.sub(MON + r' – ', '\\1\u00a0– ', v)
+    v = re.sub(r'(\d)–(\d)', '\\1–\u2060\\2', v)  # «1–22» не рвать после тире
+    return v
+copy = {k: nbsp(v) for k, v in copy.items()}
 t = open('template.html', encoding='utf-8').read()
 missing = set()
 def js(m):

@@ -19,6 +19,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#0B0F0F;color:#EDEDEA;font-family:var(--f-sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 a:hover{color:var(--accent)}
+.i2:empty{display:none}
 button{font:inherit}
 </style>
 </helmet>
@@ -35,11 +36,11 @@ button{font:inherit}
 
   <div style="position:relative;flex:1;min-height:0;">
     <div style="position:absolute;inset:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:16px var(--side);opacity:{{ q0.o }};transform:{{ q0.t }};pointer-events:{{ q0.pe }};transition:opacity .6s ease, transform .8s cubic-bezier(.2,.7,.2,1);">
-      <h2 style="margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(52px, 9vw, 144px));line-height:.95;letter-spacing:-0.04em;">Здравствуйте.</h2>
-      <p style="margin:clamp(20px,3.5vh,44px) 0 0;max-width:var(--tw);font-size:min(calc(var(--fs) * 1.1), 4.2vw);line-height:var(--lh);font-weight:300;text-wrap:pretty;">Два вопроса — и страница соберётся под ваш опыт и вашу работу.</p>
+      <h2 style="margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(52px, 9vw, 144px));line-height:.95;letter-spacing:-0.04em;">Пару вопросов.</h2>
+      <p style="margin:clamp(20px,3.5vh,44px) 0 0;max-width:var(--tw);font-size:min(calc(var(--fs) * 1.1), 4.2vw);line-height:var(--lh);font-weight:300;text-wrap:pretty;">Это поможет адаптировать страницу под ваш опыт и интерес.</p>
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-top:clamp(24px,4.5vh,56px);">
         <button onClick="{{ goNext }}" style="display:inline-flex;align-items:center;padding:20px 40px;background:#EDEDEA;color:#0B0F0F;border:0;cursor:pointer;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:var(--accent);">Дальше</button>
-        <button onClick="{{ skip }}" style="padding:0;background:none;border:0;cursor:pointer;color:#8A918F;font-size:13px;text-decoration:underline;text-underline-offset:4px;" style-hover="color:#EDEDEA;">Пропустить</button>
+        <button onClick="{{ skip }}" style="padding:0;background:none;border:0;cursor:pointer;color:#8A918F;font-size:13px;text-decoration:underline;text-underline-offset:4px;" style-hover="color:#EDEDEA;">Можно не отвечать</button>
       </div>
     </div>
 
@@ -64,7 +65,7 @@ button{font:inherit}
 
     <div style="position:absolute;inset:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:16px var(--side);opacity:{{ q2.o }};transform:{{ q2.t }};pointer-events:{{ q2.pe }};transition:opacity .6s ease, transform .8s cubic-bezier(.2,.7,.2,1);">
       <button onClick="{{ goBack }}" style="align-self:flex-start;padding:6px 0;margin-bottom:clamp(16px,3vh,40px);background:none;border:0;cursor:pointer;color:#8A918F;font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;" style-hover="color:#EDEDEA;">← Назад</button>
-      <h2 style="margin:0;max-width:1100px;font-weight:200;font-size:calc(var(--hs) * clamp(34px, 5.4vw, 84px));line-height:1.02;letter-spacing:-0.03em;text-wrap:balance;">Что ближе к вашей работе сейчас?</h2>
+      <h2 style="margin:0;max-width:1100px;font-weight:200;font-size:calc(var(--hs) * clamp(34px, 5.4vw, 84px));line-height:1.02;letter-spacing:-0.03em;text-wrap:balance;">Какая ваша позиция?</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:clamp(24px,5vh,64px);border-right:1px solid rgba(237,237,234,.22);border-bottom:1px solid rgba(237,237,234,.22);">
         <button onClick="{{ pickUpr }}" style="display:flex;flex-direction:column;gap:10px;min-height:clamp(88px,22vh,240px);padding:clamp(18px,2.4vw,36px);background:transparent;color:#EDEDEA;border:0;border-left:1px solid rgba(237,237,234,.22);border-top:1px solid rgba(237,237,234,.22);text-align:left;cursor:pointer;transition:background .3s,color .3s;" style-hover="background:#EDEDEA;color:#0B0F0F;">
           <span style="font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;margin-bottom:auto;">01</span>
@@ -117,21 +118,21 @@ button{font:inherit}
   </div>
 
   <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:end;gap:24px 40px;padding:0 var(--side) 32px;">
-    <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;">{{ s.heroText }}</p>
+    <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;"><mark style="background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone;">{{ s.heroText }}</mark></p>
   </div>
 </section>
 
 <!-- 2 ВСТУПЛЕНИЕ -->
 <section data-screen-label="02 Вступление" style="background:#EDEDEA;color:#0B0F0F;padding:var(--sec) var(--side);">
   <div data-reveal="1" style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;">
-    <div style="font-weight:200;font-size:calc(var(--hs) * clamp(76px, 15vw, 250px));line-height:.82;letter-spacing:-0.05em;margin-left:-0.05em;">Когда</div>
+    <div style="font-weight:200;font-size:calc(var(--hs) * clamp(76px, 15vw, 250px));line-height:.82;letter-spacing:-0.05em;margin-left:-0.05em;">Главный вопрос</div>
     <div aria-hidden="true" style="font-weight:200;font-size:calc(var(--hs) * clamp(56px, 10vw, 170px));line-height:.8;">↘</div>
   </div>
   <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);margin-top:clamp(28px,4vw,64px);align-items:start;">
     <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(30px, 3.6vw, 56px));line-height:1.08;letter-spacing:-0.025em;text-wrap:balance;">{{ s.introRest }}</h2>
     <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
       <p style="margin:0;text-wrap:pretty;">{{ s.intro1 }}</p>
-      <p style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
+      <p class="i2" style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
     </div>
   </div>
   <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">
@@ -139,7 +140,7 @@ button{font:inherit}
     <div style="position:absolute;inset:0;background:#0B0F0F;opacity:var(--ov);"></div>
     <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;">
       <div style="display:flex;justify-content:space-between;gap:16px;"><span>Праксеология менеджмента</span><span>Светлогорск</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;"><span>Форсайт-игра</span><span>30 октября – 2 ноября 2026</span></div>
+      <div style="display:flex;justify-content:space-between;gap:16px;"><span>Форсайт-игра</span><span>30 октября – 2 ноября 2026</span></div>
     </div>
   </div>
 </section>
@@ -207,14 +208,14 @@ button{font:inherit}
       <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Третья часть замыкает цикл</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
-      <p style="margin:0;text-wrap:pretty;">В сентябре собрали карту того, что есть в менеджменте. На воркшопе по аксиологии, 1–22 октября, выбирают, что из этого важно. Третья игра превращает это в действия.</p>
-      <p style="margin:0;text-wrap:pretty;">Она ценна и без воркшопа: здесь собирают то, чего в сентябре сознательно не было.</p>
+      <p style="margin:0;text-wrap:pretty;">На игре «Онтология менеджмента» собрали карту того, что есть в менеджменте. На воркшопе по аксиологии, 1–⁠22 октября, выбрали, что из этого важно. Третья игра превратит это в действия.</p>
+      <p style="margin:0;text-wrap:pretty;">Она ценна и без воркшопа: здесь соберут то, чего сознательно не было в прошлых частях триптиха.</p>
     </div>
   </div>
   <div style="border-bottom:1px solid rgba(237,237,234,.16);">
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Способы действия</div>
-      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, осязаемые разработки.</strong> На первой игре ведущий оставил их за рамками, на третьей с них начинают.</p>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, осязаемые разработки.</strong> На первой игре ведущий оставил их за рамками, на третьей с них начнут.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Под позицию</div>
@@ -226,7 +227,7 @@ button{font:inherit}
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Продолжение</div>
-      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Дефектная ведомость сентября пойдёт в работу.</strong> Пробелы и недоделанное первой игры третья продолжает на практике.</p>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Дефектная ведомость сентября пойдёт в работу.</strong> Пробелы и недоделанное первой игры третья продолжит на практике.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Учебники</div>
@@ -249,7 +250,7 @@ button{font:inherit}
       <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.02;letter-spacing:-0.03em;">Третья часть, где переходят к практике</h2>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
-      <p style="margin:0;text-wrap:pretty;">Первые две части триптиха разбирали, что есть в менеджменте и что в нём ценно. Третья самая прикладная: всё понятое здесь превращают в действия.</p>
+      <p style="margin:0;text-wrap:pretty;">Первые две части триптиха разбирали, что есть в менеджменте и что в нём ценно. Третья самая прикладная: на ней всё понятое превратят в действия.</p>
       <p style="margin:0;text-wrap:pretty;">Один из участников сентябрьской игры признался: с игр он обычно увозил ворох находок, а дальше — «стухнет, пока ты до офиса доедешь».</p>
     </div>
   </div>
@@ -259,8 +260,8 @@ button{font:inherit}
       <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Скрипты, механики, осязаемые разработки.</strong> Ведущий говорит, что они опираются на первые две части и при этом понятны «гражданским».</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
-      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Несколько подходов</div>
-      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Одного привычного набора практик мало.</strong> Он сложился под прежние представления о мире, а разные ситуации требуют разных способов.</p>
+      <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Больше всего людей</div>
+      <p style="flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300;text-wrap:pretty;"><strong style="font-weight:500;">Ведущий ждёт на третьей части больше всего людей.</strong> </p>
     </div>
     <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid rgba(237,237,234,.16);">
       <div style="flex:1 1 240px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;color:#8A918F;padding-top:.35em;">Под позицию</div>
@@ -295,11 +296,11 @@ button{font:inherit}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--gap);">
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid rgba(237,237,234,.25);">
       <span style="font-weight:200;font-size:calc(var(--hs) * 64px);line-height:1;letter-spacing:-0.03em;">01</span>
-      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Онтология менеджмента.</strong> Игра, 17–20 сентября: что существует в менеджменте.</p>
+      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Онтология менеджмента.</strong> Игра, 17–⁠20 сентября: что существует в менеджменте.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid rgba(237,237,234,.25);">
       <span style="font-weight:200;font-size:calc(var(--hs) * 64px);line-height:1;letter-spacing:-0.03em;">02</span>
-      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Аксиология менеджмента.</strong> Воркшоп, 1–22 октября: что из этого для вас важно.</p>
+      <p style="margin:0;text-wrap:pretty;"><strong style="font-weight:500;">Аксиология менеджмента.</strong> Воркшоп, 1–⁠22 октября: что из этого для вас важно.</p>
     </div>
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid #EDEDEA;">
       <span style="font-weight:200;font-size:calc(var(--hs) * 64px);line-height:1;letter-spacing:-0.03em;color:var(--accent);">03</span>
@@ -410,16 +411,16 @@ button{font:inherit}
   </div>
   <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:40px clamp(40px,6vw,120px);">
     <div data-reveal="1" style="flex:1 1 480px;display:flex;flex-direction:column;gap:18px;">
-      <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;">При регистрации до 15 октября</div>
+      <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;">При регистрации до 15 октября</div>
       <div style="white-space:nowrap;margin-left:-0.05em;font-weight:200;font-size:calc(var(--hs) * clamp(64px, 11vw, 200px));line-height:.9;letter-spacing:-0.05em;">54 000 ₽</div>
     </div>
     <div data-reveal="1" style="flex:1 1 460px;max-width:620px;">
       <div style="border-bottom:1px solid rgba(11,15,15,.16);">
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">Когда</span><span>с 18:00 пятницы, 30 октября, до 12:00 понедельника, 2 ноября</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">Когда</span><span>с 18:00 пятницы, 30 октября, до 12:00 понедельника, 2 ноября</span></div>
         <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">Где</span><span>Светлогорск, Калининградская область</span></div>
         <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">Форма участия</span><span>очно, дистанционно, асинхронно</span></div>
         <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">Стоимость</span><span>108 000 ₽</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">При регистрации до 15 октября</span><span style="font-weight:500;">54 000 ₽</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:16px 24px;padding:18px 0;border-top:1px solid rgba(11,15,15,.16);"><span style="font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em;">При регистрации до 15 октября</span><span style="font-weight:500;">54 000 ₽</span></div>
       </div>
       <a href="#register" style="display:inline-flex;align-items:center;margin-top:32px;padding:20px 40px;background:#0B0F0F;color:#EDEDEA;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:#134040;color:#EDEDEA;">Участвовать</a>
     </div>
@@ -456,7 +457,7 @@ button{font:inherit}
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:24px;border-top:1px solid rgba(237,237,234,.3);">
       <div style="display:flex;flex-direction:column;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;line-height:1.6;">
         <span>Светлогорск · очно, дистанционно, асинхронно</span>
-        <span>108 000 ₽ · до 15 октября — 54 000 ₽</span>
+        <span>108 000 ₽ · до 15 октября — 54 000 ₽</span>
       </div>
       <a href="#register" style="display:inline-flex;align-items:center;padding:20px 40px;background:#EDEDEA;color:#0B0F0F;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;transition:background .25s;" style-hover="background:var(--accent);color:#0B0F0F;">Участвовать</a>
     </div>
@@ -509,14 +510,14 @@ class Component extends DCLogic {
         name: 'Управленец', label: 'управленец',
         still: B + 'temnyi-koridor-svet-kadr.jpg',
         wide: B + 'beton-kuby-monohrom.jpg', tall: B + 'beton-lestnitsa-temnota.jpg',
-        heroText: "Старый способ управлять привёл вас туда, где вы сейчас. Четыре дня — чтобы собрать новый под свою задачу.",
-        introRest: "на любую ситуацию находится один ответ",
-        intro1: "Ведущий игры называет это «одноходовкой»: что бы ни случилось, в ход идёт привычный приём. На сентябрьской игре он сказал прямо, что время одноходовок прошло.",
-        intro2: "Игра о другом ходе: понять, чем вы на самом деле управляете, что хотите сохранить, что изменить, и подобрать под это способ действия.",
+        heroText: "Костя, тут нужен меткий тезис, я его выделить из материала не сумел",
+        introRest: "как организовать деятельность и воплотить найденное в жизни",
+        intro1: "Игра посвящена подбору конкретных механик и практическим разработкам, исходя из картины мира и ценностей участников.",
+        intro2: "",
         obj: "Процесс, продукт, отношения в команде или своя позиция: от того, что выбрано, зависит, какой ход сработает.",
         was: "Если в сентябре вы разбирали свой управленческий труд, теперь превращаете это в способы действия под свою позицию.",
         doItems: [
-          "Ответите себе без прикрас, в какие игры играете вместо работы: за уважение, за власть, за то, как выглядите в глазах коллег.",
+          "Это будет полипарадигмально: для разных ситуаций и задач нужны разные способы организации деятельности. Один привычный набор практик ограничен теми представлениями, под которые он сложился.",
           "Посмотрите на нижнюю часть айсберга: способы добиваться своего, выученные в детстве, и то, как они работают на совещаниях.",
           "Соберёте способ действия под свою задачу и тут же попробуете его на команде.",
           ""
@@ -537,17 +538,17 @@ class Component extends DCLogic {
         name: 'Предприниматель', label: 'предприниматель',
         still: B + 'razvyazka-v-tumane-kadr.jpg',
         wide: B + 'doroga-skvoz-dyuny-sverhu-holodnyi.jpg', tall: B + 'most-v-tumane-monohrom.jpg',
-        heroText: "Четыре дня, чтобы разобрать своё дело до винтика и найти, где небольшое изменение сдвигает всё.",
-        introRest: "у четырёх аптек одни лекарства, а дела разные",
-        intro1: "Одна аптека живёт производством, другая торговым залом, третья финансовой схемой. Четвёртая пять часов в неделю учит провизоров: её владелец уверен, что у прилавка ставят девять диагнозов из десяти.",
-        intro2: "Игра о том, на чём держится ваше дело, где у него рычаги и какой способ действия выбрать, чтобы его перестроить.",
+        heroText: "Костя, тут нужен меткий тезис, я его выделить из материала не сумел",
+        introRest: "как организовать деятельность и воплотить найденное в жизни",
+        intro1: "Игра посвящена подбору конкретных механик и практическим разработкам, исходя из картины мира и ценностей участников.",
+        intro2: "У четырёх аптек одни лекарства, а дела разные. Одна живёт производством, другая торговым залом, третья финансовой схемой, а четвёртая пять часов в неделю учит провизоров: её владелец уверен, что у прилавка ставят девять диагнозов из десяти.",
         obj: "Компания, цепочка от поставщика до покупателя или рынок целиком: от выбора зависит, какие рычаги вам доступны.",
         was: "Если в сентябре вы собирали своё дело как объект, теперь решаете, что в нём перестраивать и чем.",
         doItems: [
+          "Это будет полипарадигмально: для разных ситуаций и задач нужны разные способы организации деятельности. Один привычный набор практик ограничен теми представлениями, под которые он сложился.",
           "Разберёте своё место в отраслевой цепочке — то, до чего у торговца кофе, по словам ведущего, руки почти никогда не доходят.",
           "Найдёте рычаги: команда, которая в сентябре разбирала кофейню, обнаружила, что за вывеской их непочатый край.",
-          "Решите, что нужно делу: наладить процессы, сменить место на рынке или пересобрать продукт целиком.",
-          ""
+          "Решите, что нужно делу: наладить процессы, сменить место на рынке или пересобрать продукт целиком."
         ],
         insetTitle: "Из пешек в ферзи",
         inset: "Один собственник всю жизнь метался между диктатурой и демократией и считал свой стиль неправильным. На сентябрьской игре он понял, что управляет чужим управлением: делает из пешек ферзей, которые решают сами. Свои косяки он теперь считает преимуществом.",
@@ -565,17 +566,17 @@ class Component extends DCLogic {
         name: 'Свободный художник', label: 'свободный художник',
         still: B + 'teni-na-stene-kadr.jpg',
         wide: B + 'pesok-ryab-holodnyi.jpg', tall: B + 'dym-v-temnote.jpg',
-        heroText: "Вы сами себе мастер, продавец и администратор. Четыре дня — чтобы понять, что в этой практике ваше, а что можно устроить иначе.",
-        introRest: "талант приходит в комплекте с суетой",
-        intro1: "Хороший репетитор учит легко, а вокруг — продажи, реклама, переписка с опоздавшими. Ведущий прикинул: из десяти дел, которые мы делаем, шесть идут через силу, два в радость, и с этими двумя мы проводим меньше всего времени.",
-        intro2: "Игра о том, как устроить практику, чтобы больше времени уходило на своё, и какими способами этого добиться.",
+        heroText: "Костя, тут нужен меткий тезис, я его выделить из материала не сумел",
+        introRest: "как организовать деятельность и воплотить найденное в жизни",
+        intro1: "Игра посвящена подбору конкретных механик и практическим разработкам, исходя из картины мира и ценностей участников.",
+        intro2: "Хороший репетитор учит легко, а вокруг — продажи, реклама, переписка с опоздавшими. Ведущий прикинул: из десяти дел, которые мы делаем, шесть идут через силу, два в радость, и с этими двумя мы проводим меньше всего времени.",
         obj: "Практика, замысел, который ищет форму, или жизнь целиком: от выбора зависит, какое действие окажется верным.",
         was: "Если в сентябре вы разбирали свою практику, теперь собираете для неё способы работы.",
         doItems: [
+          "Это будет полипарадигмально: для разных ситуаций и задач нужны разные способы организации деятельности. Один привычный набор практик ограничен теми представлениями, под которые он сложился.",
           "Разберёте практику как дело: что в ней ваше, а что приходит в нагрузку.",
           "Соберёте свои способы работы: для свободной практики готовых почти нет.",
-          "Посмотрите, как работает творческий замысел и можно ли сделать его технологией.",
-          ""
+          "Посмотрите, как работает творческий замысел и можно ли сделать его технологией."
         ],
         insetTitle: "Мастерская на одном человеке",
         inset: "У мастера всё держится на ней самой, от идеи до продажи, даже часть инструментов она делает себе сама. На сентябрьской игре, своей первой, она разобралась, что оставит себе ради авторского стиля. Под остальное она соберёт временные творческие коллективы.",
@@ -602,7 +603,7 @@ class Component extends DCLogic {
     { q: "Можно участвовать дистанционно?", a: "Да. Очные и дистанционные участники работают в одних командах." },
     { q: "Нужна методологическая подготовка?", a: "Нет. Нужны интерес и готовность спрашивать, пробовать, переделывать." },
     { q: "Что я увезу?", a: "Точнее поставленную задачу и план: что проверить, чему научиться, кого позвать." },
-    { q: "Сколько стоит участие?", a: "108 000 ₽. При регистрации до 15 октября — 54 000 ₽." },
+    { q: "Сколько стоит участие?", a: "108 000 ₽. При регистрации до 15 октября — 54 000 ₽." },
     { q: "Остался вопрос", a: "Напишите Константину Орлову: me@orlov.academy." }
   ];
 

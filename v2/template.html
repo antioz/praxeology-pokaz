@@ -19,6 +19,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#0B0F0F;color:#EDEDEA;font-family:var(--f-sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 a:hover{color:var(--accent)}
+.i2:empty{display:none}
 button{font:inherit}
 </style>
 </helmet>
@@ -119,7 +120,7 @@ button{font:inherit}
   </div>
 
   <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:end;gap:24px 40px;padding:0 var(--side) 32px;">
-    <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;">{{ s.heroText }}</p>
+    <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;"><mark style="background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone;">{{ s.heroText }}</mark></p>
   </div>
 </section>
 
@@ -133,7 +134,7 @@ button{font:inherit}
     <h2 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(30px, 3.6vw, 56px));line-height:1.08;letter-spacing:-0.025em;text-wrap:balance;">{{ s.introRest }}</h2>
     <div style="display:flex;flex-direction:column;gap:1.1em;max-width:var(--tw);">
       <p style="margin:0;text-wrap:pretty;">{{ s.intro1 }}</p>
-      <p style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
+      <p class="i2" style="margin:0;text-wrap:pretty;">{{ s.intro2 }}</p>
     </div>
   </div>
   <div data-reveal="1" style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;border-radius:var(--r);background:#0C2626;color:#EDEDEA;">

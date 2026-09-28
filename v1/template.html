@@ -31,6 +31,7 @@ button{font:inherit;color:inherit}
 .on-dark .lead{color:var(--light)}
 .pill{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:16px 30px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 16px var(--sans);border:1px solid var(--cream);cursor:pointer;transition:background .25s,color .25s}
 .pill:hover{background:#fff}
+mark.todo{background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .pill.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
 .pill.dark:hover{background:var(--pine)}
 .pill.ghost{background:transparent;color:inherit;border-color:currentColor}
@@ -356,11 +357,10 @@ function quiz(n){
   [...$('#qdots').children].forEach((d,i)=>d.classList.toggle('on',i===n));
   $('#qback').hidden=n===0;
   let h='';
-  if(n===0){h=`<h1 class="qh">${esc(get('quiz.welcome.title'))}</h1><p class="qt">${esc(get('quiz.welcome.text'))}</p><button class="pill" data-go="1">${esc(get('quiz.welcome.button'))}</button><button class="link" data-skip style="color:#fff;font-size:14px;opacity:.85">Пропустить и читать всё подряд</button>`;}
+  if(n===0){h=`<h1 class="qh">${esc(get('quiz.welcome.title'))}</h1><p class="qt">${esc(get('quiz.welcome.text'))}</p><button class="pill" data-go="1">${esc(get('quiz.welcome.button'))}</button><button class="link" data-skip style="color:#fff;font-size:14px;opacity:.85">${esc(get('quiz.welcome.skip'))}</button>`;}
   if(n===1){h=`<h2 class="qh">${esc(get('quiz.exp.question'))}</h2><div class="opts"><button class="opt" data-exp="first">${esc(get('quiz.exp.first'))}</button><button class="opt" data-exp="been">${esc(get('quiz.exp.been'))}</button><button class="opt" data-exp="many">${esc(get('quiz.exp.many'))}</button></div>`;}
   if(n===2){h=`<h2 class="qh">${esc(get('quiz.sph.question'))}</h2><div class="opts">${['manager','owner','artist'].map(s=>{const[a,b]=split('quiz.sph.'+s);return `<button class="opt" data-sph="${s}">${esc(a)}${b?`<small>${esc(b)}</small>`:''}</button>`}).join('')}</div>`;}
   $('#qbody').innerHTML=`<div class="qstep">${h}</div>`;
-  const f=$('#qbody').querySelector('button');f&&f.focus({preventScroll:true});
 }
 function open(){$('#quiz').hidden=true;$('#landing').hidden=false;document.body.style.overflow='';render();window.scrollTo(0,0);}
 
@@ -369,7 +369,7 @@ function render(){
   const s=st.sphere,e=st.exp,m=IMG[s];
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=get(el.dataset.t));
   $('#heroImg').src=m.hero;$('#introImg').src=m.intro;$('#doImg').src=m.do;$('#bringImg').src=m.bring;$('#ctaImg').src=m.cta;
-  $('#heroSub').textContent=get('hero.sub.'+s);
+  $('#heroSub').innerHTML=`<mark class="todo">${esc(get('hero.sub.'+s))}</mark>`;
   ($('#profile')||{}).textContent=`${EXP[e]} · ${SPH[s]}`;
   $('#introTitle').textContent=get(`intro.${s}.title`);$('#introText').textContent=get(`intro.${s}.text`);
 
