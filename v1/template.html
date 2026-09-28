@@ -204,6 +204,16 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
   #hdr .pill{padding:8px 14px;font-size:13px}
   .chip{border-radius:18px}
 }
+/* ---------- motion: сдержанно, фоны неподвижны ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+#top.enter .hero h1 .it{animation:rise 1s cubic-bezier(.2,.7,.2,1) .1s both}
+#top.enter .hero h1 .ln{display:block;animation:rise 1s cubic-bezier(.2,.7,.2,1) .25s both}
+#top.enter .hsub{animation:rise 1s cubic-bezier(.2,.7,.2,1) .5s both}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease var(--d,0s),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.photo.rv{transform:none}
+.photo.rv img{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.photo.rv.in img{transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -236,7 +246,7 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
     <img class="bg" id="heroImg" alt="">
     <div class="shade"></div>
     <div class="hero wrap">
-      <h1><span class="it">Праксеология</span>менеджмента</h1>
+      <h1><span class="it">Праксеология</span><span class="ln">менеджмента</span></h1>
       <p class="hsub" id="heroSub"></p>
     </div>
   </section>
@@ -362,7 +372,18 @@ function quiz(n){
   if(n===2){h=`<h2 class="qh">${esc(get('quiz.sph.question'))}</h2><div class="opts">${['manager','owner','artist'].map(s=>{const[a,b]=split('quiz.sph.'+s);return `<button class="opt" data-sph="${s}">${esc(a)}${b?`<small>${esc(b)}</small>`:''}</button>`}).join('')}</div>`;}
   $('#qbody').innerHTML=`<div class="qstep">${h}</div>`;
 }
-function open(){$('#quiz').hidden=true;$('#landing').hidden=false;document.body.style.overflow='';render();window.scrollTo(0,0);}
+function open(){$('#quiz').hidden=true;$('#landing').hidden=false;document.body.style.overflow='';render();window.scrollTo(0,0);const tp=$('#top');tp.classList.remove('enter');void tp.offsetWidth;tp.classList.add('enter');reveal();}
+
+/* появление при прокрутке */
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IO=('IntersectionObserver' in window)&&!RM?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');IO.unobserve(en.target);}}),{rootMargin:'0px 0px -8% 0px',threshold:.12}):null;
+function reveal(){
+  if(!IO)return;
+  const one='#landing .head, #intro .txt, #landing .photo, #bring, #host .stack, #price .price > div, #ctaTitle';
+  const groups='#facts, #game .cards, #game .list, #doList, #chg, #faqList';
+  document.querySelectorAll(one).forEach(el=>{if(!el.classList.contains('rv')){el.classList.add('rv');IO.observe(el);}});
+  document.querySelectorAll(groups).forEach(g=>[...g.children].forEach((el,i)=>{if(!el.classList.contains('rv')){el.style.setProperty('--d',Math.min(i,4)*.08+'s');el.classList.add('rv');IO.observe(el);}}));
+}
 
 /* render */
 function render(){

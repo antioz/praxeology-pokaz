@@ -20,6 +20,25 @@ body{margin:0;background:#0B0F0F;color:#EDEDEA;font-family:var(--f-sans);-webkit
 a{color:inherit}
 a:hover{color:var(--accent)}
 .i2:empty{display:none}
+/* motion: вход первого экрана после квиза, фоны неподвижны */
+@media (prefers-reduced-motion:no-preference){
+@keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+[data-hero][data-q="hidden"] h1 span{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+[data-hero][data-q="hidden"] h1 span:nth-child(1){animation-delay:0.05s}
+[data-hero][data-q="hidden"] h1 span:nth-child(2){animation-delay:0.09s}
+[data-hero][data-q="hidden"] h1 span:nth-child(3){animation-delay:0.13s}
+[data-hero][data-q="hidden"] h1 span:nth-child(4){animation-delay:0.17s}
+[data-hero][data-q="hidden"] h1 span:nth-child(5){animation-delay:0.21s}
+[data-hero][data-q="hidden"] h1 span:nth-child(6){animation-delay:0.25s}
+[data-hero][data-q="hidden"] h1 span:nth-child(7){animation-delay:0.29s}
+[data-hero][data-q="hidden"] h1 span:nth-child(8){animation-delay:0.33s}
+[data-hero][data-q="hidden"] h1 span:nth-child(9){animation-delay:0.37s}
+[data-hero][data-q="hidden"] h1 span:nth-child(10){animation-delay:0.41s}
+[data-hero][data-q="hidden"] h1 span:nth-child(11){animation-delay:0.45s}
+[data-hero][data-q="hidden"] h1 span:nth-child(12){animation-delay:0.49s}
+[data-hero][data-q="hidden"] .h-sub{animation:rise .9s cubic-bezier(.2,.7,.2,1) .6s both}
+[data-hero][data-q="hidden"] .h-msg{animation:rise .9s cubic-bezier(.2,.7,.2,1) .8s both}
+}
 button{font:inherit}
 </style>
 </helmet>
@@ -96,7 +115,7 @@ button{font:inherit}
 </div>
 
 <!-- 1 HERO -->
-<section data-screen-label="01 Hero" style="position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:linear-gradient(165deg,#134040 0%,#0C2626 55%,#0B0F0F 100%);color:#EDEDEA;overflow:hidden;">
+<section data-screen-label="01 Hero" data-hero data-q="{{ quiz.vis }}" style="position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:linear-gradient(165deg,#134040 0%,#0C2626 55%,#0B0F0F 100%);color:#EDEDEA;overflow:hidden;">
   <sc-if value="{{ heroVideo }}" hint-placeholder-val="{{ true }}">
     <img src="{{ s.still }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,38,38,.72) 0%,rgba(19,64,64,.38) 45%,rgba(11,15,15,.86) 100%);"></div>
@@ -116,11 +135,11 @@ button{font:inherit}
     <h1 aria-label="Праксеология менеджмента" style="margin:0;display:flex;justify-content:space-between;font-family:var(--f-sans);font-weight:200;font-size:min(var(--h1), 9.4vw);line-height:1;letter-spacing:0;">
       <span>П</span><span>Р</span><span>А</span><span>К</span><span>С</span><span>Е</span><span>О</span><span>Л</span><span>О</span><span>Г</span><span>И</span><span>Я</span>
     </h1>
-    <div style="margin-top:.3em;text-align:center;font-weight:300;font-size:calc(min(var(--h1), 9.4vw) * 0.34);line-height:1.1;letter-spacing:0.01em;">⟦hero.15⟧</div>
+    <div class="h-sub" style="margin-top:.3em;text-align:center;font-weight:300;font-size:calc(min(var(--h1), 9.4vw) * 0.34);line-height:1.1;letter-spacing:0.01em;">⟦hero.15⟧</div>
   </div>
 
   <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:end;gap:24px 40px;padding:0 var(--side) 32px;">
-    <p style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;"><mark style="background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone;">{{ s.heroText }}</mark></p>
+    <p class="h-msg" style="margin:0;text-align:center;font-size:calc(var(--fs) * 0.95);line-height:1.5;font-weight:300;text-wrap:balance;"><mark style="background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone;">{{ s.heroText }}</mark></p>
   </div>
 </section>
 
@@ -664,7 +683,7 @@ class Component extends DCLogic {
   after() {
     document.querySelectorAll('video').forEach(el => { el.muted = true; if (el.paused) { const pr = el.play && el.play(); pr && pr.catch && pr.catch(() => {}); } });
     document.body.style.overflow = this.state.quizOpen ? 'hidden' : '';
-    const anim = this.props.animations !== false;
+    const anim = this.props.animations !== false && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
     if (!anim) {
       document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = ''; el.style.transform = ''; el.style.transition = ''; el.removeAttribute('data-rv'); this.io && this.io.unobserve(el); });
       return;
@@ -672,7 +691,9 @@ class Component extends DCLogic {
     document.querySelectorAll('[data-reveal]:not([data-rv])').forEach(el => {
       el.setAttribute('data-rv', '1');
       el.style.opacity = '0'; el.style.transform = 'translateY(28px)';
-      el.style.transition = 'opacity 1s ease, transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      const sib = el.parentElement ? [...el.parentElement.children].filter(x => x.hasAttribute('data-reveal')) : [];
+      const d = Math.min(Math.max(sib.indexOf(el), 0), 4) * 0.08;
+      el.style.transition = `opacity 1s ease ${d}s, transform 1.1s cubic-bezier(.2,.7,.2,1) ${d}s`;
       this.io.observe(el);
     });
   }
