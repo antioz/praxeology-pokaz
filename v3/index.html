@@ -495,7 +495,7 @@ button{font:inherit}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
-&quot;showQuiz&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Показывать квиз&quot;},
+&quot;showQuiz&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Показывать квиз&quot;},
 &quot;experience&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Впервые&quot;,&quot;Были на играх&quot;,&quot;Не раз&quot;],&quot;default&quot;:&quot;Впервые&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Опыт&quot;},
 &quot;sphere&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Управленец&quot;,&quot;Предприниматель&quot;,&quot;Свободный художник&quot;],&quot;default&quot;:&quot;Предприниматель&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Контент&quot;,&quot;label&quot;:&quot;Сфера&quot;},
 &quot;baseSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:15,&quot;max&quot;:22,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;default&quot;:18,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Типографика&quot;,&quot;label&quot;:&quot;Базовый размер текста&quot;},
@@ -627,7 +627,7 @@ class Component extends DCLogic {
   ];
 
   state = {
-    quizOpen: (this.props || {}).showQuiz !== false,
+    quizOpen: (this.props || {}).showQuiz === true,  // v3: квиз выключен, страница «впервые × предприниматель»
     step: 0,
     exp: (this.props || {}).experience || 'Впервые',
     sphere: (this.props || {}).sphere || 'Предприниматель',
@@ -648,7 +648,7 @@ class Component extends DCLogic {
     const p = this.props, up = {};
     if (pp.experience !== p.experience && p.experience) up.exp = p.experience;
     if (pp.sphere !== p.sphere && p.sphere) up.sphere = p.sphere;
-    if (pp.showQuiz !== p.showQuiz) { up.quizOpen = p.showQuiz !== false; up.step = 0; }
+    if (pp.showQuiz !== p.showQuiz) { up.quizOpen = p.showQuiz === true; up.step = 0; }
     if (Object.keys(up).length) this.setState(up);
     this.applyVars(); this.after();
   }
