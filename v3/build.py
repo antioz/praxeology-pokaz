@@ -11,6 +11,8 @@ def nbsp(v):
     v = re.sub(MON + r' (\d{4})', '\\1\u00a0\\2', v)
     v = re.sub(MON + r' – ', '\\1\u00a0– ', v)
     v = re.sub(r'(\d)–(\d)', '\\1–\u2060\\2', v)  # «1–22» не рвать после тире
+    v = re.sub(r'(\d{4}) (год[аеу]?)', '\\1\u00a0\\2', v)  # «2002 года» не рвать
+    v = re.sub(r'(?<=\w)-(?=\w)', '\u2011', v)  # «онлайн-участники»: неразрывный дефис
     return v
 copy = {k: nbsp(v) for k, v in copy.items()}
 t = open('template.html', encoding='utf-8').read()
