@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* v4: lendodel, «впервые × предприниматель», дизайн v3, палитра заказчика: #222222 #ffffff #e44a00 #0083af #2E1352 */
+/* v4: lendodel, «впервые × предприниматель», дизайн v3, палитра заказчика: #222222 #ffffff #e44a00 #0083af (фиолетовый #2E1352 снят 30.09: появлялся пятнами в конце) */
 :root{
-  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;--deep:#2E1352;
+  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;
   --mute:#6e6e6e;--mute-d:rgba(255,255,255,.66);--line:rgba(34,34,34,.16);--line-d:rgba(255,255,255,.2);
   --fs:18px;--lh:1.6;--tw:680px;--tr:0.12em;--side:64px;--sec:140px;--gap:24px;
   --f-sans:'Inter Tight',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;
@@ -36,7 +36,7 @@ img{max-width:100%}
 .dash::before{content:"";display:block;width:22px;height:2px;background:var(--accent);margin-bottom:18px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 figure.frame{margin:0}
-.band{position:relative;width:100%;aspect-ratio:21/9;min-height:260px;overflow:hidden;background:var(--deep)}
+.band{position:relative;width:100%;aspect-ratio:21/9;min-height:260px;overflow:hidden;background:var(--ink)}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cap{margin:16px 0 0;max-width:var(--tw);font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;line-height:1.6;text-transform:uppercase;color:var(--mute)}
 .cap::before{content:"↑ ";color:var(--accent)}
@@ -68,10 +68,7 @@ figure.frame{margin:0}
       <dt>Функция</dt><dd>Декоративный с доводом: задаёт тон входа, на нём лежит название.</dd>
     </dl>
   </figure>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.55) 0%,rgba(34,34,34,.35) 45%,rgba(34,34,34,.9) 100%);"></div>
-  <div style="position:relative;display:flex;justify-content:flex-end;padding:28px var(--side) 0;">
-    <a href="#register" class="btn light" style="padding:16px 28px;">⟦hero.btn⟧</a>
-  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.5) 0%,rgba(34,34,34,.3) 45%,rgba(34,34,34,.9) 100%);"></div>
   <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px var(--side);">
     <h1 aria-label="Праксеология менеджмента" style="margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(140px,9.4vw);line-height:1;">
       <span style="--i:0">П</span><span style="--i:1">Р</span><span style="--i:2">А</span><span style="--i:3">К</span><span style="--i:4">С</span><span style="--i:5">Е</span><span style="--i:6">О</span><span style="--i:7">Л</span><span style="--i:8">О</span><span style="--i:9">Г</span><span style="--i:10">И</span><span style="--i:11">Я</span>
@@ -80,7 +77,6 @@ figure.frame{margin:0}
   </div>
   <div class="h-msg" style="position:relative;padding:0 var(--side) clamp(32px,5vh,56px);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;">
     <p class="eyebrow" style="margin:0;font-size:12px;letter-spacing:.3em;color:var(--accent);">⟦hero.tag⟧</p>
-    <p style="margin:0;max-width:760px;font-weight:300;font-size:clamp(19px,2vw,27px);line-height:1.35;text-wrap:balance;">⟦hero.line⟧</p>
   </div>
 </section>
 
@@ -202,23 +198,20 @@ figure.frame{margin:0}
       <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.4.q⟧</p>
     </div>
   </div>
-  <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px;margin-top:var(--gap);padding:clamp(28px,5vw,80px);background:var(--deep);color:#fff;">
+  <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px;margin-top:var(--gap);padding:clamp(28px,5vw,80px);background:var(--ink);color:#fff;">
     <div class="eyebrow" style="flex:1 1 200px;max-width:280px;line-height:1.6;color:var(--accent);">⟦sep.story.h⟧</div>
     <p style="flex:3 1 520px;margin:0;font-weight:300;font-size:clamp(18px,1.9vw,27px);line-height:1.42;">⟦sep.story.p⟧</p>
   </div>
-  <div data-reveal style="margin-top:clamp(32px,4vw,56px);">
-    <a href="#register" class="btn">⟦sep.btn⟧</a>
-  </div>
 </section>
 
-<!-- 6 ЧЕМ ЭТА ИГРА ОТЛИЧАЕТСЯ -->
-<section class="sec" style="background:var(--deep);color:#fff;">
+<!-- 6 КАК УСТРОЕНА РАБОТА -->
+<section class="sec" style="background:var(--paper2);">
   <h2 data-reveal class="h2" style="max-width:1100px;">⟦spec.h⟧</h2>
   <div style="margin-top:clamp(48px,6vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(40px,4vw,64px) clamp(28px,3vw,48px);">
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.1.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.1.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.2.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.2.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.3.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.3.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.4.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.4.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.1.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.1.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.2.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.2.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.3.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.3.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.4.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.4.p⟧</p></div>
   </div>
 </section>
 
@@ -262,7 +255,7 @@ figure.frame{margin:0}
   </div>
 </section>
 
-<!-- 8 С ЧЕМ ПРИЕЗЖАТЬ И ВОПРОСЫ (все сомнения здесь) -->
+<!-- 8 С ЧЕМ ПРИЕЗЖАТЬ -->
 <section class="sec" style="background:var(--paper2);">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);align-items:start;">
     <h2 data-reveal class="h2">⟦bring.h⟧</h2>
@@ -275,8 +268,12 @@ figure.frame{margin:0}
       </ul>
     </div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px clamp(28px,6vw,120px);align-items:start;margin-top:clamp(56px,7vw,112px);">
-    <div data-reveal class="eyebrow" style="color:var(--accent);padding-top:26px;">⟦faq.h⟧</div>
+</section>
+
+<!-- 8б ВОПРОСЫ -->
+<section class="sec" style="background:var(--paper);">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px clamp(28px,6vw,120px);align-items:start;">
+    <h2 data-reveal class="h2">⟦faq.h⟧</h2>
     <div data-reveal style="min-width:0;max-width:var(--tw);border-bottom:1px solid var(--line);">
       <details style="border-top:1px solid var(--line);"><summary>⟦faq.1.q⟧</summary><p>⟦faq.1.a⟧</p></details>
       <details style="border-top:1px solid var(--line);"><summary>⟦faq.2.q⟧</summary><p>⟦faq.2.a⟧</p></details>
@@ -295,7 +292,7 @@ details p{margin:0;padding:0 0 28px;max-width:var(--tw)}
 </style>
 
 <!-- 9 УЧАСТИЕ · кадр К6 (кульминация, «стало») → цена и кнопка -->
-<section id="register" class="sec" style="background:var(--paper);">
+<section id="register" class="sec" style="background:var(--paper2);">
   <figure data-reveal class="frame">
     <div class="band" style="aspect-ratio:21/8;"><img src="../v3/media/razvyazka-v-tumane-kadr.jpg" alt="Развязка дорог сверху: видны все съезды"></div>
     <dl class="sr-only">
@@ -325,12 +322,8 @@ details p{margin:0;padding:0 0 28px;max-width:var(--tw)}
 </section>
 
 <!-- ФУТЕР -->
-<footer style="background:var(--ink);color:#fff;padding:clamp(40px,5vw,80px) var(--side) 0;overflow:hidden;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;font-family:var(--f-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;line-height:1.8;color:var(--mute-d);">
-    <span>⟦footer.01⟧</span>
-    <span>Orlov Academy · ИП Орлов Константин Викторович · ИНН 390702089608 · <a href="mailto:me@orlov.academy" style="color:#fff;">me@orlov.academy</a></span>
-  </div>
-  <div aria-hidden="true" style="margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
+<footer style="background:var(--ink);color:#fff;padding:0 var(--side);overflow:hidden;">
+  <div aria-hidden="true" style="margin:-0.06em 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
 </footer>
 
 <script>

@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* v3: «впервые × предприниматель», палитра заказчика: #222222 #ffffff #e44a00 #0083af #2E1352 */
+/* v3: «впервые × предприниматель», палитра заказчика: #222222 #ffffff #e44a00 #0083af (фиолетовый #2E1352 снят 30.09: появлялся пятнами в конце) */
 :root{
-  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;--deep:#2E1352;
+  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;
   --mute:#6e6e6e;--mute-d:rgba(255,255,255,.64);--line:rgba(34,34,34,.16);--line-d:rgba(255,255,255,.2);
   --fs:18px;--lh:1.6;--tw:680px;--tr:0.12em;--side:64px;--sec:140px;--gap:24px;
   --f-sans:'Inter Tight',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;
@@ -31,8 +31,6 @@ p{text-wrap:pretty}
 .sec{padding:var(--sec) var(--side)}
 .opt:empty{display:none}
 .dash::before{content:"";display:block;width:22px;height:2px;background:var(--accent);margin-bottom:18px}
-.num-c{flex:none;display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border:2px solid var(--blue);border-radius:50%;color:var(--accent);font-weight:500;font-size:22px}
-@media (max-width:760px){.num-c{width:48px;height:48px;font-size:18px}}
 /* анимация: вход первого экрана и появление блоков, фоны неподвижны */
 @media (prefers-reduced-motion:no-preference){
   @keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
@@ -50,10 +48,7 @@ p{text-wrap:pretty}
 <!-- 1 ПЕРВЫЙ ЭКРАН -->
 <section class="hero" style="position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--ink);color:#fff;overflow:hidden;">
   <img src="media/temnyi-koridor-svet-kadr.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.55) 0%,rgba(34,34,34,.35) 45%,rgba(34,34,34,.9) 100%);"></div>
-  <div style="position:relative;display:flex;justify-content:flex-end;padding:28px var(--side) 0;">
-    <a href="#register" class="btn light" style="padding:16px 28px;">⟦hero.btn⟧</a>
-  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.5) 0%,rgba(34,34,34,.3) 45%,rgba(34,34,34,.9) 100%);"></div>
   <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px var(--side);">
     <h1 aria-label="Праксеология менеджмента" style="margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(140px,9.4vw);line-height:1;">
       <span style="--i:0">П</span><span style="--i:1">Р</span><span style="--i:2">А</span><span style="--i:3">К</span><span style="--i:4">С</span><span style="--i:5">Е</span><span style="--i:6">О</span><span style="--i:7">Л</span><span style="--i:8">О</span><span style="--i:9">Г</span><span style="--i:10">И</span><span style="--i:11">Я</span>
@@ -80,7 +75,7 @@ p{text-wrap:pretty}
       <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">⟦what.b4.k⟧</span><span style="font-size:calc(var(--fs) * 1.1);">⟦what.b4.v⟧</span></li>
     </ul>
   </div>
-  <div data-reveal style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:var(--deep);color:#fff;">
+  <div data-reveal style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:var(--ink);color:#fff;">
     <img src="media/doroga-skvoz-dyuny-sverhu-holodnyi.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <div style="position:absolute;inset:0;background:var(--ink);opacity:.3;"></div>
     <div class="eyebrow" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-size:11px;">
@@ -127,25 +122,25 @@ p{text-wrap:pretty}
 <!-- 5 С ЧЕМ ВЫ УЕДЕТЕ -->
 <section class="sec" style="background:var(--paper2);">
   <h2 data-reveal class="h2" style="max-width:1100px;">⟦res.h⟧</h2>
-  <div style="margin-top:clamp(40px,5vw,80px);display:flex;flex-direction:column;gap:clamp(28px,3.4vw,48px);max-width:1100px;">
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">1</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">⟦res.1⟧</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">2</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">⟦res.2⟧</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">3</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">⟦res.3⟧</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">4</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">⟦res.4⟧</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">5</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">⟦res.5⟧</p></div>
+  <div style="margin-top:clamp(40px,5vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:clamp(32px,3vw,48px) var(--gap);">
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">01</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">⟦res.1⟧</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">02</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">⟦res.2⟧</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">03</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">⟦res.3⟧</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">04</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">⟦res.4⟧</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">05</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">⟦res.5⟧</p></div>
   </div>
 </section>
 
 <!-- 6 ОСОБЕННОСТИ ИГРЫ -->
-<section class="sec" style="background:var(--deep);color:#fff;">
+<section class="sec" style="background:var(--paper);">
   <h2 data-reveal class="h2">⟦spec.h⟧</h2>
   <div style="margin-top:clamp(48px,6vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(40px,4vw,64px) clamp(28px,4vw,64px);">
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.1.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.1.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.2.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.2.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.3.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.3.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.4.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.4.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.5.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.5.p⟧</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.6.h⟧</h3><p style="margin:0;color:var(--mute-d);">⟦spec.6.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.1.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.1.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.2.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.2.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.3.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.3.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.4.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.4.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.5.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.5.p⟧</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">⟦spec.6.h⟧</h3><p style="margin:0;color:var(--mute);">⟦spec.6.p⟧</p></div>
   </div>
 </section>
 
@@ -314,28 +309,18 @@ details p{margin:0;padding:0 0 28px;max-width:var(--tw)}
 </style>
 
 <!-- 13 ФИНАЛЬНЫЙ ПРИЗЫВ -->
-<section style="position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--deep);color:#fff;overflow:hidden;padding:var(--sec) var(--side);">
+<section style="position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--ink);color:#fff;overflow:hidden;padding:var(--sec) var(--side);">
   <img src="media/razvyazka-v-tumane-kadr.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.6) 0%,rgba(34,34,34,.92) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.55) 0%,rgba(34,34,34,.92) 100%);"></div>
   <div data-reveal style="position:relative;display:flex;flex-direction:column;gap:clamp(28px,4vw,56px);">
     <h2 style="margin:0;max-width:1200px;font-weight:200;font-size:clamp(40px,6.4vw,108px);line-height:.98;letter-spacing:-0.04em;text-wrap:balance;">⟦final.h⟧</h2>
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3);">
-      <div class="eyebrow" style="display:flex;flex-direction:column;gap:8px;line-height:1.6;">
-        <span>⟦final.01⟧</span>
-        <span>⟦final.02⟧</span>
-      </div>
-      <a href="#register" class="btn light" style="padding:20px 40px;">⟦final.03⟧</a>
-    </div>
+    <div><a href="#register" class="btn light" style="padding:20px 40px;">⟦final.03⟧</a></div>
   </div>
 </section>
 
 <!-- 14 ФУТЕР -->
-<footer style="background:var(--ink);color:#fff;padding:clamp(40px,5vw,80px) var(--side) 0;overflow:hidden;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;font-family:var(--f-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;line-height:1.8;color:var(--mute-d);">
-    <span>⟦footer.01⟧</span>
-    <span>Orlov Academy · ИП Орлов Константин Викторович · ИНН 390702089608 · <a href="mailto:me@orlov.academy" style="color:#fff;">me@orlov.academy</a></span>
-  </div>
-  <div aria-hidden="true" style="margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
+<footer style="background:var(--ink);color:#fff;padding:0 var(--side);overflow:hidden;">
+  <div aria-hidden="true" style="margin:-0.06em 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
 </footer>
 
 <script>

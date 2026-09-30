@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* v3: «впервые × предприниматель», палитра заказчика: #222222 #ffffff #e44a00 #0083af #2E1352 */
+/* v3: «впервые × предприниматель», палитра заказчика: #222222 #ffffff #e44a00 #0083af (фиолетовый #2E1352 снят 30.09: появлялся пятнами в конце) */
 :root{
-  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;--deep:#2E1352;
+  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;
   --mute:#6e6e6e;--mute-d:rgba(255,255,255,.64);--line:rgba(34,34,34,.16);--line-d:rgba(255,255,255,.2);
   --fs:18px;--lh:1.6;--tw:680px;--tr:0.12em;--side:64px;--sec:140px;--gap:24px;
   --f-sans:'Inter Tight',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;
@@ -31,8 +31,6 @@ p{text-wrap:pretty}
 .sec{padding:var(--sec) var(--side)}
 .opt:empty{display:none}
 .dash::before{content:"";display:block;width:22px;height:2px;background:var(--accent);margin-bottom:18px}
-.num-c{flex:none;display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border:2px solid var(--blue);border-radius:50%;color:var(--accent);font-weight:500;font-size:22px}
-@media (max-width:760px){.num-c{width:48px;height:48px;font-size:18px}}
 /* анимация: вход первого экрана и появление блоков, фоны неподвижны */
 @media (prefers-reduced-motion:no-preference){
   @keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
@@ -50,10 +48,7 @@ p{text-wrap:pretty}
 <!-- 1 ПЕРВЫЙ ЭКРАН -->
 <section class="hero" style="position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--ink);color:#fff;overflow:hidden;">
   <img src="media/temnyi-koridor-svet-kadr.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.55) 0%,rgba(34,34,34,.35) 45%,rgba(34,34,34,.9) 100%);"></div>
-  <div style="position:relative;display:flex;justify-content:flex-end;padding:28px var(--side) 0;">
-    <a href="#register" class="btn light" style="padding:16px 28px;">Участвовать</a>
-  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.5) 0%,rgba(34,34,34,.3) 45%,rgba(34,34,34,.9) 100%);"></div>
   <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px var(--side);">
     <h1 aria-label="Праксеология менеджмента" style="margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(140px,9.4vw);line-height:1;">
       <span style="--i:0">П</span><span style="--i:1">Р</span><span style="--i:2">А</span><span style="--i:3">К</span><span style="--i:4">С</span><span style="--i:5">Е</span><span style="--i:6">О</span><span style="--i:7">Л</span><span style="--i:8">О</span><span style="--i:9">Г</span><span style="--i:10">И</span><span style="--i:11">Я</span>
@@ -71,16 +66,16 @@ p{text-wrap:pretty}
     <div data-reveal>
       <div class="eyebrow" style="color:var(--accent);margin-bottom:22px;">Что это</div>
       <h2 class="h2">Четыре дня работы над своим делом</h2>
-      <p style="margin:clamp(24px,3vw,40px) 0 0;max-width:var(--tw);font-size:calc(var(--fs) * 1.15);font-weight:300;">Приезжаете со своим делом и задачей, работаете в команде с другими участниками и вместе с ведущим подбираете конкретные механики, скрипты и практические разработки. Подбирают их под то, как вы видите своё дело и что в нём для вас ценно.</p>
+      <p style="margin:clamp(24px,3vw,40px) 0 0;max-width:var(--tw);font-size:calc(var(--fs) * 1.15);font-weight:300;">Приезжаете с задачей из своего бизнеса и работаете над ней в команде с другими участниками. Вместе с ведущим подбираете конкретные механики, скрипты и практические разработки, которые подходят вашему взгляду на мир и тому, что для вас ценно.</p>
     </div>
     <ul data-reveal style="list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line);align-self:end;">
       <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Формат</span><span style="font-size:calc(var(--fs) * 1.1);">очно или онлайн</span></li>
       <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Где</span><span style="font-size:calc(var(--fs) * 1.1);">Светлогорск, Калининградская область</span></li>
-      <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Сколько</span><span style="font-size:calc(var(--fs) * 1.1);">четыре дня и ночи, с вечера пятницы до полудня понедельника</span></li>
-      <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Как</span><span style="font-size:calc(var(--fs) * 1.1);">в командах, очные и онлайн‑участники вместе</span></li>
+      <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Длительность</span><span style="font-size:calc(var(--fs) * 1.1);">4 дня и ночи, с вечера пятницы до полудня понедельника</span></li>
+      <li style="display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:12px 24px;padding:22px 0;border-top:1px solid var(--line);"><span class="eyebrow" style="padding-top:.3em;color:var(--mute);">Как</span><span style="font-size:calc(var(--fs) * 1.1);">командная работа</span></li>
     </ul>
   </div>
-  <div data-reveal style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:var(--deep);color:#fff;">
+  <div data-reveal style="position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:var(--ink);color:#fff;">
     <img src="media/doroga-skvoz-dyuny-sverhu-holodnyi.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
     <div style="position:absolute;inset:0;background:var(--ink);opacity:.3;"></div>
     <div class="eyebrow" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-size:11px;">
@@ -98,7 +93,7 @@ p{text-wrap:pretty}
   </div>
   <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);margin-top:clamp(28px,4vw,64px);align-items:start;">
     <h2 style="margin:0;font-weight:300;font-size:clamp(30px,3.6vw,56px);line-height:1.08;letter-spacing:-0.025em;text-wrap:balance;">как организовать деятельность и воплотить найденное в жизни</h2>
-    <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);">Чего хочется от своего дела, обычно понятно. Как это собрать, часто непонятно, и замысел постепенно ужимают до того, с чем умеют обращаться: нанять ещё одного помощника, добавить планёрку, самому включиться плотнее. На игре идут в обратную сторону. Сначала вы разбираетесь, с чем на самом деле работаете и что в этом для вас ценно, потом подбираете способ действия под свою ситуацию, а какие‑то средства делаете сами. Когда видно, чем управляете, у следующего шага в деле появляется опора.</p>
+    <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);">Чего хочется от своего дела — обычно понятно. Как это собрать — часто непонятно, и замысел постепенно ужимают до того, с чем умеют обращаться: нанять ещё одного помощника, добавить планёрку, самому включиться плотнее. На игре идут в обратную сторону. Сначала вы разбираетесь, с чем на самом деле работаете и что в этом для вас ценно, потом подбираете способ действия под свою ситуацию, а какие‑то средства делаете сами. Когда видно, чем управляете, у следующего шага в деле появляется опора.</p>
   </div>
 </section>
 
@@ -127,25 +122,25 @@ p{text-wrap:pretty}
 <!-- 5 С ЧЕМ ВЫ УЕДЕТЕ -->
 <section class="sec" style="background:var(--paper2);">
   <h2 data-reveal class="h2" style="max-width:1100px;">Что вы соберёте за четыре дня</h2>
-  <div style="margin-top:clamp(40px,5vw,80px);display:flex;flex-direction:column;gap:clamp(28px,3.4vw,48px);max-width:1100px;">
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">1</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">Назвать одной фразой, чем управляете в своём деле и какой результат от этого нужен.</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">2</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">Увидеть дополнительные варианты решения своей задачи.</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">3</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">Подобрать механики и скрипты под свою ситуацию и позицию.</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">4</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">Показать свои решения на докладах и сравнить их с работой других участников.</p></div>
-    <div data-reveal style="display:flex;align-items:center;gap:clamp(20px,4vw,64px);"><span class="num-c">5</span><p style="margin:0;font-size:clamp(20px,2vw,28px);line-height:1.35;font-weight:400;letter-spacing:-0.01em;">Составить программу продолжения: что спроектировать, что проверить, чему научиться, кого привлечь.</p></div>
+  <div style="margin-top:clamp(40px,5vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:clamp(32px,3vw,48px) var(--gap);">
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">01</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">Назвать одной фразой, чем управляете в своём деле и какой результат от этого нужен.</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">02</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">Увидеть дополнительные варианты решения своей задачи.</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">03</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">Подобрать механики и скрипты под свою ситуацию и позицию.</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">04</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">Показать свои решения на докладах и сравнить их с работой других участников.</p></div>
+    <div data-reveal style="padding-top:20px;border-top:1px solid var(--line);"><div style="font-weight:200;font-size:clamp(56px,6vw,96px);line-height:.9;letter-spacing:-0.05em;color:var(--accent);">05</div><p style="margin:18px 0 0;font-size:calc(var(--fs) * 1.15);line-height:1.45;">Составить программу продолжения: что спроектировать, что проверить, чему научиться, кого привлечь.</p></div>
   </div>
 </section>
 
 <!-- 6 ОСОБЕННОСТИ ИГРЫ -->
-<section class="sec" style="background:var(--deep);color:#fff;">
+<section class="sec" style="background:var(--paper);">
   <h2 data-reveal class="h2">Особенности игры</h2>
   <div style="margin-top:clamp(48px,6vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(40px,4vw,64px) clamp(28px,4vw,64px);">
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Плотно</h3><p style="margin:0;color:var(--mute-d);">Четыре дня и ночи все силы уходят на одну задачу — вашу. Рядом команда и ведущий, который разбирает затруднения по ходу работы.</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Всё дело целиком</h3><p style="margin:0;color:var(--mute-d);">Сначала видно дело целиком, со всеми частями, которые можно налаживать. Привычное, по словам ведущего, — «максимум треть от необходимого».</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">На своём материале</h3><p style="margin:0;color:var(--mute-d);">Каждое задание примеряют к своему делу. В финале каждый участник выходит с докладом о своей задаче.</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Несколько ходов</h3><p style="margin:0;color:var(--mute-d);">Лёгкого варианта ведущий не обещает. В сентябре он предупредил: «Время одноходовок прошло». Решение собирают в несколько ходов и проверяют на докладах.</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Чужой опыт</h3><p style="margin:0;color:var(--mute-d);">Ведущий прямо советует «друг у друга тырить интересные идеи». Рядом люди из других дел, и похожие задачи они решают по‑своему.</p></div>
-    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Слова для команды</h3><p style="margin:0;color:var(--mute-d);">Появляются слова, которыми понятно объяснить устройство дела команде и партнёрам. Участник сентябрьской игры сказал: «Я точно прирос словарной базой».</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Плотно</h3><p style="margin:0;color:var(--mute);">Четыре дня и ночи все силы уходят на одну задачу — вашу. Рядом команда и ведущий, который разбирает затруднения по ходу работы.</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Всё дело целиком</h3><p style="margin:0;color:var(--mute);">Сначала видно дело целиком, со всеми частями, которые можно налаживать. Привычное, по словам ведущего, — «максимум треть от необходимого».</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">На своём материале</h3><p style="margin:0;color:var(--mute);">Каждое задание примеряют к своему делу. В финале каждый участник выходит с докладом о своей задаче.</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Несколько ходов</h3><p style="margin:0;color:var(--mute);">Лёгкого варианта ведущий не обещает. В сентябре он предупредил: «Время одноходовок прошло». Решение собирают в несколько ходов и проверяют на докладах.</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Чужой опыт</h3><p style="margin:0;color:var(--mute);">Ведущий прямо советует «друг у друга тырить интересные идеи». Рядом люди из других дел, и похожие задачи они решают по‑своему.</p></div>
+    <div data-reveal class="dash"><h3 style="margin:0 0 12px;font-weight:500;font-size:calc(var(--fs) * 1.2);line-height:1.3;">Слова для команды</h3><p style="margin:0;color:var(--mute);">Появляются слова, которыми понятно объяснить устройство дела команде и партнёрам. Участник сентябрьской игры сказал: «Я точно прирос словарной базой».</p></div>
   </div>
 </section>
 
@@ -313,28 +308,18 @@ details p{margin:0;padding:0 0 28px;max-width:var(--tw)}
 </style>
 
 <!-- 13 ФИНАЛЬНЫЙ ПРИЗЫВ -->
-<section style="position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--deep);color:#fff;overflow:hidden;padding:var(--sec) var(--side);">
+<section style="position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--ink);color:#fff;overflow:hidden;padding:var(--sec) var(--side);">
   <img src="media/razvyazka-v-tumane-kadr.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.6) 0%,rgba(34,34,34,.92) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.55) 0%,rgba(34,34,34,.92) 100%);"></div>
   <div data-reveal style="position:relative;display:flex;flex-direction:column;gap:clamp(28px,4vw,56px);">
-    <h2 style="margin:0;max-width:1200px;font-weight:200;font-size:clamp(40px,6.4vw,108px);line-height:.98;letter-spacing:-0.04em;text-wrap:balance;">Четыре дня, чтобы собрать замысел, который давно носите с собой</h2>
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3);">
-      <div class="eyebrow" style="display:flex;flex-direction:column;gap:8px;line-height:1.6;">
-        <span>Светлогорск · очно, дистанционно, асинхронно</span>
-        <span>108 000 ₽ · до 15 октября — 54 000 ₽</span>
-      </div>
-      <a href="#register" class="btn light" style="padding:20px 40px;">Участвовать</a>
-    </div>
+    <h2 style="margin:0;max-width:1200px;font-weight:200;font-size:clamp(40px,6.4vw,108px);line-height:.98;letter-spacing:-0.04em;text-wrap:balance;">Четыре дня, чтобы услышать свой замысел и превратить его в траекторию</h2>
+    <div><a href="#register" class="btn light" style="padding:20px 40px;">Участвовать</a></div>
   </div>
 </section>
 
 <!-- 14 ФУТЕР -->
-<footer style="background:var(--ink);color:#fff;padding:clamp(40px,5vw,80px) var(--side) 0;overflow:hidden;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;font-family:var(--f-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;line-height:1.8;color:var(--mute-d);">
-    <span>Онтоклуб «108» · Сценарная игра «Праксеология менеджмента»</span>
-    <span>Orlov Academy · ИП Орлов Константин Викторович · ИНН 390702089608 · <a href="mailto:me@orlov.academy" style="color:#fff;">me@orlov.academy</a></span>
-  </div>
-  <div aria-hidden="true" style="margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
+<footer style="background:var(--ink);color:#fff;padding:0 var(--side);overflow:hidden;">
+  <div aria-hidden="true" style="margin:-0.06em 0 -0.2em -0.06em;font-weight:200;font-size:46vw;line-height:.8;letter-spacing:-0.07em;">108</div>
 </footer>
 
 <script>
