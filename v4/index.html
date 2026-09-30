@@ -54,6 +54,9 @@ figure.frame{margin:0}
   .js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 1s ease var(--d,0s),transform 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
   .js [data-reveal].in{opacity:1;transform:none}
 }
+.k2::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.78) 34%,rgba(255,255,255,0) 62%);pointer-events:none}
+.k2 .k2-def{position:absolute;z-index:1;left:clamp(16px,4vw,64px);bottom:clamp(16px,4vw,56px);margin:0;max-width:min(560px,48%);color:var(--ink);font-weight:300;font-size:clamp(20px,3vw,44px);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance}
+@media (max-width:760px){.k2::after{background:linear-gradient(0deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.8) 45%,rgba(255,255,255,0) 80%)}.k2 .k2-def{max-width:none;right:16px}}
 </style>
 </head>
 <body>
@@ -88,7 +91,7 @@ figure.frame{margin:0}
   </div>
   <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);margin-top:clamp(28px,4vw,64px);align-items:start;">
     <h2 style="margin:0;font-weight:300;font-size:clamp(28px,3.6vw,56px);line-height:1.08;letter-spacing:-0.025em;text-wrap:balance;">как организовать деятельность и воплотить найденное в жизни</h2>
-    <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);">Когда замысел не складывается, предприниматель берётся за привычное: нанять ещё помощника, добавить планёрку, самому включиться плотнее. Игра начинает на шаг раньше: какую часть дела вы налаживаете, какой результат от неё нужен и от чего он зависит. Под этот ответ вместе с командой и ведущим подбираете способ работы для вашей ситуации и того, что вам важно.</p>
+    <p style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);">Четыре аптеки продают одни и те же лекарства, а устроены по-разному. Один владелец главным считает производство, второй — продажи и ведёт покупателя зигзагом через весь зал, третий на деле занимается финансами: оптом и налогами. Четвёртый пять часов в неделю учит провизоров: по его словам, девять диагнозов из десяти ставят они, за прилавком. На вопрос, что в деле главное, каждый уже ответил тем, как работает. Вы тоже. На игре разбираете свой ответ и вместе с командой и ведущим подбираете под него способ работы.</p>
   </div>
   <ul data-reveal class="facts">
     <li><span class="eyebrow" style="color:var(--accent);">Когда</span><span class="v">30 октября – 2 ноября 2026</span></li>
@@ -96,9 +99,8 @@ figure.frame{margin:0}
     <li><span class="eyebrow" style="color:var(--accent);">Как</span><span class="v">командная работа</span></li>
     <li><span class="eyebrow" style="color:var(--accent);">Длительность</span><span class="v">4 дня и ночи</span></li>
   </ul>
-  <p data-reveal style="margin:clamp(40px,5vw,88px) 0 0;max-width:1000px;font-weight:300;font-size:clamp(26px,3.2vw,46px);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance;">Сценарная игра — разбор своего дела по заданиям ведущего.</p>
-  <figure data-reveal class="frame" style="margin-top:clamp(24px,3vw,40px);">
-    <div class="band"><img src="../v3/media/most-v-tumane-monohrom.jpg" alt="Висячий мост уходит в туман" style="object-position:50% 58%;"></div>
+  <figure data-reveal class="frame" style="margin-top:clamp(40px,5vw,88px);">
+    <div class="band k2"><img src="../v3/media/most-v-tumane-monohrom.jpg" alt="Висячий мост уходит в туман" style="object-position:50% 58%;"><p class="k2-def">Сценарная игра — это концентрат пользы, которую вы создаёте самостоятельно.</p></div>
     <dl class="sr-only">
       <dt>Что видит юзер</dt><dd>Висячий мост уходит в плотный туман, второго берега не видно.</dd>
       <dt>Роль в дуге</dt><dd>Завязка: «было» — куда идти, понятно, как дойти, не видно.</dd>
