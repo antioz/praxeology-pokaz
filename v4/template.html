@@ -10,7 +10,7 @@
 <style>
 /* v4: lendodel, «впервые × предприниматель», дизайн v3, палитра заказчика: #222222 #ffffff #e44a00 #0083af (фиолетовый #2E1352 снят 30.09: появлялся пятнами в конце) */
 :root{
-  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;--blue:#0083af;
+  --ink:#222222;--paper:#ffffff;--paper2:#f4f4f4;--accent:#e44a00;
   --mute:#6e6e6e;--mute-d:rgba(255,255,255,.66);--line:rgba(34,34,34,.16);--line-d:rgba(255,255,255,.2);
   --fs:18px;--lh:1.6;--tw:680px;--tr:0.12em;--side:64px;--sec:140px;--gap:24px;
   --f-sans:'Inter Tight',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace;
@@ -96,7 +96,8 @@ figure.frame{margin:0}
     <li><span class="eyebrow" style="color:var(--mute);">⟦f.3.k⟧</span><span class="v">⟦f.3.v⟧</span></li>
     <li><span class="eyebrow" style="color:var(--mute);">⟦f.4.k⟧</span><span class="v">⟦f.4.v⟧</span></li>
   </ul>
-  <figure data-reveal class="frame" style="margin-top:clamp(40px,5vw,88px);">
+  <p data-reveal style="margin:clamp(40px,5vw,88px) 0 0;max-width:1000px;font-weight:300;font-size:clamp(26px,3.2vw,46px);line-height:1.15;letter-spacing:-0.02em;text-wrap:balance;">⟦k2.def⟧</p>
+  <figure data-reveal class="frame" style="margin-top:clamp(24px,3vw,40px);">
     <div class="band"><img src="../v3/media/most-v-tumane-monohrom.jpg" alt="Висячий мост уходит в туман" style="object-position:50% 58%;"></div>
     <dl class="sr-only">
       <dt>Что видит юзер</dt><dd>Висячий мост уходит в плотный туман, второго берега не видно.</dd>
@@ -140,17 +141,17 @@ figure.frame{margin:0}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--gap);">
     <div data-reveal style="display:flex;flex-direction:column;gap:18px;min-height:280px;padding:clamp(24px,3vw,40px);border:1px solid var(--accent);">
       <svg class="icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="color:var(--accent);" aria-hidden="true"><path d="M22 6 L38 14 L22 22 L6 14 Z"/><path d="M6 22 L22 30 L38 22"/><path d="M6 30 L22 38 L38 30"/></svg>
-      <h3 style="margin:auto 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.1.h⟧</h3>
+      <h3 style="margin:clamp(28px,4vw,56px) 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.1.h⟧</h3>
       <p style="margin:0;">⟦res.1.p⟧</p>
     </div>
     <div data-reveal style="display:flex;flex-direction:column;gap:18px;min-height:280px;padding:clamp(24px,3vw,40px);border:1px solid var(--line-d);">
       <svg class="icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="color:var(--accent);" aria-hidden="true"><circle cx="16" cy="22" r="11"/><circle cx="28" cy="22" r="11"/></svg>
-      <h3 style="margin:auto 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.2.h⟧</h3>
+      <h3 style="margin:clamp(28px,4vw,56px) 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.2.h⟧</h3>
       <p style="margin:0;">⟦res.2.p⟧</p>
     </div>
     <div data-reveal style="display:flex;flex-direction:column;gap:18px;min-height:280px;padding:clamp(24px,3vw,40px);border:1px solid var(--line-d);">
       <svg class="icon" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" style="color:var(--accent);" aria-hidden="true"><circle cx="22" cy="22" r="17"/><circle cx="22" cy="22" r="6"/></svg>
-      <h3 style="margin:auto 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.3.h⟧</h3>
+      <h3 style="margin:clamp(28px,4vw,56px) 0 0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦res.3.h⟧</h3>
       <p style="margin:0;">⟦res.3.p⟧</p>
     </div>
   </div>
@@ -163,8 +164,36 @@ figure.frame{margin:0}
     <h2 class="h2">⟦sep.h⟧</h2>
   </div>
   <p data-reveal style="margin:0 0 clamp(40px,5vw,64px);max-width:var(--tw);font-size:calc(var(--fs) * 1.1);">⟦sep.p⟧</p>
-  <figure data-reveal class="frame" style="margin-bottom:clamp(40px,5vw,72px);">
-    <div class="band" style="aspect-ratio:21/7;"><img src="../v3/media/doroga-skvoz-dyuny-sverhu-holodnyi.jpg" alt="Дорога сквозь дюны, вид сверху, по ней едет машина"></div>
+  <figure data-reveal class="frame" style="margin:0;">
+    <div style="position:relative;overflow:hidden;background:var(--ink);padding:clamp(20px,6vw,120px) clamp(16px,6vw,120px);">
+      <img src="../v3/media/doroga-skvoz-dyuny-sverhu-holodnyi.jpg" alt="Дорога сквозь дюны, вид сверху, по ней едет машина" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+  <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:var(--gap);">
+    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);background:var(--paper);">
+      <span class="eyebrow" style="color:var(--accent);">⟦sep.1.k⟧</span>
+      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.1.h⟧</h3>
+      <p style="margin:0;">⟦sep.1.p⟧</p>
+      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.1.q⟧</p>
+    </div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);background:var(--paper);">
+      <span class="eyebrow" style="color:var(--accent);">⟦sep.2.k⟧</span>
+      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.2.h⟧</h3>
+      <p style="margin:0;">⟦sep.2.p⟧</p>
+      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.2.q⟧</p>
+    </div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);background:var(--paper);">
+      <span class="eyebrow" style="color:var(--accent);">⟦sep.3.k⟧</span>
+      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.3.h⟧</h3>
+      <p style="margin:0;">⟦sep.3.p⟧</p>
+      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.3.q⟧</p>
+    </div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);background:var(--paper);">
+      <span class="eyebrow" style="color:var(--accent);">⟦sep.4.k⟧</span>
+      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.4.h⟧</h3>
+      <p style="margin:0;">⟦sep.4.p⟧</p>
+      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.4.q⟧</p>
+    </div>
+  </div>
+    </div>
     <dl class="sr-only">
       <dt>Что видит юзер</dt><dd>Дорога сквозь светлые дюны, вид сверху, по ней едет машина.</dd>
       <dt>Роль в дуге</dt><dd>Продление: путь уже проложен другими; впервые взгляд сверху — готовит кульминацию.</dd>
@@ -172,32 +201,6 @@ figure.frame{margin:0}
     </dl>
     <figcaption class="cap">⟦k4.cap⟧</figcaption>
   </figure>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:var(--gap);">
-    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);border:1px solid var(--line);">
-      <span class="eyebrow" style="color:var(--blue);">⟦sep.1.k⟧</span>
-      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.1.h⟧</h3>
-      <p style="margin:0;">⟦sep.1.p⟧</p>
-      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.1.q⟧</p>
-    </div>
-    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);border:1px solid var(--line);">
-      <span class="eyebrow" style="color:var(--blue);">⟦sep.2.k⟧</span>
-      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.2.h⟧</h3>
-      <p style="margin:0;">⟦sep.2.p⟧</p>
-      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.2.q⟧</p>
-    </div>
-    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);border:1px solid var(--line);">
-      <span class="eyebrow" style="color:var(--blue);">⟦sep.3.k⟧</span>
-      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.3.h⟧</h3>
-      <p style="margin:0;">⟦sep.3.p⟧</p>
-      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.3.q⟧</p>
-    </div>
-    <div data-reveal style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,44px);border:1px solid var(--line);">
-      <span class="eyebrow" style="color:var(--blue);">⟦sep.4.k⟧</span>
-      <h3 style="margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;">⟦sep.4.h⟧</h3>
-      <p style="margin:0;">⟦sep.4.p⟧</p>
-      <p class="opt" style="margin:0;padding-left:16px;border-left:2px solid var(--accent);font-style:italic;">⟦sep.4.q⟧</p>
-    </div>
-  </div>
   <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px;margin-top:var(--gap);padding:clamp(28px,5vw,80px);background:var(--ink);color:#fff;">
     <div class="eyebrow" style="flex:1 1 200px;max-width:280px;line-height:1.6;color:var(--accent);">⟦sep.story.h⟧</div>
     <p style="flex:3 1 520px;margin:0;font-weight:300;font-size:clamp(18px,1.9vw,27px);line-height:1.42;">⟦sep.story.p⟧</p>
@@ -287,7 +290,7 @@ details summary{list-style:none;cursor:pointer;display:flex;justify-content:spac
 details summary::-webkit-details-marker{display:none}
 details summary::after{content:"+";flex:none;font-family:var(--f-mono);font-size:20px;line-height:1;color:var(--accent)}
 details[open] summary::after{content:"−"}
-details summary:hover{color:var(--blue)}
+details summary:hover{color:var(--accent)}
 details p{margin:0;padding:0 0 28px;max-width:var(--tw)}
 </style>
 
