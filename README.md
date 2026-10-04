@@ -8,3 +8,4 @@
 - `v2/` — «Будущее» (выгрузка Claude Design «Landing page project.zip», текст переписан na-pero 27.09.2026, видеофоны заменены статичными кадрами; видео предпринимателя в выгрузке было битое). Текст — `v2/COPY.md` (`[ключ] текст`; «—» убирает абзац), вёрстка — `v2/template.html`, сборка `cd v2 && python3 build.py`. Работает только онлайн (React/Babel с unpkg, шрифты Google).
 
 Правки: поменять COPY.md → build.py → коммит и пуш, GitHub Pages обновится сам.
+- `v6/` — вариант C из Claude Design (артефакт claude.ai/artifact/VEfgZvsZsLEkvW4hHxBzyE, ТЗ `v5/C-etalon.md`), переверстан в стиле «Балтики» (токены, Geist + Spectral, скругления и анимация из `v1/`). Текст и фото — из артефакта дословно. Статичный `index.html`, без сборки и внешних запросов.

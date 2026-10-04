@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Праксеология менеджмента — форсайт-практикум</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --cream:#F1EDE5; --warm:#E8E0D0; --pine:#18231D; --slate:#3E5563; --sand:#C9B48A; --ink:#151B1B; --acc:#D4572A;
+  --muted:#5B625E; --line:rgba(21,27,27,.14); --light:rgba(241,237,229,.88); --lightLine:rgba(241,237,229,.22);
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif; --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --padX:clamp(18px,5vw,80px); --padY:clamp(72px,9vw,140px); --max:1240px; --r:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.it{font-family:var(--serif);font-weight:300;font-style:italic}
+.wrap{max-width:var(--max);margin-inline:auto}
+.sec{padding:var(--padY) var(--padX)}
+.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.on-dark{color:var(--cream)}
+.on-dark .eyebrow{color:var(--sand)}
+.h2{margin:0;font:500 clamp(34px,4.6vw,68px)/1.02 var(--sans);letter-spacing:-.04em;text-wrap:balance}
+.lead{margin:0;font:300 clamp(19px,1.5vw,23px)/1.5 var(--serif);max-width:36ch;text-wrap:pretty}
+.on-dark .lead{color:var(--light)}
+.txt{margin:0;font:300 19px/1.55 var(--serif);max-width:42ch;text-wrap:pretty}
+.accent{color:var(--acc)}
+.pill{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;padding:18px 32px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 17px var(--sans);border:1px solid var(--cream);cursor:pointer;transition:background .25s,color .25s}
+.pill:hover{background:#fff}
+.pill:focus-visible,.fq-h:focus-visible,.dir:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo{border-radius:var(--r);overflow:hidden;background:var(--warm)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.stack{display:flex;flex-direction:column;gap:clamp(34px,4vw,60px)}
+.head{display:flex;flex-direction:column;gap:18px;max-width:900px}
+
+/* ---------- 01 hero ---------- */
+#top{position:relative;min-height:min(100svh,940px);display:flex;flex-direction:column;color:#fff;overflow:hidden}
+#top .bg{object-position:50% 62%}
+#top .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,20,24,.82) 0%,rgba(12,20,24,.55) 45%,rgba(12,20,24,.12) 80%),linear-gradient(180deg,rgba(12,20,24,.35) 0%,rgba(12,20,24,0) 25%,rgba(12,20,24,0) 70%,rgba(12,20,24,.45) 100%)}
+@media (max-width:760px){#top .shade{background:linear-gradient(180deg,rgba(12,20,24,.45) 0%,rgba(12,20,24,.5) 40%,rgba(12,20,24,.85) 100%)}}
+.topbar{position:relative;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:calc(22px + env(safe-area-inset-top,0px)) var(--padX) 0}
+.logo{font:500 18px var(--sans);letter-spacing:-.02em}
+.logo .it{font-size:20px;letter-spacing:0}
+.topbar .date{font:400 15px var(--sans);opacity:.85}
+.hero{position:relative;margin-top:auto;width:100%;padding:120px var(--padX) clamp(40px,6vw,72px)}
+.hero .eyebrow{color:#E9D9B6;font-size:13px}
+.hero h1{margin:.35em 0 .3em;font:500 clamp(46px,9vw,148px)/.92 var(--sans);letter-spacing:-.05em}
+.hero h1 .it{display:block;font-size:1.02em;letter-spacing:-.02em}
+.hsub{margin:0 0 34px;font:300 clamp(19px,1.8vw,26px)/1.45 var(--serif);max-width:30ch;text-wrap:pretty}
+.hmeta{display:flex;flex-wrap:wrap;gap:8px}
+.hmeta span{font:400 14px var(--sans);padding:8px 16px;border-radius:999px;background:rgba(12,20,24,.35);border:1px solid rgba(255,255,255,.28)}
+
+/* ---------- 02 what ---------- */
+.split{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,80px);align-items:center}
+.split .photo{aspect-ratio:4/5;max-height:680px}
+.split .txtcol{display:flex;flex-direction:column;gap:26px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:clamp(40px,5vw,72px)}
+.fact{padding:28px 22px 6px 0;display:flex;flex-direction:column;gap:10px}
+.fact + .fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact span{font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.fact b{font:500 clamp(20px,1.8vw,26px)/1.2 var(--sans);letter-spacing:-.02em}
+
+/* ---------- 03 rules ---------- */
+.slate{background:var(--slate)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,80px);align-items:end}
+.mult{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}
+.mult div{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--lightLine)}
+.mult .x{font:300 italic clamp(56px,6vw,96px)/.9 var(--serif);color:var(--sand)}
+.mult .big{border-top:2px solid var(--acc)}
+.mult .big .x{font-size:clamp(96px,11vw,176px);line-height:.85;color:#F2A27F}
+.mult small{font:400 15px var(--sans);color:var(--light)}
+.diet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,80px);padding-top:clamp(36px,5vw,64px);border-top:1px solid var(--lightLine)}
+.diet blockquote{margin:0;font:300 italic clamp(26px,2.8vw,40px)/1.25 var(--serif);letter-spacing:-.01em;text-wrap:pretty}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:400 15px var(--sans);padding:9px 16px;border:1px solid var(--lightLine);border-radius:999px}
+
+/* ---------- 04 tool ---------- */
+.dirs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:var(--warm);border-radius:var(--r);padding:26px 24px 28px;display:flex;flex-direction:column;gap:12px}
+.card h3{margin:0;font:500 22px/1.15 var(--sans);letter-spacing:-.02em}
+.card p{margin:0;font:300 17px/1.5 var(--serif);color:var(--muted)}
+.subhead{margin:0;font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.scheme{background:var(--pine);border-radius:var(--r);padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);color:var(--cream)}
+.bars{display:flex;align-items:flex-end;gap:3px;height:120px}
+.bars i{flex:1;min-width:2px;background:rgba(201,180,138,.45);border-radius:2px}
+.bars i.pick{background:var(--acc)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.step{background:rgba(241,237,229,.06);border:1px solid var(--lightLine);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:14px}
+.step .n{display:flex;justify-content:space-between;font:300 italic 24px var(--serif);color:var(--sand)}
+.step h4{margin:0;font:500 20px/1.2 var(--sans);letter-spacing:-.02em}
+.step .l{display:flex;flex-direction:column;gap:6px;font:300 16px/1.4 var(--serif);color:var(--light)}
+.step.last{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.step.last .n{color:var(--acc)}
+.step.last .l{color:var(--muted)}
+.dirsel{display:flex;flex-wrap:wrap;gap:8px}
+.dir{padding:7px 14px;border-radius:999px;border:1px solid var(--lightLine);background:transparent;color:var(--light);font:400 15px var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.dir:hover{border-color:var(--cream);color:var(--cream)}
+.dir.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.two-pr{display:flex;gap:8px}
+.two-pr i{flex:1;height:52px;border-radius:10px;background:var(--acc)}
+
+/* ---------- 05 days ---------- */
+.warm{background:var(--warm)}
+.days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,80px);align-items:start}
+.days .stick{position:sticky;top:40px;display:flex;flex-direction:column;gap:32px}
+.sched{display:flex;flex-wrap:wrap;gap:8px}
+.sched span{font:300 italic clamp(20px,1.8vw,26px)/1 var(--serif);padding:12px 20px;border-radius:999px;background:var(--cream)}
+.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.gal .a{grid-column:1/-1;aspect-ratio:3/2}
+.gal .b{grid-column:3/-1;aspect-ratio:4/5}
+.gal .b img{object-position:50% 70%}
+
+/* ---------- 06 host ---------- */
+.host{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:center}
+.host .photo{aspect-ratio:1/1}
+.cv{display:flex;flex-direction:column}
+.cv div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.cv div:last-child{border-bottom:1px solid var(--line)}
+.cv b{font:500 12px/1.9 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.cv span{font:300 17px/1.5 var(--serif)}
+.quote{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,4vw,64px);align-items:start;margin:0;padding-top:clamp(36px,5vw,64px);border-top:1px solid var(--line)}
+.quote figcaption{font:300 18px/1.5 var(--serif);color:var(--muted);max-width:32ch}
+.quote blockquote{margin:0;font:300 italic clamp(30px,3.6vw,54px)/1.15 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.quote blockquote .q{color:var(--acc)}
+
+/* ---------- 07 faq ---------- */
+.faqgrid{display:grid;grid-template-columns:1fr 2fr;gap:clamp(28px,5vw,80px);align-items:start}
+.fq{border-top:1px solid var(--line)}
+.fq:last-child{border-bottom:1px solid var(--line)}
+.fq-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;background:none;border:0;cursor:pointer;text-align:left;font:500 20px/1.3 var(--sans);letter-spacing:-.01em}
+.fq-h i{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);position:relative;font-style:normal}
+.fq-h i::before,.fq-h i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.fq-h i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+.fq.open .fq-h i::after{transform:translate(-50%,-50%) rotate(0)}
+.fq-b{display:none;margin:0;padding:0 48px 26px 0;font:300 19px/1.55 var(--serif);max-width:60ch;color:var(--muted)}
+.fq.open .fq-b{display:block}
+
+/* ---------- 08 take ---------- */
+.ph-head{position:relative}
+.ph-head .photo{aspect-ratio:16/9}
+.ph-head h2{position:absolute;left:clamp(14px,3vw,40px);bottom:clamp(14px,3vw,40px);padding:clamp(14px,2vw,26px) clamp(18px,2.4vw,34px);background:var(--cream);border-radius:14px}
+.take{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,48px)}
+.take div{padding-top:22px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:12px}
+.take h3{margin:0;font:300 italic clamp(24px,2.2vw,30px)/1.15 var(--serif)}
+.take p{margin:0;font:300 18px/1.5 var(--serif);color:var(--muted)}
+
+/* ---------- 09 price ---------- */
+.pine{background:var(--pine)}
+.price{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,80px);align-items:end}
+.price .early{margin:0;font:300 clamp(19px,1.6vw,24px)/1.4 var(--serif);color:#F2A27F}
+.sumrow{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap;padding-top:14px}
+.sum{font:500 clamp(64px,9vw,136px)/.9 var(--sans);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.old{font:300 22px var(--serif);color:var(--sand);text-decoration:line-through}
+.plines{display:flex;flex-direction:column;margin-bottom:36px}
+.pl{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--lightLine);font:300 18px/1.45 var(--serif)}
+.pl:last-child{border-bottom:1px solid var(--lightLine)}
+.pl span:first-child{font:500 12px/1.9 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+.price .pill{width:100%;background:var(--acc);border-color:var(--acc);color:#fff}
+.price .pill:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+footer{background:var(--ink);color:var(--light);padding:40px var(--padX) calc(40px + env(safe-area-inset-bottom,0px));font:400 14px/1.6 var(--sans)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
+footer a{text-decoration-color:var(--acc);text-underline-offset:3px}
+
+.split>*,.facts>*,.two>*,.mult>*,.diet>*,.dirs3>*,.steps>*,.days>*,.host>*,.quote>*,.faqgrid>*,.take>*,.price>*,.hero{min-width:0}
+.h2,.hero h1{overflow-wrap:break-word;hyphens:manual}
+@media (max-width:980px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .split,.two,.diet,.dirs3,.days,.host,.quote,.faqgrid,.take,.price{grid-template-columns:1fr}
+  .split .photo{aspect-ratio:4/3}
+  .facts{grid-template-columns:1fr}
+  .fact + .fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .fact{padding:18px 0}
+  .steps{grid-template-columns:1fr}
+  .days .stick{position:static}
+  .cv div,.pl{grid-template-columns:1fr;gap:2px}
+  .ph-head .photo{aspect-ratio:4/3}
+  .fq-b{padding-right:0}
+}
+/* ---------- motion: сдержанно, фоны неподвижны ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.hero h1 .it{animation:rise 1s cubic-bezier(.2,.7,.2,1) .1s both}
+.hero h1 .ln{display:block;animation:rise 1s cubic-bezier(.2,.7,.2,1) .25s both}
+.hsub{animation:rise 1s cubic-bezier(.2,.7,.2,1) .5s both}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease var(--d,0s),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.photo.rv{transform:none}
+.photo.rv img{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.photo.rv.in img{transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- 01 Первый экран -->
+<section id="top">
+  <img class="bg" src="assets/img/masterskaya-stena.jpg" alt="Стена мастерской с ручными инструментами">
+  <div class="shade"></div>
+  <div class="topbar">
+    <span class="logo">Онтоклуб <span class="it">«108»</span></span>
+    <span class="date">30&nbsp;октября –&nbsp;2&nbsp;ноября 2026</span>
+  </div>
+  <div class="hero wrap">
+    <div class="eyebrow">Форсайт-практикум</div>
+    <h1><span class="it">Праксеология</span><span class="ln">менеджмента</span></h1>
+    <p class="hsub">Инструмент управления под вашу ситуацию, собранный в спокойном ритме</p>
+    <div class="hmeta"><span>Светлогорск или онлайн</span><span>4 дня</span><span>Ведёт Константин Орлов</span></div>
+  </div>
+</section>
+
+<!-- 02 Что такое -->
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="photo rv"><img src="assets/img/more-svetlogorsk.jpg" alt="Балтийское море у Светлогорска"></div>
+      <div class="txtcol rv">
+        <h2 class="h2">Что такое <span class="it">форсайт-практикум</span></h2>
+        <p class="lead">За 4 дня вы с командой соберёте инструмент для управленческих решений и тут же проверите его на задачах участников. Ведёт практикум Константин Орлов, Онтоклуб «108».</p>
+      </div>
+    </div>
+    <div class="facts rv">
+      <div class="fact"><span>Когда</span><b>30&nbsp;октября –&nbsp;2&nbsp;ноября 2026</b></div>
+      <div class="fact"><span>Где</span><b>Светлогорск, Калининградская область, или онлайн</b></div>
+      <div class="fact"><span>Длительность</span><b>4 дня</b></div>
+      <div class="fact"><span>Формат</span><b>Командная работа</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Правила управления -->
+<section class="sec slate on-dark">
+  <div class="wrap stack">
+    <h2 class="h2 rv" style="max-width:16ch">Правила управления сложились, когда <span class="it">рынок рос сам</span></h2>
+    <div class="two rv">
+      <p class="lead">Привычные правила управления складывались в 90-е и нулевые, когда рынок рос, что ни делай: с плохим управлением компания вырастала вдвое, с хорошим — в 20 раз.</p>
+      <div class="mult">
+        <div><span class="x">×2</span><small>с плохим управлением</small></div>
+        <div class="big"><span class="x">×20</span><small>с хорошим</small></div>
+      </div>
+    </div>
+    <div class="diet rv">
+      <blockquote>Константин Орлов сравнивает эти правила с диетой из нашего детства: всем морковка для глаз и черника для роста.</blockquote>
+      <div class="stack" style="gap:26px">
+        <p class="lead" style="max-width:42ch">Сегодня питание подбирают под возраст, сезон, нагрузку и состояние человека. С управлением так же: подходящий способ зависит от того, что у вас сейчас.</p>
+        <div class="tags"><span>стадия рынка</span><span>зрелость компании</span><span>ваш возраст и характер</span><span>кто у вас в команде</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 Что вы соберёте -->
+<section class="sec">
+  <div class="wrap stack">
+    <div class="two rv">
+      <div class="head">
+        <h2 class="h2">Что вы соберёте</h2>
+        <p class="lead accent" style="max-width:26ch">Инструмент, который подбирает приёмы управления под вашу ситуацию</p>
+      </div>
+      <p class="txt">Вы описываете ему ситуацию: стадию рынка, стадию развития компании, свой характер руководителя. Из всего, что менеджмент накопил за 150 лет, он подбирает 2 приёма именно под неё. Каждый приём описан понятным языком.</p>
+    </div>
+    <div class="stack rv" style="gap:22px">
+      <p class="subhead">Он работает в трёх направлениях</p>
+      <div class="dirs3">
+        <div class="card"><h3>Управление собой</h3><p>Ваше состояние и то, как вы думаете и решаете.</p></div>
+        <div class="card"><h3>Управление командой</h3><p>Людьми и командами ИИ-агентов.</p></div>
+        <div class="card"><h3>Управление бизнесом</h3><p>Всем, что снаружи вас и команды: рынком и клиентами.</p></div>
+      </div>
+    </div>
+    <div class="scheme rv">
+      <div class="bars" id="bars" aria-hidden="true"></div>
+      <div class="steps">
+        <div class="step"><div class="n"><span>1</span><span>→</span></div><h4>Ваша ситуация</h4><div class="l"><span>стадия рынка</span><span>стадия компании</span><span>ваш характер</span></div></div>
+        <div class="step"><div class="n"><span>2</span><span>→</span></div><h4>Направление</h4>
+          <div class="dirsel" id="dirsel"><button class="dir" type="button">собой</button><button class="dir on" type="button">командой</button><button class="dir" type="button">бизнесом</button></div>
+        </div>
+        <div class="step"><div class="n"><span>3</span><span>→</span></div><h4>2 приёма</h4><div class="two-pr"><i></i><i></i></div><div class="l"><span>из 150 лет менеджмента</span></div></div>
+        <div class="step last"><div class="n"><span>4</span></div><h4>Первые действия</h4><div class="l"><span>понятным языком, под вашу задачу</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Как проходят 4 дня -->
+<section class="sec warm">
+  <div class="wrap days">
+    <div class="stick rv">
+      <h2 class="h2">Как проходят <span class="it">4 дня</span></h2>
+      <p class="lead">Вы работаете в команде: она поддерживает и берёт на себя часть нагрузки. Вместе разбираете житейские задачи участников с помощью собранного инструмента.</p>
+      <div class="stack" style="gap:14px">
+        <p class="subhead">В расписании</p>
+        <div class="sched"><span>обеды</span><span>ранний отбой</span><span>много свободного времени</span></div>
+      </div>
+    </div>
+    <div class="gal">
+      <div class="photo a rv"><img src="assets/img/stol.jpg" alt="Общий рабочий стол с заметками и кофе"></div>
+      <div class="photo b rv"><img src="assets/img/progulka-plyazh.jpg" alt="Прогулка по балтийскому пляжу"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Ведущий -->
+<section class="sec">
+  <div class="wrap stack">
+    <div class="host">
+      <div class="photo rv"><img src="assets/img/orlov.jpg" alt="Константин Орлов"></div>
+      <div class="stack rv" style="gap:26px">
+        <div class="head" style="gap:14px"><div class="eyebrow">Ведущий</div><h2 class="h2">Константин Орлов</h2></div>
+        <p class="txt" style="font-size:20px">Впервые побывал на форсайт-игре участником в 1996 году, с 2002 года организует и проводит игры сам. Практикум вырос из его исследования: как свести всё, что накопил менеджмент, к нескольким понятным проекциям.</p>
+        <div class="cv">
+          <div><b>Microsoft</b><span>Мероприятия для сотрудников и партнёров корпорации</span></div>
+          <div><b>Преподавание</b><span>РАНХиГС, «Сколково», президентская программа подготовки управленческих кадров</span></div>
+          <div><b>Проекты</b><span>Рыбаков Фонд, Global Shapers (World Economic Forum), Балтийский Артек</span></div>
+        </div>
+      </div>
+    </div>
+    <figure class="quote rv">
+      <figcaption>Собственник образовательного бизнеса на сентябрьской игре Орлова к финалу понял, чем управляет на самом деле:</figcaption>
+      <blockquote><span class="q">«</span>я из пешек делаю ферзей самостоятельных, которые сами принимают решения<span class="q">»</span></blockquote>
+    </figure>
+  </div>
+</section>
+
+<!-- 07 Вопросы и ответы -->
+<section class="sec warm" id="faq">
+  <div class="wrap faqgrid">
+    <h2 class="h2 rv">Вопросы и ответы</h2>
+    <div class="rv" id="faqList"></div>
+  </div>
+</section>
+
+<!-- 08 С чем вы уедете -->
+<section class="sec">
+  <div class="wrap stack">
+    <div class="ph-head rv">
+      <div class="photo"><img src="assets/img/instrumenty-stol.jpg" alt="Пила, перчатки, рулетка и молоток на деревянном столе"></div>
+      <h2 class="h2">С чем вы уедете</h2>
+    </div>
+    <div class="take rv">
+      <div><h3>Со своим инструментом</h3><p>Когда появится задача, он подскажет приёмы и первые шаги.</p></div>
+      <div><h3>С разобранными задачами</h3><p>Первые свои задачи вы решите на практикуме вместе с командой.</p></div>
+      <div><h3>С пользой, которая догонит потом</h3><p>Участники прошлых игр Орлова рассказывают, что понятое на игре позже распаковывается и превращается в практику.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 Когда и сколько -->
+<section class="sec pine on-dark" id="price">
+  <div class="wrap price">
+    <div class="stack rv" style="gap:22px">
+      <h2 class="h2">Когда и сколько</h2>
+      <p class="early">При регистрации до 15&nbsp;октября — 54&nbsp;000&nbsp;₽</p>
+      <div class="sumrow"><span class="sum">54&nbsp;000&nbsp;₽</span><span class="old">108&nbsp;000&nbsp;₽</span></div>
+    </div>
+    <div class="rv">
+      <div class="plines">
+        <div class="pl"><span>Когда</span><span>с 18:00 пятницы, 30&nbsp;октября, до 12:00 понедельника, 2&nbsp;ноября</span></div>
+        <div class="pl"><span>Где</span><span>Светлогорск или онлайн</span></div>
+        <div class="pl"><span>Стоимость</span><span>108&nbsp;000&nbsp;₽</span></div>
+        <div class="pl"><span>До 15 октября</span><span>54&nbsp;000&nbsp;₽</span></div>
+      </div>
+      <a class="pill" href="#register"><span>Участвовать за 54&nbsp;000&nbsp;₽</span><span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Онтоклуб «108» · Форсайт-практикум «Праксеология менеджмента»</span>
+    <span>Вопросы — Константину Орлову: <a href="mailto:me@orlov.academy">me@orlov.academy</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // столбики «всё, что накопил менеджмент»: два выделены — выбранные приёмы
+  var bars=document.getElementById('bars'),s=7,pick=[41,46],h='';
+  for(var i=0;i<64;i++){s=(s*9301+49297)%233280;var v=pick.indexOf(i)>-1?100:28+Math.round(s/233280*72);h+='<i'+(pick.indexOf(i)>-1?' class="pick"':'')+' style="height:'+v+'%"></i>'}
+  bars.innerHTML=h;
+
+  var dirs=document.querySelectorAll('#dirsel .dir');
+  dirs.forEach(function(b){b.addEventListener('click',function(){dirs.forEach(function(x){x.classList.toggle('on',x===b)})})});
+
+  var faq=[
+    ['Как охватить всё это за 4 дня? Я и так перегружен.','Весь менеджмент изучать не придётся. Сначала вы решаете, о чём задача: о вас, о команде или о бизнесе, — и две трети вариантов отпадают. Свою модель для практикума Константин Орлов свёл к 7 проекциям.'],
+    ['У меня нет чёткого запроса, проблем слишком много.','Участвовать можно и так. Инструмент останется с вами: когда задача проявится — через неделю, месяц или полгода, — вы опишете ситуацию и получите практические действия.'],
+    ['Почему бы просто не дать мне готовую программу?','Готовую программу пишут под чужую ситуацию, как диету из журнала. Инструмент настраивают под вас, поэтому его собирают на практикуме, с командой и ведущим.'],
+    ['После прошлых игр у меня остался план, который я так и не выполнил.','План обязывает: его надо выполнять. Инструмент ничего от вас не требует и ждёт, пока понадобится.'],
+    ['Можно участвовать онлайн?','Да.']
+  ];
+  var list=document.getElementById('faqList');
+  faq.forEach(function(f,i){
+    var d=document.createElement('div');d.className='fq'+(i===0?' open':'');
+    var b=document.createElement('button');b.className='fq-h';b.type='button';b.setAttribute('aria-expanded',i===0);
+    b.innerHTML='<span></span><i aria-hidden="true"></i>';b.firstChild.textContent=f[0];
+    var p=document.createElement('p');p.className='fq-b';p.textContent=f[1];
+    b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+    d.appendChild(b);d.appendChild(p);list.appendChild(d);
+  });
+
+  var rv=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  rv.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
