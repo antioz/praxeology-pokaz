@@ -51,7 +51,9 @@ button,input,textarea{font:inherit}
 .violet{background:var(--surface-ink);background-image:var(--glow),var(--glow-soft);color:var(--text-on-dark);--line:var(--line-on-dark);--text-muted:var(--text-muted-on-dark)}
 .lbl{font-size:12px;font-weight:600;letter-spacing:var(--tr);text-transform:uppercase;line-height:1.5}
 .lbl-accent{font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;line-height:1.3;color:var(--accent)}
-.num{font-size:20px;font-weight:700;line-height:1.3;color:var(--num)}
+.mark{display:block;width:22px;height:22px;margin-top:.2em;color:var(--accent)}.mark svg{display:block;width:100%;height:100%}
+.mark-big{width:clamp(56px,7vw,112px);height:clamp(56px,7vw,112px);margin:0;stroke-width:1}
+.mark-big svg{stroke-width:.7}
 .h-giant{margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(64px, 12vw, 220px));line-height:.86;letter-spacing:-0.05em}
 .h-big{margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(48px, 8vw, 136px));line-height:.92;letter-spacing:-0.045em;text-wrap:balance}
 .h2{margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.04;letter-spacing:-0.03em;text-wrap:balance}
@@ -61,7 +63,7 @@ button,input,textarea{font:inherit}
 .cols-b{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
 @media (max-width:900px){.cols,.cols-a,.cols-b{grid-template-columns:minmax(0,1fr)}}
 .rows{border-bottom:1px solid var(--line)}
-.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:20px 0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:20px 0;border-top:1px solid var(--line)}
 .row p{margin:0;text-wrap:pretty}
 .muted{color:var(--text-muted)}
 /* строка фактов внизу главного экрана (на тёмном фото) */
@@ -77,11 +79,11 @@ button,input,textarea{font:inherit}
 .card h3{margin:6px 0 0;font-weight:400;font-size:calc(var(--hs) * clamp(22px, 2vw, 28px));line-height:1.2;letter-spacing:-0.015em}
 .card p{margin:0;color:var(--text-muted-on-dark);text-wrap:pretty}
 /* лента (image5) */
-.tape{position:relative;margin:clamp(32px,4vw,56px) calc(var(--side) * -1) 0;height:clamp(44px,4vw,60px)}
-.tape-band{position:absolute;left:-6%;right:-6%;top:50%;transform:translateY(-50%) rotate(-1.2deg);background:var(--tape-bg);color:var(--tape-text);border-top:var(--contour);border-bottom:var(--contour);overflow:hidden;padding:clamp(7px,.8vw,11px) 0}
+.tape{position:relative;margin:clamp(32px,4vw,56px) calc(var(--side) * -1) 0;height:44px}
+.tape-band{position:absolute;left:-6%;right:-6%;top:50%;transform:translateY(-50%);background:transparent;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.22);overflow:hidden;padding:clamp(7px,.8vw,11px) 0}
 .tape-track{display:flex;width:max-content;white-space:nowrap}
-.tape-track span{display:inline-flex;align-items:center;font-weight:600;font-size:clamp(14px,1.3vw,19px);line-height:1;letter-spacing:.02em}
-.tape-track i{display:inline-block;width:.34em;height:.34em;margin:0 .9em;border-radius:50%;border:1.5px solid var(--accent)}
+.tape-track span{display:inline-flex;align-items:center;font-weight:400;font-size:15px;line-height:1;letter-spacing:.04em}
+.tape-track i{display:inline-block;width:6px;height:6px;margin:0 1.2em;border-radius:50%;border:1px solid var(--accent)}
 /* play */
 .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(68px,7vw,104px);height:clamp(68px,7vw,104px);display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--accent);background:rgba(34,34,34,.35);color:var(--c-white);cursor:pointer;transition:transform .25s,background .25s}
 .play:hover{transform:translate(-50%,-50%) scale(1.06);background:var(--accent)}
@@ -121,7 +123,7 @@ button,input,textarea{font:inherit}
 .tape-track{animation:tape 140s linear infinite}
 }
 /* главный: «ОБНОВЛЕНИЕ ПО» буквами в разрядку на всю ширину, как в v2; на телефоне — две строки */
-.hero-h{margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(128px,8.2vw);line-height:1;letter-spacing:0}
+.hero-h{margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(112px,6.8vw);line-height:1;letter-spacing:0}
 .hero-h .w{display:contents}
 @media (max-width:600px){.hero-h{flex-wrap:wrap;row-gap:.12em;font-size:12.5vw}.hero-h .w{display:flex;justify-content:space-between;width:100%}.hero-h .gap{display:none}.hero-h .w2{justify-content:flex-start;gap:.14em}}
 </style>
@@ -129,10 +131,10 @@ button,input,textarea{font:inherit}
 
 <div style="font-family:var(--f-sans);font-size:var(--fs);line-height:var(--lh);">
 
-<!-- 1 ГЛАВНЫЙ: фото на весь экран + фиолетовая вуаль, заголовок в разрядку, внизу подзаголовок и факты -->
+<!-- 1 ГЛАВНЫЙ: фото на весь экран + чёрная вуаль, заголовок в разрядку, внизу подзаголовок и факты -->
 <section data-screen-label="01 Главный" data-hero style="position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--surface-ink);color:var(--text-on-dark);overflow:hidden;">
   <img src="media/masterskaya-stena.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:var(--glow),var(--overlay-photo-deep);"></div>
+  <div style="position:absolute;inset:0;background:var(--overlay-photo-deep);"></div>
   <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:72px var(--side) 32px;">
     <div class="h-eyebrow lbl" style="margin-bottom:clamp(20px,3vw,40px);text-align:center;letter-spacing:.3em;color:var(--text-muted-on-dark);">⟦hero.eyebrow⟧</div>
     <h1 aria-label="Обновление ПО" class="hero-h">
@@ -176,27 +178,24 @@ button,input,textarea{font:inherit}
       <p data-reveal="1" class="lead" style="margin-top:clamp(18px,2vw,28px);max-width:var(--tw);font-size:calc(var(--hs) * clamp(20px, 1.9vw, 28px));line-height:1.35;">⟦result.sub⟧</p>
       <p data-reveal="1" style="margin:clamp(36px,4.5vw,64px) 0 16px;font-weight:600;">⟦result.lead⟧</p>
       <div class="rows">
-        <div data-reveal="1" class="row"><span class="num">01</span><p>⟦result.1⟧</p></div>
-        <div data-reveal="1" class="row"><span class="num">02</span><p>⟦result.2⟧</p></div>
-        <div data-reveal="1" class="row"><span class="num">03</span><p>⟦result.3⟧</p></div>
-        <div data-reveal="1" class="row"><span class="num">04</span><p>⟦result.4⟧</p></div>
+        <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>⟦result.1⟧</p></div>
+        <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>⟦result.2⟧</p></div>
+        <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>⟦result.3⟧</p></div>
+        <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>⟦result.4⟧</p></div>
       </div>
     </div>
     <div data-reveal="1" style="position:relative;aspect-ratio:3/4;max-height:min(86vh,620px);overflow:hidden;border-radius:var(--r);background:var(--surface);">
       <img src="media/instrumenty-stol.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%;">
     </div>
   </div>
-  <div data-reveal="1" style="margin-top:clamp(56px,7vw,120px);padding:clamp(28px,5vw,80px);background:var(--plate-bg);color:var(--plate-text);border:var(--contour);border-radius:var(--r);">
-    <p style="margin:0;text-align:right;text-transform:uppercase;font-weight:400;font-size:calc(var(--hs) * clamp(26px, 3vw, 46px));line-height:1.2;letter-spacing:0.01em;text-wrap:balance;">⟦result.bottom⟧</p>
-  </div>
+  <p data-reveal="1" class="lead" style="margin:clamp(48px,6vw,96px) 0 0;max-width:900px;">⟦result.bottom⟧</p>
 </section>
 
 <!-- 5 ЦЕЛЬНОСТЬ: чёрный с фиолетовой подсветкой, карточки с рыжим контуром -->
 <section class="sec violet" data-screen-label="05 Цельность">
   <h2 data-reveal="1" class="h-giant">⟦whole.h⟧</h2>
   <div class="cols" style="margin-top:clamp(28px,4vw,64px);">
-    <p data-reveal="1" class="lead">⟦whole.sub⟧</p>
-    <p data-reveal="1" class="muted" style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);text-wrap:pretty;">⟦whole.p⟧</p>
+    <p data-reveal="1" class="lead" style="grid-column:1 / -1;max-width:1100px;">⟦whole.sub⟧. ⟦whole.p⟧</p>
   </div>
   <div class="cards3" style="margin-top:clamp(40px,5vw,80px);">
     <div data-reveal="1" class="card">
@@ -221,16 +220,16 @@ button,input,textarea{font:inherit}
 <section class="sec" data-screen-label="06 Среда">
   <div data-reveal="1" style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;">
     <h2 class="h-giant">⟦env.h⟧</h2>
-    <div aria-hidden="true" style="font-weight:200;font-size:calc(var(--hs) * clamp(56px, 10vw, 170px));line-height:.8;color:var(--accent);">↘</div>
+    <span class="mark mark-big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span>
   </div>
   <div class="cols" style="margin-top:clamp(28px,4vw,64px);">
     <p data-reveal="1" class="lead">⟦env.sub⟧</p>
     <div data-reveal="1" style="max-width:var(--tw);">
       <p style="margin:0 0 24px;text-wrap:pretty;">⟦env.p⟧</p>
       <div class="rows">
-        <div class="row"><span class="num">01</span><p><b>⟦env.1.b⟧</b> ⟦env.1.t⟧</p></div>
-        <div class="row"><span class="num">02</span><p><b>⟦env.2.b⟧</b> ⟦env.2.t⟧</p></div>
-        <div class="row"><span class="num">03</span><p>⟦env.3.t⟧</p></div>
+        <div class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦env.1.b⟧</b> ⟦env.1.t⟧</p></div>
+        <div class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦env.2.b⟧</b> ⟦env.2.t⟧</p></div>
+        <div class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>⟦env.3.t⟧</p></div>
       </div>
     </div>
   </div>
@@ -239,8 +238,8 @@ button,input,textarea{font:inherit}
 <!-- 7 СРЕДА, ЧАСТЬ 2: цветные сосны, лёгкая вуаль, лента -->
 <section data-screen-label="07 Среда: обстановка" style="position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--surface-ink);color:var(--text-on-dark);overflow:hidden;padding:var(--sec) var(--side) clamp(40px,5vw,72px);">
   <img src="media/sosny-u-morya.jpg" alt="Сосны на берегу моря" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;">
-  <div style="position:absolute;inset:0;background:var(--overlay-photo-light);"></div>
-  <p data-reveal="1" style="position:relative;margin:0;max-width:1150px;font-weight:300;font-size:calc(var(--hs) * clamp(32px, 4.8vw, 80px));line-height:1.04;letter-spacing:-0.035em;text-wrap:balance;text-shadow:0 2px 24px rgba(46,19,82,.45);">⟦env2.p⟧</p>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,0) 15%,rgba(34,34,34,.55) 45%,rgba(34,34,34,.82) 100%);"></div>
+  <p data-reveal="1" style="position:relative;margin:0;max-width:1150px;font-weight:300;font-size:calc(var(--hs) * clamp(32px, 4.8vw, 80px));line-height:1.04;letter-spacing:-0.035em;text-wrap:balance;text-shadow:0 1px 18px rgba(0,0,0,.35);">⟦env2.p⟧</p>
   <div class="tape" aria-label="⟦tape.1⟧, ⟦tape.2⟧, ⟦tape.3⟧, ⟦tape.4⟧, ⟦tape.5⟧, ⟦tape.6⟧, ⟦tape.7⟧">
     <div class="tape-band" aria-hidden="true">
       <div class="tape-track">
@@ -291,13 +290,13 @@ button,input,textarea{font:inherit}
   <div class="cols cols-b">
     <h2 data-reveal="1" class="h2">⟦brief.h⟧</h2>
     <div class="rows">
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.1.b⟧</b> ⟦brief.1.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.2.b⟧</b> ⟦brief.2.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.3.b⟧</b> ⟦brief.3.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.4.b⟧</b> ⟦brief.4.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.5.b⟧</b> ⟦brief.5.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.6.b⟧</b> ⟦brief.6.t⟧</p></div>
-      <div data-reveal="1" class="row"><span class="num" aria-hidden="true" style="font-weight:300;font-size:28px;line-height:1;">↘</span><p><b>⟦brief.7.b⟧</b> ⟦brief.7.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.1.b⟧</b> ⟦brief.1.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.2.b⟧</b> ⟦brief.2.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.3.b⟧</b> ⟦brief.3.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.4.b⟧</b> ⟦brief.4.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.5.b⟧</b> ⟦brief.5.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.6.b⟧</b> ⟦brief.6.t⟧</p></div>
+      <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p><b>⟦brief.7.b⟧</b> ⟦brief.7.t⟧</p></div>
     </div>
   </div>
 </section>
