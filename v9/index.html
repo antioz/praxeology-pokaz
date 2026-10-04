@@ -90,6 +90,7 @@ button,input,textarea{font:inherit}
 .card{display:flex;flex-direction:column;justify-content:space-between;gap:48px;min-height:clamp(240px,24vw,340px);padding:clamp(24px,2.6vw,36px);background:var(--surface);border:1px solid var(--line);border-top:var(--contour)}
 .card h3{margin:0 0 12px;font-weight:600;font-size:calc(var(--hs) * clamp(22px, 2vw, 30px));line-height:1.05;letter-spacing:-0.01em;text-transform:uppercase}
 .card p{margin:0;color:var(--text-muted);text-wrap:pretty}
+.vio .card,.dark .card{background:transparent}
 /* тройка и кратко */
 .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
 .trio>div{display:flex;flex-direction:column;gap:18px;padding-top:20px;border-top:1px solid var(--line)}
@@ -157,7 +158,7 @@ button,input,textarea{font:inherit}
 </section>
 
 <!-- 2 ВИДЕО: продолжает тёмный главный -->
-<section class="sec dark" data-screen-label="02 Видео" style="padding-top:clamp(20px,3vw,48px);">
+<section class="sec" data-screen-label="02 Видео" style="padding-top:clamp(20px,3vw,48px);">
   <div data-reveal="1" class="ph" style="width:100%;aspect-ratio:16/9;min-height:220px;">
     <img src="media/orlov-video.jpg" alt="Константин Орлов на видео" style="object-position:55% 40%;">
     <button class="play" type="button" aria-label="Смотреть видео">
@@ -167,7 +168,7 @@ button,input,textarea{font:inherit}
 </section>
 
 <!-- 3 ИДЕЯ · 01 -->
-<section class="sec" data-screen-label="03 Идея">
+<section class="sec dark" data-screen-label="03 Идея">
   <div class="g12 sh"><div class="sh-i">01</div><h2 data-reveal="1" class="h-sec">Идея</h2></div>
   <div class="g12">
     <p data-reveal="1" class="lead s-4-11">Старое не работает, а новое не появилось: бизнес функционирует, но кончается топливо. Команда работает, если есть постоянный контроль. Пытаетесь поднажать ещё — некуда, нет сил, нет направления — и так во всём.</p>
@@ -176,7 +177,7 @@ button,input,textarea{font:inherit}
 </section>
 
 <!-- 4 КОНКРЕТНЫЙ РЕЗУЛЬТАТ · 02 -->
-<section class="sec vio" data-screen-label="04 Конкретный результат">
+<section class="sec" data-screen-label="04 Конкретный результат">
   <div class="g12 sh"><div class="sh-i">02</div><h2 data-reveal="1" class="h-sec">Конкретный результат</h2></div>
   <div class="g12">
     <p data-reveal="1" class="lead s-4-11">Способ управления, который соответствует требованиям времени, вашему складу мышления и этапу жизни</p>
@@ -192,12 +193,14 @@ button,input,textarea{font:inherit}
         <div data-reveal="1" class="nrow"><span class="num">04</span><p class="lead-s">Сможете использовать следующие 10 лет с учётом любых внутренних и внешних перемен</p></div>
       </div>
     </div>
+  </div>
+  <div class="g12" style="margin-top:clamp(36px,4.5vw,72px);">
     <p data-reveal="1" class="lead s-4-11 rule">Один рабочий управленческий инструмент вместо двадцати инсайтов.</p>
   </div>
 </section>
 
 <!-- 5 ЦЕЛЬНОСТЬ · 03 -->
-<section class="sec" data-screen-label="05 Цельность">
+<section class="sec vio" data-screen-label="05 Цельность">
   <div class="g12 sh"><div class="sh-i">03</div><h2 data-reveal="1" class="h-sec">Цельность</h2></div>
   <div class="g12">
     <div data-reveal="1" class="s-4-11" style="display:flex;flex-direction:column;gap:20px;">
