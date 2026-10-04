@@ -36,7 +36,9 @@ button,input,textarea{font:inherit}
 .h2{margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.04;letter-spacing:-0.03em;text-wrap:balance}
 .lead{margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(24px, 2.6vw, 40px));line-height:1.18;letter-spacing:-0.02em;text-wrap:pretty}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,6vw,120px);align-items:start}
-@media (max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}}
+.cols-a{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.cols-b{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+@media (max-width:900px){.cols,.cols-a,.cols-b{grid-template-columns:minmax(0,1fr)}}
 .rows{border-bottom:1px solid var(--line)}
 .row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:20px 0;border-top:1px solid var(--line)}
 .row p{margin:0;text-wrap:pretty}
@@ -46,7 +48,7 @@ button,input,textarea{font:inherit}
 .fact{display:flex;flex-direction:column;gap:4px;padding:12px 20px 0;border-left:1px solid rgba(34,34,34,.25)}
 .fact:first-child{border-left:0;padding-left:0}
 .fact-v{font-size:calc(var(--fs) * .95);line-height:1.35}
-@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.fact{padding:10px 12px}.fact:nth-child(odd){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid rgba(34,34,34,.18)}.fact-v{font-size:15px;line-height:1.3}}
+@media (max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.fact{padding:10px 12px}.fact:nth-child(odd){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid rgba(34,34,34,.18)}.fact-v{font-size:15px;line-height:1.3}}
 /* карточки «Цельности»: одна сетка, общий верх, одна высота */
 .cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch}
 @media (max-width:900px){.cards3{grid-template-columns:minmax(0,1fr)}}
@@ -141,7 +143,7 @@ button,input,textarea{font:inherit}
 
 <!-- 4 КОНКРЕТНЫЙ РЕЗУЛЬТАТ -->
 <section class="sec" data-screen-label="04 Конкретный результат" style="background:var(--tint);">
-  <div class="cols" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);">
+  <div class="cols cols-a">
     <div>
       <h2 data-reveal="1" class="h2">⟦result.h⟧</h2>
       <p data-reveal="1" class="lead" style="margin-top:clamp(18px,2vw,28px);max-width:var(--tw);font-size:calc(var(--hs) * clamp(20px, 1.9vw, 28px));line-height:1.35;">⟦result.sub⟧</p>
@@ -153,7 +155,7 @@ button,input,textarea{font:inherit}
         <div data-reveal="1" class="row"><span class="num">04</span><p>⟦result.4⟧</p></div>
       </div>
     </div>
-    <div data-reveal="1" style="position:relative;aspect-ratio:3/4;max-height:86vh;overflow:hidden;border-radius:var(--r);background:var(--paper2);">
+    <div data-reveal="1" style="position:relative;aspect-ratio:3/4;max-height:min(86vh,560px);overflow:hidden;border-radius:var(--r);background:var(--paper2);">
       <img src="media/instrumenty-stol.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%;">
     </div>
   </div>
@@ -256,7 +258,7 @@ button,input,textarea{font:inherit}
 
 <!-- 9 ЕЩЁ РАЗ, КРАТКО -->
 <section class="sec" data-screen-label="09 Ещё раз, кратко" style="background:var(--paper);">
-  <div class="cols" style="grid-template-columns:minmax(0,1fr) minmax(0,2fr);">
+  <div class="cols cols-b">
     <h2 data-reveal="1" class="h2">⟦brief.h⟧</h2>
     <div class="rows">
       <div data-reveal="1" class="row"><span class="num">01</span><p><b>⟦brief.1.b⟧</b> ⟦brief.1.t⟧</p></div>
@@ -272,7 +274,7 @@ button,input,textarea{font:inherit}
 
 <!-- 10 ВОПРОСЫ И ОТВЕТЫ (из v2) -->
 <section class="sec" data-screen-label="10 Вопросы и ответы" style="background:var(--paper2);">
-  <div class="cols" style="grid-template-columns:minmax(0,1fr) minmax(0,2fr);">
+  <div class="cols cols-b">
     <h2 data-reveal="1" class="h2">⟦faq.h⟧</h2>
     <div data-reveal="1" class="rows" style="min-width:0;">
       <sc-for list="{{ faq }}" as="item" hint-placeholder-count="7">
