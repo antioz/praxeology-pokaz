@@ -95,17 +95,18 @@ button,input,textarea{font:inherit}
 .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
 .trio>div{display:flex;flex-direction:column;gap:18px;padding-top:20px;border-top:1px solid var(--line)}
 .trio p{margin:0;text-wrap:pretty}
-.bgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,4vw,64px)}
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,4vw,64px)}
+@media (max-width:1100px){.bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .bi{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:22px 0 26px;border-top:1px solid var(--line)}
 .bi>span{color:var(--c-blue);font-size:20px;line-height:1.3}
 .bi p{margin:0;text-wrap:pretty;color:var(--text-muted)}
 .bi b{display:block;margin-bottom:4px;color:var(--text)}
 @media (max-width:900px){.trio,.bgrid{grid-template-columns:minmax(0,1fr)}}
 /* лента */
-.tape{position:relative;margin:clamp(40px,5vw,72px) calc(var(--side) * -1) 0;border-top:1px solid var(--line-on-dark);border-bottom:1px solid var(--line-on-dark);background:var(--c-blue);color:var(--c-white);overflow:hidden;padding:18px 0}
+.tape{position:relative;margin:clamp(40px,5vw,72px) calc(var(--side) * -1) 0;border-top:1px solid rgba(255,255,255,.14);background:transparent;color:rgba(255,255,255,.55);overflow:hidden;padding:14px 0 16px}
 .tape-track{display:flex;width:max-content;white-space:nowrap}
-.tape-track span{display:inline-flex;align-items:center;font-size:13px;font-weight:600;letter-spacing:var(--tr);text-transform:uppercase;line-height:1}
-.tape-track i{display:inline-block;width:7px;height:7px;margin:0 1.6em;border-radius:50%;border:1.5px solid currentColor}
+.tape-track span{display:inline-flex;align-items:center;font-size:12px;font-weight:400;letter-spacing:var(--tr);text-transform:uppercase;line-height:1}
+.tape-track i{display:inline-block;width:3px;height:3px;margin:0 1.8em;border-radius:50%;background:currentColor}
 /* сделка */
 .kv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr);gap:8px 24px;padding:18px 0;border-top:1px solid var(--line)}
 @media (max-width:480px){.kv{grid-template-columns:minmax(0,1fr)}}
@@ -126,7 +127,7 @@ button,input,textarea{font:inherit}
 @keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 [data-hero] .hero-h .l span{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 [data-hero] .h-in{animation:rise .9s cubic-bezier(.2,.7,.2,1) .7s both}
-.tape-track{animation:tape 140s linear infinite}
+.tape-track{animation:tape 220s linear infinite}
 }
 </style>
 </helmet>
@@ -262,7 +263,7 @@ button,input,textarea{font:inherit}
       <img src="media/orlov.jpg" alt="Константин Орлов" style="filter:grayscale(1) contrast(1.05) brightness(.95);">
     </div>
     <div data-reveal="1" class="s-7" style="display:flex;flex-direction:column;gap:28px;">
-      <div class="sh-i" style="padding-top:0;">05 · Ведёт и поддерживает</div>
+      <div class="sh-i" style="padding-top:0;">05 · Создатель и организатор</div>
       <h2 class="h-sec" style="font-size:calc(var(--hs) * clamp(40px, 5vw, 84px));">Константин Орлов</h2>
       <p class="lead-s">Впервые попал на форсайт-игру участником в 1996 году, с 2002 года организует и проводит игры сам. Работает с корпорациями и внутри них, ведёт бизнес- и общественные проекты, преподаёт руководителям.</p>
       <blockquote class="lead rule" style="margin:0;">«Мне интересно исследовать эту границу. Между тем, что хочется осуществить, и тем, что позволяет наш сегодняшний менеджмент».</blockquote>
@@ -271,20 +272,9 @@ button,input,textarea{font:inherit}
         <p class="lrow">Преподаёт в SAP, Microsoft, РАНХиГС, «Сколково»; семь лет — в президентской программе подготовки управленческих кадров</p>
         <p class="lrow">Проекты: Рыбаков Фонд (директор по трансформации), Global Shapers (куратор-основатель), Балтийский Артек (руководитель бизнес-смены), Edutainment Club (директор)</p>
         <p class="lrow">Спикер и модератор Adam Smith Conference, TEDx, World Economic Forum, SAP Forum</p>
-      </div>
-    </div>
-    <div class="s-all" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap);">
-      <div data-reveal="1" style="padding-top:22px;border-top:var(--contour);">
-        <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 9vw, 150px));line-height:.86;letter-spacing:-0.05em;color:var(--accent);font-variant-numeric:tabular-nums;">24</span><span class="lbl">года</span></div>
-        <p class="muted" style="margin:16px 0 0;max-width:300px;font-size:16px;line-height:1.5;">развитие бизнес- и общественных проектов</p>
-      </div>
-      <div data-reveal="1" style="padding-top:22px;border-top:var(--contour);">
-        <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 9vw, 150px));line-height:.86;letter-spacing:-0.05em;color:var(--accent);font-variant-numeric:tabular-nums;">22</span><span class="lbl">года</span></div>
-        <p class="muted" style="margin:16px 0 0;max-width:300px;font-size:16px;line-height:1.5;">академическое образование и корпоративные тренинги</p>
-      </div>
-      <div data-reveal="1" style="padding-top:22px;border-top:var(--contour);">
-        <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 9vw, 150px));line-height:.86;letter-spacing:-0.05em;color:var(--accent);font-variant-numeric:tabular-nums;">15</span><span class="lbl">лет</span></div>
-        <p class="muted" style="margin:16px 0 0;max-width:300px;font-size:16px;line-height:1.5;">работа с международными корпорациями и внутри корпорации</p>
+        <p class="lrow">24 года — развитие бизнес- и общественных проектов</p>
+        <p class="lrow">22 года — академическое образование и корпоративные тренинги</p>
+        <p class="lrow">15 лет — работа с международными корпорациями и внутри корпорации</p>
       </div>
     </div>
   </div>
@@ -294,7 +284,7 @@ button,input,textarea{font:inherit}
 <section class="sec" data-screen-label="09 Ещё раз, кратко">
   <div class="g12 sh"><div class="sh-i">06</div><h2 data-reveal="1" class="h-sec">Ещё раз, кратко</h2></div>
   <div class="g12">
-    <div class="bgrid s-4">
+    <div class="bgrid s-all">
       <div data-reveal="1" class="bi"><span aria-hidden="true">↘</span><p><b>Под вашу ситуацию:</b> учитываем обстоятельства бизнеса и особенности самого руководителя</p></div>
       <div data-reveal="1" class="bi"><span aria-hidden="true">↘</span><p><b>Конкретный результат:</b> собственный многоразовый инструмент управления</p></div>
       <div data-reveal="1" class="bi"><span aria-hidden="true">↘</span><p><b>Непосредственная польза:</b> применение на своих задачах уже во время практикума</p></div>
@@ -308,24 +298,22 @@ button,input,textarea{font:inherit}
 
 <!-- 10 СДЕЛКА · 07 -->
 <section id="register" class="sec vio" data-screen-label="10 Сделка">
-  <div class="g12 sh"><div class="sh-i">07</div><h2 data-reveal="1" class="h-sec">Когда и сколько</h2></div>
+  <div class="g12 sh"><div class="sh-i">07</div><h2 data-reveal="1" class="h-sec">Хочу на практикум</h2></div>
   <div class="g12">
     <div data-reveal="1" class="s-1-6" style="display:flex;flex-direction:column;">
       <div class="lbl muted">При регистрации до 15 октября</div>
-      <div style="margin:14px 0 clamp(32px,4vw,56px) -0.04em;white-space:nowrap;font-weight:200;font-size:calc(var(--hs) * clamp(64px, 8.4vw, 148px));line-height:.86;letter-spacing:-0.05em;color:var(--accent);">54 000 ₽</div>
+      <s style="margin-top:18px;white-space:nowrap;font-weight:300;font-size:calc(var(--hs) * clamp(26px, 2.6vw, 40px));line-height:1;letter-spacing:-0.02em;color:var(--text-muted);text-decoration-thickness:2px;">108 000 ₽</s>
+      <div style="margin:10px 0 clamp(32px,4vw,56px) -0.04em;white-space:nowrap;font-weight:200;font-size:calc(var(--hs) * clamp(64px, 8.4vw, 148px));line-height:.86;letter-spacing:-0.05em;color:var(--accent);">54 000 ₽</div>
       <div class="rows">
         <div class="kv"><span class="lbl muted" style="padding-top:.25em;">Когда</span><span>С 18:00 пятницы, 30 октября, до 12:00 понедельника, 2 ноября</span></div>
         <div class="kv"><span class="lbl muted" style="padding-top:.25em;">Где</span><span>Светлогорск, Калининградская область, или онлайн</span></div>
-        <div class="kv"><span class="lbl muted" style="padding-top:.25em;">Стоимость</span><span>108 000 ₽</span></div>
-        <div class="kv"><span class="lbl muted" style="padding-top:.25em;">При регистрации до 15 октября</span><span style="font-weight:600;">54 000 ₽</span></div>
       </div>
     </div>
     <div data-reveal="1" class="form s-7">
       <label class="fld"><span class="lbl">Имя</span><input id="f-name" type="text" autocomplete="name"></label>
       <label class="fld"><span class="lbl">Телефон или e-mail</span><input id="f-contact" type="text" autocomplete="email" aria-required="true"></label>
-      <label class="fld"><span class="lbl">Задача, которую привезёте</span><textarea id="f-task" rows="4"></textarea></label>
-      <button class="btn" type="button" onClick="{{ send }}" style="margin-top:6px;align-self:flex-start;">Участвовать за 54 000 ₽</button>
-      <p class="muted" style="margin:0;font-size:16px;line-height:1.5;">Напишите Константину Орлову: <a class="lnk" href="mailto:me@orlov.academy">me@orlov.academy</a></p>
+      <button class="btn" type="button" onClick="{{ send }}" style="margin-top:6px;align-self:flex-start;">Участвовать</button>
+      <p class="muted" style="margin:0;font-size:16px;line-height:1.5;">По всем вопросам пишите: <a class="lnk" href="https://t.me/Orlov_CSO" target="_blank" rel="noopener">@Orlov_CSO</a></p>
     </div>
   </div>
 </section>
@@ -355,10 +343,10 @@ button,input,textarea{font:inherit}
   <img src="media/more-svetlogorsk.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;">
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.3) 0%,rgba(34,34,34,.82) 100%),var(--glow-soft);"></div>
   <div class="g12" style="position:relative;row-gap:32px;">
-    <h2 data-reveal="1" class="h-sec s-all" style="max-width:1200px;">Привезите задачу, где старый способ уже не срабатывает</h2>
+    <h2 data-reveal="1" class="h-sec s-all" style="max-width:1200px;line-height:1.04;">Привезите задачу, где старый способ уже не срабатывает</h2>
     <div data-reveal="1" class="s-all" style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px;">
-      <a class="btn" href="#register" style="text-decoration:none;">Участвовать за 54 000 ₽</a>
-      <p style="margin:0;font-size:calc(var(--fs) * 1.05);color:var(--text-muted-on-dark);">Напишите Константину Орлову: <a class="lnk" href="mailto:me@orlov.academy" style="color:var(--text-on-dark);">me@orlov.academy</a></p>
+      <a class="btn" href="https://t.me/OrlovCSO" target="_blank" rel="noopener" style="text-decoration:none;">Тот самый Орлов</a>
+      <p style="margin:0;font-size:calc(var(--fs) * 1.05);color:var(--text-muted-on-dark);">Телеграм-канал Константина Орлова <a class="lnk" href="https://t.me/OrlovCSO" target="_blank" rel="noopener" style="color:var(--text-on-dark);">@OrlovCSO</a></p>
     </div>
   </div>
 </section>
@@ -390,7 +378,7 @@ class Component extends DCLogic {
     { q: "Нужна методологическая подготовка?", a: "Нет. Нужны интерес и готовность спрашивать, пробовать, переделывать." },
     { q: "Что я увезу?", a: "Точнее поставленную задачу и план: что проверить, чему научиться, кого позвать." },
     { q: "Сколько стоит участие?", a: "108 000 ₽. При регистрации до 15 октября — 54 000 ₽." },
-    { q: "Остался вопрос", a: "Напишите Константину Орлову: me@orlov.academy." }
+    { q: "Остался вопрос", a: "По всем вопросам пишите в Телеграм: @Orlov_CSO." }
   ];
 
   state = { faq: -1 };
@@ -434,9 +422,9 @@ class Component extends DCLogic {
 
   send() {
     const v = (id) => ((document.getElementById(id) || {}).value || '').trim();
-    const name = v('f-name'), contact = v('f-contact'), task = v('f-task');
+    const name = v('f-name'), contact = v('f-contact');
     if (!contact) { const el = document.getElementById('f-contact'); el && el.focus(); return; }
-    const body = 'Имя: ' + name + '\nКонтакт: ' + contact + '\nЗадача: ' + task;
+    const body = 'Имя: ' + name + '\nКонтакт: ' + contact;
     window.location.href = 'mailto:me@orlov.academy?subject=' + encodeURIComponent('Заявка: форсайт-практикум «Обновление ПО»') + '&body=' + encodeURIComponent(body);
   }
 
