@@ -49,15 +49,15 @@ button,input,textarea{font:inherit}
 .sec{position:relative;padding:var(--sec) var(--side);overflow:hidden;background:var(--surface);color:var(--text)}
 .dark{background:var(--surface-ink);color:var(--text-on-dark);--line:var(--line-on-dark);--text-muted:var(--text-muted-on-dark)}
 .violet{background:var(--surface-ink);background-image:var(--glow),var(--glow-soft);color:var(--text-on-dark);--line:var(--line-on-dark);--text-muted:var(--text-muted-on-dark)}
-.lbl{font-size:12px;font-weight:600;letter-spacing:var(--tr);text-transform:uppercase;line-height:1.5}
+.lbl{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;line-height:1.4}
 .lbl-accent{font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;line-height:1.3;color:var(--accent)}
 .mark{display:block;width:22px;height:22px;margin-top:.2em;color:var(--accent)}.mark svg{display:block;width:100%;height:100%}
 .mark-big{width:clamp(56px,7vw,112px);height:clamp(56px,7vw,112px);margin:0;stroke-width:1}
 .mark-big svg{stroke-width:.7}
-.h-giant{margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(64px, 12vw, 220px));line-height:.86;letter-spacing:-0.05em}
-.h-big{margin:0;font-weight:200;font-size:calc(var(--hs) * clamp(48px, 8vw, 136px));line-height:.92;letter-spacing:-0.045em;text-wrap:balance}
-.h2{margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(36px, 4.6vw, 68px));line-height:1.04;letter-spacing:-0.03em;text-wrap:balance}
-.lead{margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(24px, 2.6vw, 40px));line-height:1.18;letter-spacing:-0.02em;text-wrap:pretty}
+/* ШКАЛА (одна на сайт): R1 дисплей — только знаки; R2 .h2 — все заголовки экранов; R3 .lead; R4 .h4; R5 текст 18; R6 .lbl; R7 .btn */
+.h2{margin:0;font-weight:200;font-size:clamp(40px,5.6vw,88px);line-height:.96;letter-spacing:-0.04em;text-wrap:balance}
+.lead{margin:0;font-weight:300;font-size:clamp(20px,2vw,28px);line-height:1.3;letter-spacing:-0.01em;text-wrap:pretty}
+.h4{margin:0;font-weight:400;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-0.01em}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,6vw,120px);align-items:start}
 .cols-a{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
 .cols-b{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
@@ -70,19 +70,19 @@ button,input,textarea{font:inherit}
 .facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);border-top:1px solid var(--line-on-dark)}
 .fact{display:flex;flex-direction:column;gap:4px;padding:12px 20px 0;border-left:1px solid var(--line-on-dark)}
 .fact:first-child{border-left:0;padding-left:0}
-.fact-v{font-size:calc(var(--fs) * .95);line-height:1.35}
-@media (max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.fact{padding:10px 12px}.fact:nth-child(odd){border-left:0;padding-left:0}.fact:nth-child(3){grid-column:1 / -1;border-top:1px solid var(--line-on-dark)}.fact-v{font-size:15px;line-height:1.3}}
+.fact-v{font-size:var(--fs);line-height:1.4}
+@media (max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.fact{padding:10px 12px}.fact:nth-child(odd){border-left:0;padding-left:0}.fact:nth-child(3){grid-column:1 / -1;border-top:1px solid var(--line-on-dark)}.fact-v{font-size:16px;line-height:1.35}}
 /* карточки «Цельности»: прозрачные на чёрном, рыжий контур сверху */
 .cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch}
 @media (max-width:900px){.cards3{grid-template-columns:minmax(0,1fr)}}
 .card{display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.6vw,36px);background:var(--card-on-dark);border:1px solid var(--line-on-dark);border-top:var(--contour)}
-.card h3{margin:6px 0 0;font-weight:400;font-size:calc(var(--hs) * clamp(22px, 2vw, 28px));line-height:1.2;letter-spacing:-0.015em}
+.card h3{margin:6px 0 0;font-weight:400;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-0.01em}
 .card p{margin:0;color:var(--text-muted-on-dark);text-wrap:pretty}
 /* лента (image5) */
 .tape{position:relative;margin:clamp(32px,4vw,56px) calc(var(--side) * -1) 0;height:44px}
 .tape-band{position:absolute;left:-6%;right:-6%;top:50%;transform:translateY(-50%);background:transparent;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.22);overflow:hidden;padding:clamp(7px,.8vw,11px) 0}
 .tape-track{display:flex;width:max-content;white-space:nowrap}
-.tape-track span{display:inline-flex;align-items:center;font-weight:400;font-size:15px;line-height:1;letter-spacing:.04em}
+.tape-track span{display:inline-flex;align-items:center;font-weight:600;font-size:13px;line-height:1;letter-spacing:.12em;text-transform:uppercase}
 .tape-track i{display:inline-block;width:6px;height:6px;margin:0 1.2em;border-radius:50%;border:1px solid var(--accent)}
 /* play */
 .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(68px,7vw,104px);height:clamp(68px,7vw,104px);display:flex;align-items:center;justify-content:center;border-radius:50%;border:2px solid var(--accent);background:rgba(34,34,34,.35);color:var(--c-white);cursor:pointer;transition:transform .25s,background .25s}
@@ -95,7 +95,7 @@ button,input,textarea{font:inherit}
 .fld{display:flex;flex-direction:column;gap:6px}
 .fld input,.fld textarea{width:100%;padding:14px 16px;border:1px solid rgba(34,34,34,.3);border-radius:0;background:var(--field-bg);color:var(--text);font-size:17px}
 .fld input:focus,.fld textarea:focus{outline:2px solid var(--focus);outline-offset:1px;box-shadow:0 0 0 6px rgba(46,19,82,.12)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:18px 34px;border:var(--btn-border);background:var(--btn-bg);color:var(--btn-text);font-size:19px;font-weight:700;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:18px 34px;border:var(--btn-border);background:var(--btn-bg);color:var(--btn-text);font-size:17px;font-weight:600;letter-spacing:.02em;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
 @media (max-width:480px){.btn{padding:16px 22px}}
 .btn:hover{background:var(--accent);color:var(--c-white)}
 .lnk{color:var(--link);font-weight:600;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px}
@@ -142,7 +142,7 @@ button,input,textarea{font:inherit}
     </h1>
   </div>
   <div style="position:relative;padding:0 var(--side) clamp(16px,2vw,28px);">
-    <p class="h-sub" style="margin:0 0 clamp(20px,2.5vw,36px);max-width:620px;font-weight:300;font-size:clamp(17px,1.5vw,22px);line-height:1.4;letter-spacing:0;color:var(--text-muted-on-dark);text-wrap:balance;">Вместе создадим инструмент, заточенный под вас и ваши задачи</p>
+    <p class="h-sub lead" style="margin:0 0 clamp(20px,2.5vw,36px);max-width:620px;color:var(--text-muted-on-dark);text-wrap:balance;">Вместе создадим инструмент, заточенный под вас и ваши задачи</p>
     <div class="facts">
       <div class="fact"><span class="lbl" style="color:var(--text-muted-on-dark);">Когда</span><span class="fact-v">30 октября – 2 ноября 2026</span></div>
       <div class="fact"><span class="lbl" style="color:var(--text-muted-on-dark);">Где</span><span class="fact-v">Светлогорск, Калининградская область</span></div>
@@ -163,9 +163,9 @@ button,input,textarea{font:inherit}
 
 <!-- 3 ИДЕЯ: тёмный ink -->
 <section class="sec dark" data-screen-label="03 Идея">
-  <h2 data-reveal="1" class="h-big" style="max-width:1200px;">Идея</h2>
+  <h2 data-reveal="1" class="h2">Идея</h2>
   <div class="cols" style="margin-top:clamp(40px,5vw,88px);">
-    <p data-reveal="1" class="muted" style="margin:0;max-width:var(--tw);font-size:calc(var(--fs) * 1.1);text-wrap:pretty;">Старое не работает, а новое не появилось: бизнес функционирует, но кончается топливо. Команда работает, если есть постоянный контроль. Пытаетесь поднажать ещё — некуда, нет сил, нет направления — и так во всём.</p>
+    <p data-reveal="1" class="muted" style="margin:0;max-width:var(--tw);text-wrap:pretty;">Старое не работает, а новое не появилось: бизнес функционирует, но кончается топливо. Команда работает, если есть постоянный контроль. Пытаетесь поднажать ещё — некуда, нет сил, нет направления — и так во всём.</p>
     <p data-reveal="1" class="lead" style="padding-top:24px;border-top:3px solid var(--accent);">Это нормально: наступает новое время, пора обновить инструментарий.</p>
   </div>
 </section>
@@ -175,7 +175,7 @@ button,input,textarea{font:inherit}
   <div class="cols cols-a">
     <div>
       <h2 data-reveal="1" class="h2">Конкретный результат</h2>
-      <p data-reveal="1" class="lead" style="margin-top:clamp(18px,2vw,28px);max-width:var(--tw);font-size:calc(var(--hs) * clamp(20px, 1.9vw, 28px));line-height:1.35;">Способ управления, который соответствует требованиям времени, вашему складу мышления и этапу жизни</p>
+      <p data-reveal="1" class="lead" style="margin-top:clamp(18px,2vw,28px);max-width:var(--tw);">Способ управления, который соответствует требованиям времени, вашему складу мышления и этапу жизни</p>
       <p data-reveal="1" style="margin:clamp(36px,4.5vw,64px) 0 16px;font-weight:600;">С Практикума вы заберёте с собой инструмент, который:</p>
       <div class="rows">
         <div data-reveal="1" class="row"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span><p>Учитывает эпоху, прогресс, экономику, состояние рынка, стадию компании и лично вас</p></div>
@@ -193,7 +193,7 @@ button,input,textarea{font:inherit}
 
 <!-- 5 ЦЕЛЬНОСТЬ: чёрный с фиолетовой подсветкой, карточки с рыжим контуром -->
 <section class="sec violet" data-screen-label="05 Цельность">
-  <h2 data-reveal="1" class="h-giant">Цельность</h2>
+  <h2 data-reveal="1" class="h2">Цельность</h2>
   <div class="cols" style="margin-top:clamp(28px,4vw,64px);">
     <p data-reveal="1" class="lead" style="grid-column:1 / -1;max-width:1100px;">Единая система для управления собой, командой, бизнесом. Рассматривайте сразу три уровня и связи между ними для самых эффективных решений.</p>
   </div>
@@ -219,7 +219,7 @@ button,input,textarea{font:inherit}
 <!-- 6 СРЕДА, ЧАСТЬ 1: белый, эталон компоновки -->
 <section class="sec" data-screen-label="06 Среда">
   <div data-reveal="1" style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;">
-    <h2 class="h-giant">Среда</h2>
+    <h2 class="h2">Среда</h2>
     <span class="mark mark-big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span>
   </div>
   <div class="cols" style="margin-top:clamp(28px,4vw,64px);">
@@ -239,7 +239,7 @@ button,input,textarea{font:inherit}
 <section data-screen-label="07 Среда: обстановка" style="position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--surface-ink);color:var(--text-on-dark);overflow:hidden;padding:var(--sec) var(--side) clamp(40px,5vw,72px);">
   <img src="media/sosny-u-morya.jpg" alt="Сосны на берегу моря" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;">
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,0) 15%,rgba(34,34,34,.55) 45%,rgba(34,34,34,.82) 100%);"></div>
-  <p data-reveal="1" style="position:relative;margin:0;max-width:1150px;font-weight:300;font-size:calc(var(--hs) * clamp(32px, 4.8vw, 80px));line-height:1.04;letter-spacing:-0.035em;text-wrap:balance;text-shadow:0 1px 18px rgba(0,0,0,.35);">Для тех, кто офлайн, у нас есть море, сосны, песок и хорошая кухня для поддержания тонуса</p>
+  <p data-reveal="1" class="h2" style="position:relative;margin:0;max-width:1150px;text-shadow:0 1px 18px rgba(0,0,0,.35);">Для тех, кто офлайн, у нас есть море, сосны, песок и хорошая кухня для поддержания тонуса</p>
   <div class="tape" aria-label="свободное время, прогулки вдоль моря, качественный сон, море, сосны, песок, хорошая кухня">
     <div class="tape-band" aria-hidden="true">
       <div class="tape-track">
@@ -258,8 +258,8 @@ button,input,textarea{font:inherit}
     </div>
     <div data-reveal="1" style="flex:1 1 520px;display:flex;flex-direction:column;gap:22px;">
       <div class="lbl" style="color:var(--text-muted-on-dark);">Ведёт и поддерживает</div>
-      <h2 class="h-big" style="font-size:calc(var(--hs) * clamp(44px, 6vw, 96px));line-height:.95;">Константин Орлов</h2>
-      <p class="lead" style="font-size:calc(var(--hs) * clamp(20px, 1.7vw, 26px));line-height:1.4;">Впервые попал на форсайт-игру участником в 1996 году, с 2002 года организует и проводит игры сам. Работает с корпорациями и внутри них, ведёт бизнес- и общественные проекты, преподаёт руководителям.</p>
+      <h2 class="h2">Константин Орлов</h2>
+      <p class="lead">Впервые попал на форсайт-игру участником в 1996 году, с 2002 года организует и проводит игры сам. Работает с корпорациями и внутри них, ведёт бизнес- и общественные проекты, преподаёт руководителям.</p>
       <p class="muted" style="margin:0;max-width:var(--tw);text-wrap:pretty;">«Мне интересно исследовать эту границу. Между тем, что хочется осуществить, и тем, что позволяет наш сегодняшний менеджмент».</p>
       <div class="rows" style="max-width:var(--tw);">
         <div class="row" style="grid-template-columns:minmax(0,1fr);"><p>Microsoft: мероприятия для сотрудников и партнёров из СНГ, Восточной Европы и Средней Азии; был региональным представителем корпорации в Калининградской области</p></div>
@@ -272,15 +272,15 @@ button,input,textarea{font:inherit}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap);margin-top:clamp(56px,7vw,112px);">
     <div data-reveal="1" style="padding-top:20px;border-top:1px solid var(--line);">
       <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 10vw, 170px));line-height:.9;letter-spacing:-0.05em;color:var(--accent);">24</span><span class="lbl">года</span></div>
-      <p class="muted" style="margin:14px 0 0;max-width:300px;font-size:16px;line-height:1.5;">развитие бизнес- и общественных проектов</p>
+      <p class="muted" style="margin:12px 0 0;max-width:300px;">развитие бизнес- и общественных проектов</p>
     </div>
     <div data-reveal="1" style="padding-top:20px;border-top:1px solid var(--line);">
       <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 10vw, 170px));line-height:.9;letter-spacing:-0.05em;color:var(--accent);">22</span><span class="lbl">года</span></div>
-      <p class="muted" style="margin:14px 0 0;max-width:300px;font-size:16px;line-height:1.5;">академическое образование и корпоративные тренинги</p>
+      <p class="muted" style="margin:12px 0 0;max-width:300px;">академическое образование и корпоративные тренинги</p>
     </div>
     <div data-reveal="1" style="padding-top:20px;border-top:1px solid var(--line);">
       <div style="display:flex;align-items:baseline;gap:12px;"><span style="font-weight:200;font-size:calc(var(--hs) * clamp(80px, 10vw, 170px));line-height:.9;letter-spacing:-0.05em;color:var(--accent);">15</span><span class="lbl">лет</span></div>
-      <p class="muted" style="margin:14px 0 0;max-width:300px;font-size:16px;line-height:1.5;">работа с международными корпорациями и внутри корпорации</p>
+      <p class="muted" style="margin:12px 0 0;max-width:300px;">работа с международными корпорациями и внутри корпорации</p>
     </div>
   </div>
 </section>
@@ -305,7 +305,7 @@ button,input,textarea{font:inherit}
 <section id="register" class="sec" data-screen-label="10 Сделка">
   <div class="deal" data-reveal="1" style="position:relative;padding:0;">
     <div style="display:flex;flex-direction:column;gap:14px;">
-      <h3 style="margin:0;font-weight:300;font-size:calc(var(--hs) * clamp(26px, 2.6vw, 40px));line-height:1.1;letter-spacing:-0.02em;">Когда и сколько</h3>
+      <h2 class="h2">Когда и сколько</h2>
       <div class="lbl" style="margin-top:10px;">При регистрации до 15 октября</div>
       <div style="white-space:nowrap;margin-left:-0.04em;font-weight:200;font-size:calc(var(--hs) * clamp(56px, 8vw, 140px));line-height:.9;letter-spacing:-0.05em;color:var(--accent);">54 000 ₽</div>
       <div class="rows" style="margin-top:20px;">
@@ -320,7 +320,7 @@ button,input,textarea{font:inherit}
       <label class="fld"><span class="lbl">Телефон или e-mail</span><input id="f-contact" type="text" autocomplete="email"></label>
       <label class="fld"><span class="lbl">Задача, которую привезёте</span><textarea id="f-task" rows="4"></textarea></label>
       <button class="btn" type="button" onClick="{{ send }}" style="margin-top:8px;align-self:flex-start;">Участвовать за 54 000 ₽</button>
-      <p class="muted" style="margin:4px 0 0;font-size:16px;line-height:1.5;">Напишите Константину Орлову: <a class="lnk" href="mailto:me@orlov.academy">me@orlov.academy</a></p>
+      <p class="muted" style="margin:4px 0 0;">Напишите Константину Орлову: <a class="lnk" href="mailto:me@orlov.academy">me@orlov.academy</a></p>
     </div>
   </div>
 </section>
@@ -333,7 +333,7 @@ button,input,textarea{font:inherit}
       <sc-for list="{{ faq }}" as="item" hint-placeholder-count="7">
         <div style="border-top:1px solid var(--line);">
           <button onClick="{{ item.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;color:var(--text);">
-            <span style="font-size:calc(var(--fs) * 1.15);line-height:1.4;font-weight:400;">{{ item.q }}</span>
+            <span class="h4">{{ item.q }}</span>
             <span style="flex:none;font-size:26px;line-height:1;font-weight:400;color:var(--accent);">{{ item.sign }}</span>
           </button>
           <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
@@ -349,13 +349,13 @@ button,input,textarea{font:inherit}
 <section data-screen-label="12 Привезите задачу" style="position:relative;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--surface-ink);color:var(--text-on-dark);overflow:hidden;padding:var(--sec) var(--side);">
   <img src="media/more-svetlogorsk.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;">
   <div style="position:absolute;inset:0;background:var(--overlay-photo),var(--glow-soft);"></div>
-  <h2 data-reveal="1" style="position:relative;margin:0 0 clamp(24px,3vw,40px);max-width:1200px;font-weight:200;font-size:calc(var(--hs) * clamp(40px, 6.4vw, 108px));line-height:.98;letter-spacing:-0.04em;text-wrap:balance;">Привезите задачу, где старый способ уже не срабатывает</h2>
-  <p data-reveal="1" style="position:relative;margin:0;font-size:calc(var(--fs) * 1.1);color:var(--text-muted-on-dark);">Напишите Константину Орлову: <a href="mailto:me@orlov.academy" style="color:var(--text-on-dark);text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;">me@orlov.academy</a></p>
+  <h2 data-reveal="1" class="h2" style="position:relative;margin:0 0 clamp(24px,3vw,40px);max-width:1200px;">Привезите задачу, где старый способ уже не срабатывает</h2>
+  <p data-reveal="1" style="position:relative;margin:0;color:var(--text-muted-on-dark);">Напишите Константину Орлову: <a href="mailto:me@orlov.academy" style="color:var(--text-on-dark);text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;">me@orlov.academy</a></p>
 </section>
 
 <!-- 13 ПОДВАЛ «108»: чёрный -->
 <footer data-screen-label="12 Подвал" style="background:var(--surface-ink);color:var(--text-on-dark);padding:clamp(40px,5vw,80px) var(--side) 0;overflow:hidden;">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;line-height:1.8;color:var(--text-muted-on-dark);">
+  <div class="lbl" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;line-height:1.8;color:var(--text-muted-on-dark);">
     <span>Онтоклуб «108» · Форсайт-игра «Праксеология менеджмента»</span>
     <span>Orlov Academy · ИП Орлов Константин Викторович · ИНН 390702089608 · <a href="mailto:me@orlov.academy" style="color:var(--text-on-dark);">me@orlov.academy</a></span>
   </div>
