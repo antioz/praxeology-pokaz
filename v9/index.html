@@ -69,9 +69,13 @@ button,input,textarea{font:inherit}
 @media (max-width:900px){.stick{position:relative;top:auto}}
 /* главный */
 .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;gap:56px;padding:clamp(22px,2.6vw,36px) var(--side);background:var(--surface-ink);color:var(--text-on-dark);overflow:hidden;overflow:clip}
-.hero-h{margin:0 0 clamp(28px,3.4vw,52px) -0.04em;font-weight:600;font-size:min(13vw,200px);line-height:.84;letter-spacing:-0.035em;text-transform:uppercase}
+.hero-h{margin:0 0 clamp(28px,3.4vw,52px) -0.04em;font-weight:500;font-size:min(13vw,200px);line-height:.92;letter-spacing:-0.03em;text-transform:uppercase}
 .hero-h .l{display:block;white-space:nowrap}
-.hero-h .l2{color:var(--accent)}
+.hero-h .l2{display:flex;align-items:center;letter-spacing:.12em}
+.hero-h .l .hero-bar{flex:1;align-self:center;display:flex;height:3px;margin-left:.06em;transform:translateY(.02em)}
+.hero-bar i{display:block;height:100%}
+.hero-bar i:first-child{width:62%;background:var(--c-orange)}
+.hero-bar i:last-child{flex:1;background:rgba(255,255,255,.28)}
 .hero-h .l span{display:inline-block}
 .facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:var(--gap)}
 .fact{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--line-on-dark)}
@@ -130,16 +134,16 @@ button,input,textarea{font:inherit}
 
 <!-- 1 ГЛАВНЫЙ -->
 <section data-screen-label="01 Главный" data-hero class="hero">
-  <img src="media/masterskaya-stena.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,34,34,.6) 0%,rgba(34,34,34,.45) 38%,rgba(34,34,34,.9) 100%);"></div>
+  <img src="media/masterskaya-stena.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,19,82,.9) 0%,rgba(46,19,82,.86) 55%,rgba(30,16,48,.96) 100%);"></div>
   <div class="h-in" style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:24px;">
-    <span class="lbl">Форсайт-практикум</span>
+    <span class="lbl" style="letter-spacing:.14em;">Форсайт-практикум</span>
     <span aria-hidden="true" style="display:block;width:30px;height:30px;color:var(--accent);"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10.5"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(180 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(240 12 12)"/><ellipse cx="12" cy="7" rx="1.9" ry="3.4" transform="rotate(300 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></span>
   </div>
   <div style="position:relative;">
     <h1 aria-label="Обновление ПО" class="hero-h">
       <span class="l" aria-hidden="true"><span style="animation-delay:.05s">О</span><span style="animation-delay:.09s">Б</span><span style="animation-delay:.13s">Н</span><span style="animation-delay:.17s">О</span><span style="animation-delay:.21s">В</span><span style="animation-delay:.25s">Л</span><span style="animation-delay:.29s">Е</span><span style="animation-delay:.33s">Н</span><span style="animation-delay:.37s">И</span><span style="animation-delay:.41s">Е</span></span>
-      <span class="l l2" aria-hidden="true"><span style="animation-delay:.5s">П</span><span style="animation-delay:.55s">О</span></span>
+      <span class="l l2" aria-hidden="true"><span style="animation-delay:.5s">П</span><span style="animation-delay:.55s">О</span><span class="hero-bar h-in"><i></i><i></i></span></span>
     </h1>
     <div class="g12 h-in" style="row-gap:28px;align-items:end;">
       <p class="lead-s s-1-6" style="color:var(--text-on-dark);text-wrap:balance;">Вместе создадим инструмент, заточенный под вас и ваши задачи</p>
