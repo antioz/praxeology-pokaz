@@ -7,11 +7,9 @@
 [facts.when.k] Когда
 [facts.when.v] 30 октября – 2 ноября 2026
 [facts.where.k] Где
-[facts.where.v] Светлогорск, Калининградская область, или онлайн
-[facts.long.k] Длительность
-[facts.long.v] 4 дня
+[facts.where.v] Светлогорск, Калининградская область
 [facts.format.k] Формат
-[facts.format.v] Командная работа
+[facts.format.v] Онлайн / офлайн
 
 # 2. Видео — заглушка, подписи нет
 [video.label] Смотреть видео
