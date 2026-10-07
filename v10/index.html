@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ПИУ — форсайт-практикум</title>
 <script src="./support.js"></script>
+<script src="./edit.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -326,12 +327,18 @@ button,input,textarea{font:inherit}
     <div data-reveal="1" class="rows s-4" style="min-width:0;">
       <sc-for list="{{ faq }}" as="item" hint-placeholder-count="7">
         <div class="qa">
+          <sc-if value="{{ item.ed }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:24px 0;"><span class="qa-q" style="display:block;font-size:calc(var(--fs) * 1.22);line-height:1.35;font-weight:400;color:var(--text);">{{ item.q }}</span></div>
+            <p class="muted" style="margin:0;padding:0 60px 28px 0;max-width:var(--tw);text-wrap:pretty;">{{ item.a }}</p>
+          </sc-if>
+          <sc-if value="{{ item.view }}" hint-placeholder-val="{{ true }}">
           <button type="button" onClick="{{ item.toggle }}" aria-expanded="{{ item.open }}">
             <span style="font-size:calc(var(--fs) * 1.22);line-height:1.35;font-weight:400;">{{ item.q }}</span>
             <span class="pm" aria-hidden="true">{{ item.sign }}</span>
           </button>
           <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
             <p class="muted" style="margin:0;padding:0 60px 28px 0;max-width:var(--tw);text-wrap:pretty;">{{ item.a }}</p>
+          </sc-if>
           </sc-if>
         </div>
       </sc-for>
@@ -380,6 +387,9 @@ class Component extends DCLogic {
     { q: "Сколько стоит участие?", a: "108 000 ₽. При регистрации до 15 октября — 54 000 ₽." },
     { q: "Остался вопрос", a: "По всем вопросам пишите в Телеграм: @Orlov_CSO." }
   ];
+
+  // ?edit=1 — режим правки текстов (edit.js): вопросы раскрыты и правятся как обычный текст
+  ED = /[?&]edit=1(&|$)/.test(location.search);
 
   state = { faq: -1 };
 
@@ -431,7 +441,7 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.state;
     const faq = this.FAQ.map((it, i) => ({
-      q: it.q, a: it.a, open: st.faq === i, sign: st.faq === i ? '−' : '+',
+      q: it.q, a: it.a, ed: this.ED, view: !this.ED, open: st.faq === i, sign: st.faq === i ? '−' : '+',
       toggle: () => this.setState(x => ({ faq: x.faq === i ? -1 : i }))
     }));
     return { faq, send: () => this.send() };
