@@ -99,6 +99,15 @@ js = '''(function(){
       if(o){q.classList.add('open');b.setAttribute('aria-expanded','true');q.querySelector('.pm').textContent='\\u2212';}
     });
   });
+  root.querySelectorAll('.play[data-yt]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var box=b.parentNode, f=document.createElement('iframe');
+      f.src='https://www.youtube.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0';
+      f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen'); f.setAttribute('allowfullscreen','');
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';
+      box.innerHTML=''; box.appendChild(f);
+    });
+  });
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(still||!('IntersectionObserver' in window)) return;
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
