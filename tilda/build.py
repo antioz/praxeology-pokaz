@@ -134,7 +134,7 @@ code = f'''<!-- ПИУ — форсайт-практикум. Код для бл
 {js}
 </script>
 '''
-OUT.write_text(code, encoding='utf-8')
+OUT.write_text(code, encoding='utf-8-sig')  # BOM: иначе браузер, открыв файл с диска, покажет кириллицу кракозябрами
 
 # Проверочная страница: тот же код внутри разметки блока T123 и со стилями Тильды
 PREVIEW.write_text(f'''<!DOCTYPE html>

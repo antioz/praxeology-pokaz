@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ПИУ на Тильду</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap">
+<style>
+:root{--ink:#222222;--white:#ffffff;--orange:#e44a00;--violet:#2E1352;--mute:rgba(34,34,34,.66);--line:rgba(34,34,34,.14);--soft:#f3f3f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f1f1f1;--white:#161616;--mute:rgba(241,241,241,.66);--line:rgba(241,241,241,.16);--soft:#222}}
+:root[data-theme="dark"]{--ink:#f1f1f1;--white:#161616;--mute:rgba(241,241,241,.66);--line:rgba(241,241,241,.16);--soft:#222}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:56px 16px 96px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+h1{margin:14px 0 18px;font-weight:600;font-size:clamp(36px,6vw,64px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.lead{margin:0;max-width:680px;font-size:clamp(19px,2vw,22px);font-weight:300;line-height:1.4}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0 0;font-size:15px}
+a{color:inherit;text-decoration-color:var(--orange);text-underline-offset:3px}
+.step{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 20px;padding:44px 0 0;margin-top:44px;border-top:1.5px solid var(--orange)}
+.n{font-weight:300;font-size:56px;line-height:.9;letter-spacing:-.04em;color:var(--orange)}
+h2{margin:0 0 10px;font-size:24px;font-weight:600;line-height:1.2}
+.step p,.step ul{margin:0 0 12px}
+.step ul{padding-left:20px}
+.step li{margin:4px 0}
+.path{display:inline-block;padding:1px 8px;background:var(--soft);border-radius:3px;font-weight:600;font-size:16px}
+figure{margin:18px 0 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
+figcaption{margin-top:8px;font-size:13px;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1.5px solid var(--orange);background:transparent;color:var(--orange);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--orange);color:#fff}
+.ok{margin-left:14px;font-size:15px;color:var(--mute)}
+.note{margin-top:14px;padding:14px 18px;background:var(--soft);border-left:3px solid var(--orange);font-size:16px}
+.warn{border-left-color:var(--violet)}
+.check li{list-style:none;margin-left:-20px;padding-left:28px;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:.35em;width:14px;height:14px;border:1.5px solid var(--orange);border-radius:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+textarea.hidden{position:absolute;left:-9999px;top:0}
+@media (max-width:640px){.step{grid-template-columns:minmax(0,1fr)}.n{font-size:40px;margin-bottom:10px}.two{grid-template-columns:minmax(0,1fr)}.ok{display:block;margin:10px 0 0}}
+@media print{.btn,.ok{display:none}.step{break-inside:avoid-page}body{font-size:14px}.wrap{padding:24px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Форсайт-практикум · ПИУ · 108.community</div>
+  <h1>Как поставить лендинг на Тильду</h1>
+  <p class="lead">Весь лендинг — один кусок кода. Его вставляют в блок T123 «HTML-код» на новой странице Тильды и публикуют. Девять шагов, минут десять.</p>
+  <div class="links">
+    <a href="tilda-code.txt" target="_blank" rel="noopener">Код (tilda-code.txt)</a>
+    <a href="preview.html" target="_blank" rel="noopener">Как будет выглядеть</a>
+    <a href="INSTRUKCIYA.txt" target="_blank" rel="noopener">Та же инструкция текстом</a>
+  </div>
+
+  <section class="step">
+    <div class="n">1</div>
+    <div>
+      <h2>Скопируйте код</h2>
+      <p>Нажмите кнопку — весь код окажется в буфере обмена.</p>
+      <button class="btn" id="copy" type="button">Скопировать код</button><span class="ok" id="ok"></span>
+      <div class="note">Если кнопка не сработала: откройте <a href="tilda-code.txt" target="_blank" rel="noopener">tilda-code.txt</a> по этой ссылке, нажмите <b>Cmd+A</b>, потом <b>Cmd+C</b>. Файл, скачанный на компьютер, открывайте в «Текстовом редакторе», а не в браузере. Если вместо русских букв видите значки вроде <code>Р РѕР</code> — такой текст не копируйте.</div>
+      <figure><img src="img/01-kod.jpg" alt="Файл с кодом открыт в браузере" loading="lazy"><figcaption>Так выглядит код: в начале строка «ПИУ — форсайт-практикум», дальше стили.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">2</div>
+    <div>
+      <h2>Создайте новую страницу</h2>
+      <p><span class="path">Мои сайты → сайт 108.community → Создать новую страницу</span>, в выборе шаблона — <b>«Пустая страница»</b>.</p>
+      <figure><img src="img/02-sozdat-stranicu.jpg" alt="Кнопка «Создать новую страницу»" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/getstarted" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">3</div>
+    <div>
+      <h2>Добавьте блок T123 «HTML-код»</h2>
+      <p>На пустой странице откройте библиотеку блоков: <span class="path">Все блоки → Другое → T123 HTML-код</span>.</p>
+      <figure><img src="img/03-t123.jpg" alt="Библиотека блоков, раздел «Другое», блок T123" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/html" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">4</div>
+    <div>
+      <h2>Откройте «Контент» блока</h2>
+      <p>Наведите на блок и нажмите <b>«Контент»</b> слева сверху.</p>
+      <figure><img src="img/04-kontent.jpg" alt="Блок T123 с кнопкой «Контент»" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/html" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">5</div>
+    <div>
+      <h2>Вставьте код и сохраните</h2>
+      <p>Щёлкните в поле, удалите пример (<b>Cmd+A</b>, <b>Delete</b>), вставьте код (<b>Cmd+V</b>) и нажмите <b>«Сохранить и закрыть»</b>.</p>
+      <p>В редакторе блок так и останется кодом — это нормально: Тильда запускает HTML-код только на опубликованной странице, в предпросмотре его тоже не видно.</p>
+      <figure><img src="img/05-vstavit.jpg" alt="Поле кода и кнопка «Сохранить и закрыть»" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/html" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">6</div>
+    <div>
+      <h2>Заголовок и адрес страницы</h2>
+      <p><span class="path">Настройки (вверху справа) → Главное</span></p>
+      <ul>
+        <li><b>Заголовок:</b> ПИУ — форсайт-практикум</li>
+        <li><b>Адрес страницы:</b> например <b>piu</b> → получится 108.community/piu. Если нужен адрес <b>imanagement</b>, сначала смените адрес у старой страницы — два одинаковых Тильда не даст.</li>
+      </ul>
+      <p>Картинку и текст для превью в Телеграме задайте там же, во вкладке <b>«Соцсети»</b>.</p>
+      <figure><img src="img/06-nastroyki-glavnoe.jpg" alt="Настройки страницы, вкладка «Главное»" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/getstarted" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">7</div>
+    <div>
+      <h2>Уберите шапку и подвал сайта</h2>
+      <p>Если у сайта 108.community есть общие шапка или подвал, на этой странице они не нужны: <span class="path">Настройки → Дополнительно</span> → отметьте <b>«Не использовать шапку на этой странице»</b> и <b>«Не использовать подвал на этой странице»</b> → «Сохранить изменения».</p>
+      <figure><img src="img/07-bez-shapki.jpg" alt="Настройки страницы, вкладка «Дополнительно»" loading="lazy"><figcaption>Скриншот: <a href="https://help-ru.tilda.cc/header-footer" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">8</div>
+    <div>
+      <h2>Опубликуйте</h2>
+      <p>Нажмите <b>«Опубликовать»</b> вверху, затем <b>«Открыть страницу»</b>.</p>
+      <div class="two">
+        <figure><img src="img/08-opublikovat.jpg" alt="Кнопка «Опубликовать»" loading="lazy"></figure>
+        <figure><img src="img/08b-ssylka.jpg" alt="Окно со ссылкой на опубликованную страницу" loading="lazy"></figure>
+      </div>
+      <figure style="margin-top:0"><figcaption>Скриншоты: <a href="https://help-ru.tilda.cc/published" target="_blank" rel="noopener">справка Тильды</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">9</div>
+    <div>
+      <h2>Проверьте на живой странице</h2>
+      <ul class="check">
+        <li>Сверху «ПИУ*», шрифт тонкий, без засечек.</li>
+        <li>По кнопке ▶ на фото Орлова запускается ролик «Приглашение на Форсайт-Практикум».</li>
+        <li>При прокрутке блоки плавно появляются.</li>
+        <li>«Регистрация» на первом экране листает к цене.</li>
+        <li>В «Вопросах и ответах» ответы раскрываются по «+».</li>
+        <li>«Участвовать» открывает страницу оплаты Orlov Academy.</li>
+        <li>С телефона страница не уезжает вбок.</li>
+      </ul>
+      <p>Если вместо страницы виден код или поехала вёрстка — обновите страницу (Cmd+Shift+R): браузер мог запомнить старую версию.</p>
+      <figure><img src="img/09-gotovo.jpg" alt="Первый экран лендинга" loading="lazy"><figcaption>Первый экран. Снято с проверочной страницы: тот же код внутри блока T123 со стилями Тильды.</figcaption></figure>
+      <figure><img src="img/10-oplata-knopka.jpg" alt="Блок цены и кнопка «Участвовать»" loading="lazy"><figcaption>Блок цены: «Участвовать» ведёт на payform.ru/3ncKT9o — ту же ссылку, что на 108.community/imanagement.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="n">!</div>
+    <div>
+      <h2>Что важно знать</h2>
+      <div class="note warn"><b>Промокод даёт 58 000 ₽, а не 54 000.</b> На странице оплаты sixseven снимает 50 000 ₽ из 108 000. На лендинге и на 108.community написано 54 000 ₽. Поправьте скидку в Продамусе (на 54 000 ₽) или цену на лендинге. Проверено 08.10.2026 — промокод введён, оплата не делалась.</div>
+      <figure><img src="img/11-promokod.jpg" alt="Страница оплаты с применённым промокодом" loading="lazy" style="max-width:520px"><figcaption>Страница оплаты после «Применить»: «на сумму 50000 ₽», к оплате 58 000.</figcaption></figure>
+      <div class="note">Фотографии подгружаются с GitHub Pages (antioz.github.io/praxeology-pokaz). Пока этот адрес работает, работают и фото.</div>
+      <div class="note">Стили кода начинаются с <code>.piu108</code> и не трогают другие страницы и блоки сайта.</div>
+      <div class="note">Поменять тексты: правка <code>v10/index.html</code> → <code>python3 tilda/build.py</code> в папке pokaz → заново шаги 1, 4, 5 и 8.</div>
+    </div>
+  </section>
+</div>
+<textarea class="hidden" id="buf" aria-hidden="true" tabindex="-1"></textarea>
+<script>
+(function(){
+  var btn=document.getElementById('copy'), ok=document.getElementById('ok');
+  btn.addEventListener('click',function(){
+    ok.textContent='Копирую…';
+    fetch('tilda-code.txt',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){
+      t=t.replace(/^﻿/,'');
+      function done(){ok.textContent='Скопировано: '+t.length.toLocaleString('ru-RU')+' символов. Дальше — шаг 2.';}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback);}else fallback();
+      function fallback(){var b=document.getElementById('buf');b.value=t;b.select();try{document.execCommand('copy');done();}catch(e){ok.textContent='Не вышло — скопируйте из файла (ссылка ниже).';}}
+    }).catch(function(){ok.textContent='Не вышло — скопируйте из файла (ссылка ниже).';});
+  });
+})();
+</script>
+</body>
+</html>
