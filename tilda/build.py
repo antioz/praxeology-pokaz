@@ -120,7 +120,7 @@ js = '''(function(){
   });
 })();'''
 
-code = f'''<!-- ПИУ — форсайт-практикум. Код для блока Тильды T123 «HTML-код». Собрано из praxeology-pokaz/v10 скриптом tilda/build.py -->
+code = f'''<!-- Обновление управленческого ПО. Код для блока Тильды T123 «HTML-код». Собрано из praxeology-pokaz/v10 скриптом tilda/build.py -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;700&display=swap">
@@ -139,7 +139,7 @@ OUT.write_text(code, encoding='utf-8-sig')  # BOM: иначе браузер, о
 # Проверочная страница: тот же код внутри разметки блока T123 и со стилями Тильды
 PREVIEW.write_text(f'''<!DOCTYPE html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>ПИУ — проверка кода для Тильды</title>
+<meta name="robots" content="noindex"><title>Инструментарий интегративного менеджмента</title>
 <link rel="stylesheet" href="https://static.tildacdn.com/css/tilda-grid-3.0.min.css">
 <link rel="stylesheet" href="https://static.tildacdn.com/ws/project422516/tilda-blocks-page282920009.min.css">
 </head><body class="t-body" style="margin:0;">
